@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breakout Buddy Indicator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Tailwind Custom Animation Style -->
+    <style>
+      @keyframes tradeGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 15px rgba(0, 183, 255, 0.3),
+            0 0 30px rgba(0, 183, 255, 0.1);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(0, 183, 255, 0.6),
+            0 0 40px rgba(0, 183, 255, 0.3);
+        }
+      }
+      .animate-trade-glow {
+        animation: tradeGlow 3s ease-in-out infinite;
+      }
+    </style>
+    <!-- Chart.js Script -->
+
+    <!-- Tailwind Custom Animation Style -->
+    <style>
+      @keyframes tradeGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 15px rgba(0, 183, 255, 0.3),
+            0 0 30px rgba(0, 183, 255, 0.1);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(0, 183, 255, 0.6),
+            0 0 40px rgba(0, 183, 255, 0.3);
+        }
+      }
+      .animate-trade-glow {
+        animation: tradeGlow 3s ease-in-out infinite;
+      }
+    </style>
+
+    <!-- section 12 -->
+    <!-- Glowing Animation -->
+    <style>
+      @keyframes tradeGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 15px rgba(0, 183, 255, 0.3),
+            0 0 30px rgba(0, 183, 255, 0.1);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(0, 183, 255, 0.6),
+            0 0 40px rgba(0, 183, 255, 0.3);
+        }
+      }
+      .animate-trade-glow {
+        animation: tradeGlow 3s ease-in-out infinite;
+      }
+    </style>
+    <!-- 10 section Tailwind Custom Animation Style -->
+    <style>
+      @keyframes tradeGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 15px rgba(0, 183, 255, 0.3),
+            0 0 30px rgba(0, 183, 255, 0.1);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(0, 183, 255, 0.6),
+            0 0 40px rgba(0, 183, 255, 0.3);
+        }
+      }
+      .animate-trade-glow {
+        animation: tradeGlow 3s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-black text-white">
+    <!-- Header with Mobile Responsive Navigation -->
+    <header
+      class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-lg"
+    >
+      <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6">
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="#" class="flex items-center">
+              <i class="fas fa-chart-line text-blue-500 text-2xl mr-2"></i>
+              <span class="text-xl sm:text-2xl font-bold gradient-text"
+                >TrendScanner</span
+              >
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="#features"
+              class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="#indicators"
+              class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+              >About</a
+            >
+            <a
+              href="#alerts"
+              class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+              >Contact</a
+            >
+          </nav>
+
+          <!-- Desktop CTA Buttons -->
+          <div class="hidden md:flex space-x-4">
+            <a
+              href="#"
+              class="px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300"
+              >Login</a
+            >
+            <a
+              href="#"
+              class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
+              >Sign Up</a
+            >
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-button"
+              class="text-gray-300 hover:text-blue-500 focus:outline-none"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4">
+          <div class="flex flex-col space-y-3">
+            <a
+              href="#features"
+              class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+              >Features</a
+            >
+            <a
+              href="#indicators"
+              class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+              >Indicators</a
+            >
+            <a
+              href="#alerts"
+              class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+              >Alerts</a
+            >
+            <a
+              href="#benefits"
+              class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+              >Benefits</a
+            >
+            <a
+              href="#howto"
+              class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+              >How It Works</a
+            >
+
+            <div class="flex flex-col space-y-2 pt-3 border-t border-gray-700">
+              <a
+                href="#"
+                class="w-full text-center py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors"
+                >Login</a
+              >
+              <a
+                href="#"
+                class="w-full text-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                >Sign Up</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-12"
+        >
+          <!-- Text Content -->
+          <div class="w-full md:w-1/2 space-y-6">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+              <span class="text-blue-500">Breakout</span> Buddy
+              <br class="hidden sm:block" />Indicator Based
+            </h1>
+
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a
+                href="#"
+                class="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors shadow-lg"
+                >Get Started Free</a
+              >
+              <a
+                href="#howto"
+                class="px-6 py-3 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors"
+                >How It Works</a
+              >
+            </div>
+          </div>
+
+          <!-- Hero Image -->
+          <div
+            class="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end"
+          >
+            <div class="relative">
+              <div
+                class="absolute -inset-1 bg-blue-500 rounded-full opacity-20 blur-xl"
+              ></div>
+              <img
+                src="https://i.pinimg.com/736x/9d/ff/0b/9dff0b458964db68c09762e1f3801feb.jpg"
+                alt="TrendScanner Dashboard"
+                class="relative w-full max-w-md h-auto rounded-xl border border-gray-700 shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <<!-- Introduction Section -->
+    <section
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-12"
+        >
+          <!-- Image Content -->
+          <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+            <div
+              class="relative group overflow-hidden rounded-xl border border-gray-700 shadow-2xl transition-transform duration-300 transform hover:scale-105"
+            >
+              <div
+                class="absolute -inset-1 bg-blue-500 rounded-xl opacity-20 blur-xl"
+              ></div>
+              <img
+                src="https://i.pinimg.com/736x/44/14/50/441450a27d054ba012e098b81207a2ad.jpg"
+                alt="Border Breaker Bot"
+                class="relative w-full max-w-md h-auto rounded-xl transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+          </div>
+
+          <!-- Text Content -->
+          <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
+            <h2
+              class="text-4xl sm:text-5xl font-bold text-white transition duration-300 ease-in-out hover:text-blue-400 cursor-pointer"
+            >
+              Introduction
+            </h2>
+            <p class="text-gray-300 leading-relaxed text-lg">
+              The
+              <span class="text-blue-400 font-semibold"
+                >Border Breaker Bot</span
+              >
+              is a powerful algorithmic tool for traders, leveraging advanced
+              technical analysis to make data-driven trading decisions. It works
+              by identifying key levels of support (price floors) and resistance
+              (price ceilings) and executing trades based on pre-defined
+              strategies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 border-t border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-12"
+        >
+          <!-- Text Content -->
+          <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
+            <h2
+              class="text-4xl sm:text-5xl font-bold text-white hover:text-blue-700 transition duration-300 ease-in-out cursor-pointer"
+            >
+              Key Features
+            </h2>
+            <ul class="list-disc list-inside text-gray-300 text-lg space-y-2">
+              <li>
+                <strong class="text-white">Dynamic Level Detection:</strong>
+                Automatically detects and updates support and resistance levels
+                using historical price data and real-time analysis.
+              </li>
+              <li>
+                <strong class="text-white">Trade Automation:</strong> Executes
+                buy orders near Resistance levels and sell orders near Support
+                levels, with options for stop-loss and take-profit settings.
+              </li>
+              <li>
+                <strong class="text-white">Risk Management:</strong> Includes
+                adjustable risk-reward ratios, position sizing, and trailing
+                stop options.
+              </li>
+              <li>
+                <strong class="text-white"
+                  >Trailing Stop-Loss (At Cost):</strong
+                >
+                Protect profits by dynamically adjusting the stop-loss level as
+                trades progress.
+              </li>
+              <li>
+                <strong class="text-white">Multi-Timeframe Analysis:</strong>
+                Incorporates data from various timeframes to increase accuracy
+                and reduce false signals.
+              </li>
+              <li>
+                <strong class="text-white">Backtesting Ready:</strong> Test your
+                strategies using historical data to optimize performance before
+                live trading.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image Content -->
+          <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+            <div
+              class="relative group overflow-hidden rounded-xl border border-gray-700 shadow-2xl transition-transform duration-300 transform hover:scale-105"
+            >
+              <div
+                class="absolute -inset-1 bg-blue-500 rounded-xl opacity-20 blur-xl"
+              ></div>
+              <img
+                src="https://i.pinimg.com/736x/91/f4/79/91f4798c52de1b0393dc1cab5de34456.jpg"
+                alt="Key Features"
+                class="relative w-full max-w-md h-auto rounded-xl transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advantage Section -->
+    <section
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-12"
+        >
+          <!-- Image Content -->
+          <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+            <div
+              class="relative group overflow-hidden rounded-xl border border-gray-700 shadow-2xl transition-transform duration-300 transform hover:scale-105"
+            >
+              <div
+                class="absolute -inset-1 bg-blue-500 rounded-xl opacity-20 blur-xl"
+              ></div>
+              <img
+                src="https://i.pinimg.com/736x/d9/5b/2f/d95b2f296731c77633356adbd12283d1.jpg"
+                alt="Advantage"
+                class="relative w-full max-w-md h-auto rounded-xl transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+          </div>
+
+          <!-- Text Content -->
+          <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
+            <h2
+              class="text-4xl sm:text-5xl font-bold text-white hover:text-blue-700 transition duration-300 ease-in-out cursor-pointer"
+            >
+              Advantage
+            </h2>
+            <ul class="list-disc list-inside text-gray-300 text-lg space-y-2">
+              <li>
+                <strong class="text-white">Emotion-Free Decisions:</strong>
+                Removes emotional bias from trading decisions.
+              </li>
+              <li>
+                <strong class="text-white">Efficient Analysis:</strong> Reduces
+                the time and effort required for manual chart analysis.
+              </li>
+              <li>
+                <strong class="text-white">Ease of Use:</strong> Simple setup
+                and intuitive interface, suitable for beginners and experienced
+                traders.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommendation Section -->
+    <section
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900 border-t border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto text-center">
+        <h2
+          class="text-4xl sm:text-5xl font-bold text-white mb-12 hover:text-blue-700 transition duration-300 ease-in-out cursor-pointer"
+        >
+          Recommendation
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div
+            class="bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-xl transform transition duration-500 hover:scale-105 hover:shadow-blue-600/30 hover:border-blue-500"
+          >
+            <h3 class="text-xl font-semibold text-blue-400 mb-4">
+              Trading Instrument
+            </h3>
+            <ul class="text-gray-300 space-y-2">
+              <li>
+                <span class="text-white font-medium">Currency Pair:</span>
+                XAUUSD (Gold)
+              </li>
+              <li><span class="text-white font-medium">Timeframe:</span> H1</li>
+            </ul>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-xl transform transition duration-500 hover:scale-105 hover:shadow-blue-600/30 hover:border-blue-500"
+          >
+            <h3 class="text-xl font-semibold text-blue-400 mb-4">
+              Risk Parameters
+            </h3>
+            <ul class="text-gray-300 space-y-2">
+              <li>
+                <span class="text-white font-medium">Minimum Deposit:</span>
+                $100
+              </li>
+              <li>
+                <span class="text-white font-medium"
+                  >Take Profit/Stop Loss:</span
+                >
+                100/100 (Customizable)
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-xl transform transition duration-500 hover:scale-105 hover:shadow-blue-600/30 hover:border-blue-500"
+          >
+            <h3 class="text-xl font-semibold text-blue-400 mb-4">
+              Account Setup
+            </h3>
+            <ul class="text-gray-300 space-y-2">
+              <li>
+                <span class="text-white font-medium">Account Type:</span> All
+                Type A/c
+              </li>
+              <li>
+                <span class="text-white font-medium">Leverage:</span> Any One
+              </li>
+              <li>
+                <span class="text-white font-medium">VPS:</span> Use VPS for
+                24/7 EA Running (Recommended)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SPECIFICATION Section -->
+    <section
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white border-t border-gray-800"
+    >
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12"
+      >
+        <!-- Image (Left) -->
+        <div class="overflow-hidden rounded-xl shadow-lg">
+          <img
+            src="https://i.pinimg.com/736x/3d/9c/29/3d9c297e87452a9edc6d8ee0ca58594d.jpg"
+            alt="Specification"
+            class="rounded-xl transform transition duration-500 hover:scale-105"
+          />
+        </div>
+
+        <!-- Content (Right) -->
+        <div>
+          <h2
+            class="text-4xl sm:text-5xl font-bold mb-6 hover:text-blue-700 transition duration-300 ease-in-out cursor-pointer"
+          >
+            SPECIFICATION
+          </h2>
+          <ul class="text-gray-300 space-y-4 text-lg leading-relaxed">
+            <li>Every trade is protected with the SL</li>
+            <li>
+              Easy to install, default settings are perfect for most brokers
+            </li>
+            <li>
+              Expert Advisor strategy tester trades fully match the trades in
+              real trading
+            </li>
+            <li>Good choice for both beginners and professionals</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACKTESTING RESULT OF BREAKOUT RANGER Section -->
+    <section
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900 text-white border-t border-gray-800"
+    >
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12"
+      >
+        <!-- Content (Left) -->
+        <div>
+          <h2
+            class="text-4xl sm:text-5xl font-bold mb-6 hover:text-blue-700 transition duration-300 ease-in-out cursor-pointer"
+          >
+            BACKTESTING RESULT<br />OF BREAKOUT RANGER:
+          </h2>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            The Breakout Ranger Bot is a proprietary trading algorithm designed
+            to deliver consistent profitability across various financial
+            markets. It has been rigorously backtested across multiple
+            timeframes to ensure its reliability and potential returns.
+          </p>
+        </div>
+
+        <!-- Image (Right) -->
+        <div class="overflow-hidden rounded-xl shadow-lg">
+          <img
+            src="https://i.pinimg.com/736x/20/d1/a2/20d1a2ccba27f69971691cb9182d7fe9.jpg"
+            alt="Backtesting Result"
+            class="rounded-xl transform transition duration-500 hover:scale-105"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: Result Based on Risk Reward -->
+    <section
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black text-white border-t border-gray-800"
+    >
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12"
+      >
+        <!-- Image (Left) -->
+        <div class="overflow-hidden rounded-xl shadow-lg">
+          <img
+            src="https://i.pinimg.com/736x/a2/5a/07/a25a07b7e5ae73c61d72bc8d65af5171.jpg"
+            alt="Risk Reward Result"
+            class="rounded-xl transform transition duration-500 hover:scale-105"
+          />
+        </div>
+
+        <!-- Content (Right) -->
+        <div>
+          <h2
+            class="text-4xl sm:text-5xl font-bold mb-6 hover:text-blue-700 transition duration-300 ease-in-out cursor-pointer"
+          >
+            Result Based on Risk Reward <br />
+            with 1:2 ONE MONTH PERFORMANCE
+          </h2>
+          <ul class="text-gray-300 text-lg space-y-2">
+            <li>● <strong>Initial Investment*:</strong> 100$</li>
+            <li>● <strong>Return on Investment (ROI):</strong> 75.2$</li>
+            <li>● <strong>Total Trades Executed:</strong> 18</li>
+            <li>● <strong>Winning Trades:</strong> 11 (61.11%)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="mt-20 max-w-7xl mx-auto">
+        <h3
+          class="text-3xl font-bold text-center mb-10 hover:text-blue-700 transition duration-300"
+        >
+          Trading Analysis Charts
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <!-- Line Chart -->
+          <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+            <canvas id="lineChart" height="300"></canvas>
+          </div>
+
+          <!-- Bar Chart -->
+          <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+            <canvas id="barChart" height="300"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Three Month Performance -->
+    <section
+      class="bg-black text-white py-16 px-4 sm:px-6 lg:px-8"
+      id="performance-3months"
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-white mb-10 hover:text-blue-400 transition duration-300"
+        >
+          Three Month Performance:
+        </h2>
+
+        <!-- Flex layout -->
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center gap-10"
+        >
+          <!-- Card -->
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <div
+              class="bg-gray-800 p-6 rounded-xl shadow-lg w-full max-w-md hover:shadow-blue-500/50 transition-all duration-500 hover:scale-105 animate-trade-glow border border-blue-500"
+            >
+              <h3 class="text-xl font-semibold mb-4 text-center text-blue-400">
+                Performance Metrics
+              </h3>
+              <ul class="space-y-2 text-white">
+                <li>📌 <strong>Initial Investment:</strong> $100</li>
+                <li>📈 <strong>ROI:</strong> $89.945</li>
+                <li>🔄 <strong>Total Trades Executed:</strong> 57</li>
+                <li>✅ <strong>Winning Trades:</strong> 25 (43.86%)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Chart.js Chart -->
+          <div class="w-full lg:w-1/2">
+            <canvas
+              id="threeMonthChart"
+              class="w-full h-80 bg-gray-900 rounded-lg p-4 shadow-inner border border-gray-700"
+            ></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Six Month Performance -->
+    <section
+      class="bg-black text-white py-16 px-4 sm:px-6 lg:px-8"
+      id="performance-6months"
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-white mb-10 hover:text-blue-400 transition duration-300"
+        >
+          Six Month Performance:
+        </h2>
+
+        <!-- Card and Charts Layout -->
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center gap-10"
+        >
+          <!-- Performance Card -->
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <div
+              class="bg-gray-800 p-6 rounded-xl shadow-lg w-full max-w-md hover:shadow-blue-500/50 transition-all duration-500 hover:scale-105 animate-trade-glow border border-blue-500"
+            >
+              <h3 class="text-xl font-semibold mb-4 text-center text-blue-400">
+                Performance Metrics
+              </h3>
+              <ul class="space-y-2 text-white">
+                <li>📌 <strong>Initial Investment:</strong> $100</li>
+                <li>📈 <strong>ROI:</strong> $116.49</li>
+                <li>🔄 <strong>Total Trades Executed:</strong> 112</li>
+                <li>✅ <strong>Winning Trades:</strong> 45 (40.18%)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Charts -->
+          <div class="w-full lg:w-1/2 flex flex-col gap-6">
+            <!-- Line Chart -->
+            <canvas
+              id="sixMonthLineChart"
+              class="w-full h-64 bg-gray-900 rounded-lg p-4 shadow-inner border border-gray-700"
+            ></canvas>
+
+            <!-- Bar Chart -->
+            <canvas
+              id="sixMonthBarChart"
+              class="w-full h-64 bg-gray-900 rounded-lg p-4 shadow-inner border border-gray-700"
+            ></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11: 1:1 One Month Performance -->
+    <section
+      class="bg-black text-white py-16 px-4 sm:px-6 lg:px-8"
+      id="one-month-risk"
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-white mb-10 hover:text-blue-400 transition duration-300"
+        >
+          Result Based on Risk Reward <br class="sm:hidden" />
+          with 1:1 <br />
+          One Month Performance
+        </h2>
+
+        <!-- Card and Charts Layout -->
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center gap-10"
+        >
+          <!-- Performance Card -->
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <div
+              class="bg-gray-800 p-6 rounded-xl shadow-lg w-full max-w-md hover:shadow-blue-500/50 transition-all duration-500 hover:scale-105 animate-trade-glow border border-blue-500"
+            >
+              <h3 class="text-xl font-semibold mb-4 text-center text-blue-400">
+                Performance Metrics
+              </h3>
+              <ul class="space-y-2 text-white">
+                <li>📌 <strong>Initial Investment:</strong> $100</li>
+                <li>📈 <strong>ROI:</strong> $140</li>
+                <li>🔄 <strong>Total Trades Executed:</strong> 18</li>
+                <li>✅ <strong>Winning Trades:</strong> 16 (88.89%)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Charts -->
+          <div class="w-full lg:w-1/2 flex flex-col gap-6">
+            <!-- Line Chart -->
+            <canvas
+              id="riskLineChart"
+              class="w-full h-64 bg-gray-900 rounded-lg p-4 shadow-inner border border-gray-700"
+            ></canvas>
+
+            <!-- Bar Chart -->
+            <canvas
+              id="riskBarChart"
+              class="w-full h-64 bg-gray-900 rounded-lg p-4 shadow-inner border border-gray-700"
+            ></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 12: Three Month Performance -->
+    <section
+      class="bg-black text-white py-16 px-4 sm:px-6 lg:px-8"
+      id="three-month-performance"
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-white mb-12 hover:text-blue-400 transition duration-300"
+        >
+          Three Month Performance:
+        </h2>
+
+        <!-- Card and Image Layout -->
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center gap-10 mb-12"
+        >
+          <!-- Performance Card -->
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <div
+              class="bg-gray-800 p-6 rounded-xl shadow-lg w-full max-w-md hover:shadow-blue-500/50 transition-all duration-500 hover:scale-105 animate-trade-glow border border-blue-500"
+            >
+              <h3 class="text-xl font-semibold mb-4 text-center text-blue-400">
+                Performance Metrics
+              </h3>
+              <ul class="space-y-2 text-white">
+                <li>📌 <strong>Initial Investment:</strong> $100</li>
+                <li>📈 <strong>ROI:</strong> $149</li>
+                <li>🔄 <strong>Total Trades Executed:</strong> 59</li>
+                <li>✅ <strong>Winning Trades:</strong> 36 (88.89%)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Image -->
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <img
+              src="https://i.pinimg.com/736x/28/85/9a/28859aa56dbc26b0993e26ddd0e31013.jpg"
+              alt="Trading Image"
+              class="rounded-xl shadow-lg transition-transform duration-500 transform hover:scale-105 hover:shadow-blue-500/50 w-full max-w-md"
+            />
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+          <!-- Line Chart Container -->
+          <div
+            class="bg-gray-900 rounded-lg p-4 shadow-inner border border-gray-700 w-full h-[300px]"
+          >
+            <canvas id="threeMonthLineChart" class="w-full h-full"></canvas>
+          </div>
+
+          <!-- Bar Chart Container -->
+          <div
+            class="bg-gray-900 rounded-lg p-4 shadow-inner border border-gray-700 w-full h-[300px]"
+          >
+            <canvas id="threeMonthBarChart" class="w-full h-full"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
+      <div class="text-sm">© 2025 HyperBand. All rights reserved.</div>
+    </footer>
+  </body>
+  <!-- section 10  -->
+  <script>
+    // Line Chart
+    const ctxLine = document
+      .getElementById("sixMonthLineChart")
+      .getContext("2d");
+    new Chart(ctxLine, {
+      type: "line",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        datasets: [
+          {
+            label: "Signal Accuracy %",
+            data: [48, 52, 46, 55, 58, 62],
+            borderColor: "rgba(59,130,246,1)",
+            backgroundColor: "rgba(59,130,246,0.2)",
+            borderWidth: 2,
+            pointRadius: 4,
+            pointBackgroundColor: "#3B82F6",
+            fill: true,
+            tension: 0.4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: "white" },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+          y: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+        },
+      },
+    });
+
+    // Bar Chart
+    const ctxBar = document.getElementById("sixMonthBarChart").getContext("2d");
+    new Chart(ctxBar, {
+      type: "bar",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        datasets: [
+          {
+            label: "Trades Executed",
+            data: [15, 18, 20, 17, 22, 20],
+            backgroundColor: "rgba(96,165,250,0.7)",
+            borderColor: "rgba(96,165,250,1)",
+            borderWidth: 1,
+            borderRadius: 5,
+            hoverBackgroundColor: "rgba(96,165,250,1)",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: "white" },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+          y: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+        },
+      },
+    });
+  </script>
+
+  <script>
+    // Line Chart
+    const lineCtx = document.getElementById("lineChart").getContext("2d");
+    new Chart(lineCtx, {
+      type: "line",
+      data: {
+        labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+        datasets: [
+          {
+            label: "Portfolio Growth ($)",
+            data: [100, 115, 145, 175.2],
+            borderColor: "#3b82f6",
+            backgroundColor: "rgba(59, 130, 246, 0.2)",
+            fill: true,
+            tension: 0.4,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: "white" },
+          },
+        },
+        scales: {
+          x: { ticks: { color: "white" } },
+          y: { ticks: { color: "white" } },
+        },
+      },
+    });
+
+    // Bar Chart
+    const barCtx = document.getElementById("barChart").getContext("2d");
+    new Chart(barCtx, {
+      type: "bar",
+      data: {
+        labels: ["Winning Trades", "Losing Trades"],
+        datasets: [
+          {
+            label: "Trades Overview",
+            data: [11, 7],
+            backgroundColor: ["#22c55e", "#ef4444"],
+            borderRadius: 10,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: "white" },
+          },
+        },
+        scales: {
+          x: { ticks: { color: "white" } },
+          y: { ticks: { color: "white" } },
+        },
+      },
+    });
+  </script>
+
+  <script>
+    const ctx = document.getElementById("threeMonthChart").getContext("2d");
+    const threeMonthChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4",
+          "Week 5",
+          "Week 6",
+          "Week 7",
+          "Week 8",
+          "Week 9",
+          "Week 10",
+          "Week 11",
+          "Week 12",
+        ],
+        datasets: [
+          {
+            label: "Signal Trends",
+            data: [5, 9, 7, 13, 12, 15, 10, 18, 22, 17, 24, 29],
+            borderColor: "rgba(59,130,246,1)",
+            backgroundColor: "rgba(59,130,246,0.2)",
+            borderWidth: 2,
+            pointRadius: 4,
+            pointBackgroundColor: "#3B82F6",
+            fill: true,
+            tension: 0.4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: "white",
+            },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+          y: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+        },
+      },
+    });
+  </script>
+
+  <!-- sectio 11 -->
+  <script>
+    // Line Chart
+    const ctxRiskLine = document
+      .getElementById("riskLineChart")
+      .getContext("2d");
+    new Chart(ctxRiskLine, {
+      type: "line",
+      data: {
+        labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+        datasets: [
+          {
+            label: "Signal Strength (%)",
+            data: [80, 85, 90, 88],
+            borderColor: "rgba(59,130,246,1)",
+            backgroundColor: "rgba(59,130,246,0.2)",
+            borderWidth: 2,
+            pointRadius: 4,
+            pointBackgroundColor: "#3B82F6",
+            fill: true,
+            tension: 0.4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: "white" },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+          y: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+        },
+      },
+    });
+
+    // Bar Chart
+    const ctxRiskBar = document.getElementById("riskBarChart").getContext("2d");
+    new Chart(ctxRiskBar, {
+      type: "bar",
+      data: {
+        labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+        datasets: [
+          {
+            label: "Trades Executed",
+            data: [4, 5, 5, 4],
+            backgroundColor: "rgba(96,165,250,0.7)",
+            borderColor: "rgba(96,165,250,1)",
+            borderWidth: 1,
+            borderRadius: 5,
+            hoverBackgroundColor: "rgba(96,165,250,1)",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: "white" },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+          y: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+        },
+      },
+    });
+  </script>
+
+  <!-- section 12 -->
+  <script>
+    // Line Chart
+    const ctxThreeLine = document
+      .getElementById("threeMonthLineChart")
+      .getContext("2d");
+    new Chart(ctxThreeLine, {
+      type: "line",
+      data: {
+        labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"],
+        datasets: [
+          {
+            label: "Signal Strength (%)",
+            data: [75, 80, 85, 87, 90, 94],
+            borderColor: "rgba(59,130,246,1)",
+            backgroundColor: "rgba(59,130,246,0.2)",
+            borderWidth: 2,
+            pointRadius: 4,
+            pointBackgroundColor: "#3B82F6",
+            fill: true,
+            tension: 0.4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: "white" },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+          y: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+        },
+      },
+    });
+
+    // Bar Chart
+    const ctxThreeBar = document
+      .getElementById("threeMonthBarChart")
+      .getContext("2d");
+    new Chart(ctxThreeBar, {
+      type: "bar",
+      data: {
+        labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"],
+        datasets: [
+          {
+            label: "Trades Executed",
+            data: [10, 9, 10, 8, 11, 11],
+            backgroundColor: "rgba(96,165,250,0.7)",
+            borderColor: "rgba(96,165,250,1)",
+            borderWidth: 1,
+            borderRadius: 5,
+            hoverBackgroundColor: "rgba(96,165,250,1)",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: "white" },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+          y: {
+            ticks: { color: "white" },
+            grid: { color: "#444" },
+          },
+        },
+      },
+    });
+  </script>
+</html>

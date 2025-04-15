@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIPS HUNTER</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .neon-text {
+            text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 50px #ff00ff;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<!-- Header with Mobile Responsive Navigation -->
+<header class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="#" class="flex items-center">
+                    <i class="fas fa-chart-line text-blue-500 text-2xl mr-2"></i>
+                    <span class="text-xl sm:text-2xl font-bold gradient-text">TrendScanner</span>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">About</a>
+                <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contact</a>
+            </nav>
+
+            <!-- Desktop CTA Buttons -->
+            <div class="hidden md:flex space-x-4">
+                <a href="#"
+                    class="px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300">Login</a>
+                <a href="#"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">Sign
+                    Up</a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-300 hover:text-blue-500 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4">
+            <div class="flex flex-col space-y-3">
+                <a href="#" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Home</a>
+                <a href="#about"
+                    class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">About</a>
+                <a href="#contact"
+                    class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Contact</a>
+
+                <div class="flex flex-col space-y-2 pt-3 border-t border-gray-700">
+                    <a href="#"
+                        class="w-full text-center py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors">Login</a>
+                    <a href="#"
+                        class="w-full text-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">Sign
+                        Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<body class="bg-gradient-to-r from-purple-700 to-pink-500 text-white overflow-x-hidden">
+
+    <!-- Section 1 -->
+    <section class="min-h-screen max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+        <div class="text-white text-center md:text-left z-10">
+            <h1 class="text-[4.5rem] md:text-[6rem] font-extrabold neon-text leading-tight tracking-wide">
+                PIPS<br />HUNTER
+            </h1>
+            <div class="mt-10">
+                <a href="#section2"
+                    class="bg-white text-black px-10 py-5 text-2xl font-bold rounded-full shadow-2xl hover:bg-opacity-90 transition-all duration-300 inline-flex items-center">
+                    Let’s start!
+                    <span class="ml-4 text-3xl">🔍</span>
+                </a>
+            </div>
+        </div>
+        <div class="relative w-full flex justify-center">
+            <img src="/pipis huter.png" alt="PIPS HUNTER"
+                class="w-[500px] md:w-[620px] lg:w-[700px] xl:w-[780px] object-contain hover:scale-105 transition-transform duration-300 drop-shadow-2xl" />
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="section2"
+        class="relative w-full py-24 px-6 md:px-20 bg-[#01011f] text-white text-center overflow-hidden">
+        <div class="max-w-5xl mx-auto z-10 relative">
+            <h2 class="text-5xl md:text-6xl font-extrabold neon-text mb-10 tracking-widest uppercase">Pips Hunter</h2>
+            <p class="text-lg md:text-2xl font-light leading-relaxed mb-12">
+                A Pips Hunter bot is an automated system developed for forex,<br />
+                cryptocurrency, or other financial markets. It follows specific strategies<br />
+                aimed at profiting from price movements, often relying on patterns of<br />
+                market behavior.
+            </p>
+            <a href="#section3"
+                class="inline-flex items-center justify-center px-10 py-4 bg-white text-black text-xl font-bold rounded-full shadow-xl hover:bg-opacity-90 transition-all duration-300">
+                Let’s begin!
+                <span class="ml-3 text-2xl">🔍</span>
+            </a>
+        </div>
+        <div class="absolute inset-0 bg-[url('/pipis huter.png')] bg-center bg-cover opacity-10 pointer-events-none">
+        </div>
+    </section>
+
+    <!-- Section 3: Strategy Overview (Styled like the image) -->
+    <section id="section3" class="w-full py-20 px-6 md:px-20 bg-[#0b1e3f]  text-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+
+            <!-- Text Content -->
+            <div class="md:w-2/3">
+
+                <h2 class="text-5xl md:text-5xl font-extrabold tracking-wide mb-10 transition duration-300 hover:text-purple-400"
+                    style="font-family: 'Orbitron', sans-serif;">
+                    STRATEGY OVERVIEW:
+                </h2>
+                <ul class="list-disc pl-5 space-y-6 text-lg md:text-2xl font-light leading-relaxed">
+                    <li>This trading bot places buy and sell orders at predefined price intervals, creating a "grid" of
+                        orders.</li>
+                    <li>This strategy is based on doubling the trade size after every losing trade to recover previous
+                        losses and make a small profit once a winning trade occurs.</li>
+                    <li>It assumes that the market will eventually reverse, leading to a profitable trade.</li>
+                    <li>Profits are made from price movements within these intervals, regardless of market direction.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Side Image -->
+            <div class="flex justify-center items-center">
+                <img src="https://i.pinimg.com/736x/8a/b8/a2/8ab8a26dd32c88c55008f93ce37b46a1.jpg" alt="Strategy Graph"
+                    class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <!-- Section 4: How It Works (Styled like the image) -->
+    <section id="section4" class="w-full py-20 px-6 md:px-20 bg-[#01011f] text-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+
+            <!-- Right Image -->
+            <img src="https://i.pinimg.com/736x/81/3b/dc/813bdce0873bdd756ce2632fa9025102.jpg" alt="Strategy Graph"
+                class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+
+            <!-- Left Text Content -->
+            <div class="md:w-1/2">
+                <h2 class="text-5xl md:text-5xl font-extrabold tracking-wide mb-10 transition duration-300 hover:text-purple-400"
+                    style="font-family: 'Orbitron', sans-serif;">
+                    How It Works:
+                </h2>
+                <ul class="list-disc pl-6 space-y-5 text-lg md:text-2xl font-light leading-relaxed">
+                    <li>Starts with an initial trade size (e.g., 0.01 lots).</li>
+                    <li>A trading bot places buy and sell orders at predefined price intervals, creating a "grid" of
+                        orders.</li>
+                    <li>If the trade loses, the bot doubles the size of the next trade (e.g., 0.02 lots, 0.03 lots, 0.05
+                        lots etc.).</li>
+                    <li>When a winning trade occurs, it resets to the original trade size.</li>
+                    <li>Trades continuously until the grid conditions are no longer met.</li>
+                </ul>
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <!-- Section 5: Advantage -->
+    <section id="section5" class="w-full py-20 px-6 md:px-20 bg-[#0b1e3f] text-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+
+            <!-- Text Content Left -->
+            <div class="md:w-1/2">
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-wide mb-6 hover:text-purple-400 transition duration-300"
+                    style="font-family: 'Orbitron', sans-serif;">
+                    Advantage:
+                </h2>
+                <ul class="list-disc pl-6 space-y-4 text-lg md:text-xl leading-relaxed font-light">
+                    <li>Suitable for markets with frequent reversals.</li>
+                    <li>Can recover losses quickly and generate small, consistent profits during stable or ranging
+                        markets.</li>
+                    <li>Performs well in ranging markets with predictable volatility.</li>
+                    <li>Does not require predicting the market direction.</li>
+                    <li>Can operate in both bullish and bearish trends.</li>
+                </ul>
+            </div>
+
+            <!-- Image Right -->
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://i.pinimg.com/736x/4f/b6/c2/4fb6c2a2211d21bce791130e4fdf9eb7.jpg" alt="Advantages Visual"
+                class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 6: Key Features -->
+    <section id="section6" class="w-full py-20 px-6 md:px-20 bg-[#01011f] text-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+
+            <!-- Image Left -->
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://i.pinimg.com/736x/4e/b7/95/4eb795416cb462101c73f55c69d052aa.jpg" alt="Key Features Illustration"
+                class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+
+            </div>
+
+            <!-- Text Content Right -->
+            <div class="md:w-1/2">
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-wide mb-6 transition duration-300 hover:text-purple-400"
+                    style="font-family: 'Orbitron', sans-serif;">
+                    Key Features
+                </h2>
+                <ul class="list-disc pl-6 space-y-4 text-lg md:text-xl leading-relaxed font-light">
+                    <li><strong>Customizable Parameters:</strong> Lot size, grid spacing, stop-loss, take-profit, etc.
+                    </li>
+                    <li><strong>Risk Management:</strong> Equity protection and drawdown limits.</li>
+                    <li><strong>Automation:</strong> Full automation with monitoring for 24/7 trading.</li>
+                    <li><strong>Market Adaptability:</strong> Works with forex, crypto, and commodities markets.</li>
+                </ul>
+
+                <p class="mt-6 text-base md:text-lg font-medium italic text-gray-300">
+                    Note: Both strategies can yield high returns but carry significant risks.
+                    Proper backtesting, risk management, and monitoring are essential for sustainable trading.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
+        <div class="text-sm">© 2025 HyperBand. All rights reserved.</div>
+    </footer>
+</body>
+
+</html>

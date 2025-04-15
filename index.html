@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automate Your Trading with Precision</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/Frontend/Public/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/Frontend/Public/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/Frontend/Public/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/Frontend/Public/site.webmanifest" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        background-color: #050b18;
+        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+      .gradient-btn {
+        background: linear-gradient(90deg, #0891b2, #0284c7);
+      }
+      .feature-icon {
+        background-color: rgba(6, 78, 112, 0.4);
+      }
+      .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(8, 145, 178, 0.2);
+      }
+      .product-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .feature-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+      .hero-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+      }
+      .btn-hover {
+        transition: all 0.3s ease;
+      }
+      .btn-hover:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen">
+    <!-- Header with Mobile Responsive Navigation -->
+    <header
+      class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-lg"
+    >
+      <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6">
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="#" class="flex items-center">
+              <i class="fas fa-chart-line text-blue-500 text-2xl mr-2"></i>
+              <span class="text-xl sm:text-2xl font-bold gradient-text"
+                >TrendScanner</span
+              >
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="#"
+              class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+              >Contact</a
+            >
+          </nav>
+
+          <!-- Desktop CTA Buttons -->
+          <div class="hidden md:flex space-x-4">
+            <a
+              href="#"
+              class="px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300"
+              >Login</a
+            >
+            <a
+              href="#"
+              class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
+              >Sign Up</a
+            >
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-button"
+              class="text-gray-300 hover:text-blue-500 focus:outline-none"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4">
+          <div class="flex flex-col space-y-3">
+            <a
+              href="#"
+              class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+              >Contact</a
+            >
+
+            <div class="flex flex-col space-y-2 pt-3 border-t border-gray-700">
+              <a
+                href="#"
+                class="w-full text-center py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors"
+                >Login</a
+              >
+              <a
+                href="#"
+                class="w-full text-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                >Sign Up</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+      <!-- Hero Section -->
+      <div class="flex flex-col lg:flex-row items-center justify-between mb-16">
+        <div class="lg:w-1/2">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            Automate Your Trading with Precision - Powerful MT4 & MT5 Bots
+          </h1>
+          <p class="text-lg mb-8 text-gray-300">
+            Enhance your trading experience with AI-powered automation for
+            maximum profits & minimal risks!
+          </p>
+          <button
+            class="gradient-btn text-white font-semibold py-3 px-8 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center"
+          >
+            <i class="fas fa-rocket mr-2"></i> Get Started
+          </button>
+        </div>
+        <div class="lg:w-1/2 mt-10 lg:mt-0 flex justify-center">
+          <div class="relative">
+            <div class="p-4">
+              <img
+                src="https://i.pinimg.com/736x/95/9c/1a/959c1a7d3bee4714aa63ed8fc334fe00.jpg"
+                alt="Trading bot with charts"
+                class="w-full hero-image rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+          <div class="feature-icon p-3 rounded-full mr-4">
+            <i class="fas fa-bolt text-blue-400 fa-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">Lightning-Fast Execution</h3>
+          </div>
+        </div>
+        <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+          <div class="feature-icon p-3 rounded-full mr-4">
+            <i class="fas fa-chart-line text-blue-400 fa-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">Proven</h3>
+            <p class="text-sm text-gray-400">Backtested Strategies</p>
+          </div>
+        </div>
+        <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+          <div class="feature-icon p-3 rounded-full mr-4">
+            <i class="fas fa-sliders-h text-blue-400 fa-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">100% Customizable Settings</h3>
+          </div>
+        </div>
+        <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+          <div class="feature-icon p-3 rounded-full mr-4">
+            <i class="fas fa-brain text-blue-400 fa-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">AI-Powered Trading</h3>
+          </div>
+        </div>
+        <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+          <div class="feature-icon p-3 rounded-full mr-4">
+            <i class="fas fa-shield-alt text-blue-400 fa-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">
+              Risk Management & Profit Maximization
+            </h3>
+          </div>
+        </div>
+        <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+          <div class="feature-icon p-3 rounded-full mr-4">
+            <i class="fas fa-clock text-blue-400 fa-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">24/7 Automated Trading</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <div class="flex flex-col lg:flex-row justify-between mb-16">
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl font-bold mb-8">Features</h2>
+          <div class="space-y-6">
+            <div class="flex">
+              <i
+                class="fas fa-check-circle text-blue-400 mr-3 flex-shrink-0 mt-1"
+              ></i>
+              <div>
+                <h3 class="text-lg font-semibold">
+                  Advanced Trading Algorithms
+                </h3>
+                <p class="text-gray-400">
+                  Supertrend, Fractal Sweep, ATR Based SL, etc.
+                </p>
+              </div>
+            </div>
+            <div class="flex">
+              <i class="fas fa-robot text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
+              <div>
+                <h3 class="text-lg font-semibold">24/7 Automated Trading</h3>
+                <p class="text-gray-400">Never miss a market opportunity.</p>
+              </div>
+            </div>
+            <div class="flex">
+              <i
+                class="fas fa-tachometer-alt text-blue-400 mr-3 flex-shrink-0 mt-1"
+              ></i>
+              <div>
+                <h3 class="text-lg font-semibold">Low Latency Execution</h3>
+                <p class="text-gray-400">Ultra-fast trade placements</p>
+              </div>
+            </div>
+            <div class="flex">
+              <i
+                class="fas fa-layer-group text-blue-400 mr-3 flex-shrink-0 mt-1"
+              ></i>
+              <div>
+                <h3 class="text-lg font-semibold">Multi-Timeframe Analysis</h3>
+                <p class="text-gray-400">
+                  Higher timeframe confirmations for accuracy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-2/5 mt-10 lg:mt-0 flex items-center justify-center">
+          <img
+            src="https://i.pinimg.com/736x/dd/89/0a/dd890aa8a066f68e85edd454e96fa623.jpg"
+            alt="Trading bot features"
+            class="rounded-lg feature-image"
+          />
+        </div>
+      </div>
+
+      <!-- Products Section -->
+      <h2 class="text-3xl font-bold mb-8">Our Products</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <!-- Product 1 -->
+        <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold mb-1">Hyper Band</h3>
+              <ul class="text-sm text-gray-400 space-y-1">
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>Currency pair: XAUUSD (GOLD)</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>Timeframe: M5</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>Minimum deposit: $100</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>Account type: Any</li>
+              </ul>
+            </div>
+            <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
+              <i class="fas fa-bolt fa-3x text-blue-400"></i> <!-- Lightning bolt for "Hyper" -->
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./hyperBand.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
+              <i class="fas fa-info-circle mr-2"></i> Learn More
+            </a>
+          </div>
+        </div>
+      
+        <!-- Product 2 -->
+        <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold mb-1">Trend Scanner</h3>
+              <ul class="text-sm text-gray-400 space-y-1">
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>HTF-Sled</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>M1 Entry</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>Customizable Risk</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>MT5</li>
+              </ul>
+            </div>
+            <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
+              <i class="fas fa-search-dollar fa-3x text-blue-400"></i> <!-- Scanner icon -->
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./Trend.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
+              <i class="fas fa-info-circle mr-2"></i> Learn More
+            </a>
+          </div>
+        </div>
+      
+        <!-- Product 3 -->
+        <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold mb-1">BreakOut Buddy Indicator</h3>
+              <ul class="text-sm text-gray-400 space-y-1">
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>High-Frequency Trading</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>Low Spread Strategy</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>MT4/MT5</li>
+              </ul>
+            </div>
+            <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
+              <i class="fas fa-door-open fa-3x text-blue-400"></i> <!-- Door icon for "BreakOut" -->
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./BreakooutBuddyIndicator.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
+              <i class="fas fa-info-circle mr-2"></i> Learn More
+            </a>
+          </div>
+        </div>
+      
+        <!-- Product 4 -->
+        <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold mb-1">Border Breaker Indicator</h3>
+              <ul class="text-sm text-gray-400 space-y-1">
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>High-Frequency Trading</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>Low Spread Strategy</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>MT4/MT5</li>
+              </ul>
+            </div>
+            <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
+              <i class="fas fa-expand-arrows-alt fa-3x text-blue-400"></i> <!-- Expand icon for "Border Breaker" -->
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./BorderBreaker Indicator.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
+              <i class="fas fa-info-circle mr-2"></i> Learn More
+            </a>
+          </div>
+        </div>
+      
+        <!-- Product 5 -->
+        <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold mb-1">Pips Hunter</h3>
+              <ul class="text-sm text-gray-400 space-y-1">
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>High-Frequency Trading</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>Low Spread Strategy</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i>MT4/MT5</li>
+              </ul>
+            </div>
+            <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
+              <i class="fas fa-robot fa-3x text-blue-400"></i> <!-- Robot icon for "AI-Powered Bot" -->
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./PipesHunter.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
+              <i class="fas fa-info-circle mr-2"></i> Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CTA Section -->
+      <div class="text-center mb-16 bg-gray-900 bg-opacity-50 p-8 rounded-lg">
+        <p class="mb-4 text-gray-300">Looking for a custom trading bot?</p>
+        <button
+          class="gradient-btn text-white font-semibold py-3 px-8 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center mx-auto"
+        >
+          <i class="fas fa-rocket mr-2"></i> Start Trading Now
+        </button>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
+      <div class="text-sm">© 2025 HyperBand. All rights reserved.</div>
+    </footer>
+  </body>
+  <script>
+    // Mobile menu toggle
+    document.addEventListener("DOMContentLoaded", function () {
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    });
+  </script>
+</html>

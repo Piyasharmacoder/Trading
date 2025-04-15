@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendScanner - Advanced Trading Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Mobile menu animation */
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        
+        .mobile-menu.block {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0f0f0f;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+    <!-- Header with Mobile Responsive Navigation -->
+    <header class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <i class="fas fa-chart-line text-blue-500 text-2xl mr-2"></i>
+                        <span class="text-xl sm:text-2xl font-bold gradient-text">TrendScanner</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a
+                      href="#features"
+                      class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+                      >Home</a
+                    >
+                    <a
+                      href="#indicators"
+                      class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+                      >About</a
+                    >
+                    <a
+                      href="#alerts"
+                      class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+                      >Contact</a
+                    >
+                    
+                  </nav>
+                
+                <!-- Desktop CTA Buttons -->
+                <div class="hidden md:flex space-x-4">
+                    <a href="#" class="px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300">Login</a>
+                    <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">Sign Up</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-blue-500 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu, hidden by default -->
+            <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#features" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Features</a>
+                    <a href="#indicators" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Indicators</a>
+                    <a href="#alerts" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Alerts</a>
+                    <a href="#benefits" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Benefits</a>
+                    <a href="#howto" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">How It Works</a>
+                    
+                    <div class="flex flex-col space-y-2 pt-3 border-t border-gray-700">
+                        <a href="#" class="w-full text-center py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors">Login</a>
+                        <a href="#" class="w-full text-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <!-- Text Content -->
+                <div class="w-full md:w-1/2 space-y-6">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                        <span class="gradient-text">Advanced</span> Trading <br class="hidden sm:block">Analytics Solution
+                    </h1>
+                    <p class="text-gray-300 text-lg sm:text-xl max-w-2xl">
+                        Unlock the power of algorithmic trend analysis with TrendScanner - your MetaTrader companion for real-time market insights and precision trading signals.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#" class="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors shadow-lg">
+                            Get Started Free
+                        </a>
+                        <a href="#howto" class="px-6 py-3 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors">
+                            How It Works
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-blue-500 rounded-full opacity-20 blur-xl"></div>
+                        <img src="https://i.pinimg.com/736x/a2/ee/36/a2ee36d4d4bdef0191678a1879fd4a69.jpg" alt="TrendScanner Dashboard" class="relative w-full max-w-md h-auto rounded-xl border border-gray-700 shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold gradient-text">TrendScanner Features</h2>
+                <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+                    A sophisticated trend analysis tool integrated with MetaTrader 5 for automated market scanning with real-time insights.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Feature Content -->
+                <div class="order-2 md:order-1">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-blue-400 mb-6">Comprehensive Analysis</h3>
+                    <div class="bg-gray-800 border border-gray-700 rounded-lg p-5 shadow-lg">
+                        <h4 class="text-xl font-semibold text-white mb-3">Key Capabilities:</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2">✓</span>
+                                Multi-timeframe analysis (M5 to D1)
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2">✓</span>
+                                Signal filtering to remove market noise
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2">✓</span>
+                                Cross-validation using multiple indicators
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2">✓</span>
+                                Custom alert thresholds and conditions
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Feature Image -->
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                        <div class="relative bg-gray-800 border border-gray-700 rounded-lg p-4">
+                            <img src="https://i.pinimg.com/736x/28/85/9a/28859aa56dbc26b0993e26ddd0e31013.jpg" alt="TrendScanner Analysis" class="rounded-lg w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indicators Section -->
+    <section id="indicators" class="py-16 px-4 sm:px-6 lg:px-8 bg-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center gradient-text mb-12">INDICATOR-BASED SIGNALS</h2>
+            
+            <!-- Chart Section -->
+            <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 sm:p-6 mb-12 shadow-lg">
+                <h3 class="text-white text-xl font-semibold mb-4">Signal Performance Chart</h3>
+                <div class="w-full h-64 sm:h-80">
+                    <canvas id="signalChart" class="w-full h-full"></canvas>
+                </div>
+            </div>
+            
+            <!-- Signal Summary -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12">
+                <div class="bg-gray-900 p-4 sm:p-6 rounded-lg shadow border border-gray-700 text-center transform hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-lg font-semibold text-gray-300 mb-2">EURUSD • H4 • 15m</h3>
+                    <p class="text-green-400 text-xl font-bold">+23,487.09</p>
+                </div>
+                <div class="bg-gray-900 p-4 sm:p-6 rounded-lg shadow border border-gray-700 text-center transform hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-lg font-semibold text-gray-300 mb-2">GBPUSD • D1 • 30m</h3>
+                    <p class="text-red-400 text-xl font-bold">-13,487.09</p>
+                </div>
+                <div class="bg-gray-900 p-4 sm:p-6 rounded-lg shadow border border-gray-700 text-center transform hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-lg font-semibold text-gray-300 mb-2">XAUUSD • H1 • 5m</h3>
+                    <p class="text-yellow-400 text-xl font-bold">-487.09</p>
+                </div>
+            </div>
+            
+            <!-- Indicator Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 sm:p-6 shadow-md card-hover transition-all duration-300">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-chart-line text-blue-400 text-xl mr-3"></i>
+                        <h3 class="text-xl font-semibold text-white">Moving Averages</h3>
+                    </div>
+                    <p class="text-gray-400">Identifies overall trend direction based on price averages over time.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 sm:p-6 shadow-md card-hover transition-all duration-300">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-chart-bar text-blue-400 text-xl mr-3"></i>
+                        <h3 class="text-xl font-semibold text-white">MACD</h3>
+                    </div>
+                    <p class="text-gray-400">Highlights momentum shifts and measures trend strength over time.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 sm:p-6 shadow-md card-hover transition-all duration-300">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-wave-square text-blue-400 text-xl mr-3"></i>
+                        <h3 class="text-xl font-semibold text-white">RSI</h3>
+                    </div>
+                    <p class="text-gray-400">Detects overbought/oversold conditions that may indicate trend reversals.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 sm:p-6 shadow-md card-hover transition-all duration-300">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-rocket text-blue-400 text-xl mr-3"></i>
+                        <h3 class="text-xl font-semibold text-white">Super Trend</h3>
+                    </div>
+                    <p class="text-gray-400">Combines ATR and moving averages to identify high-probability trend direction.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 sm:p-6 shadow-md card-hover transition-all duration-300">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-signal text-blue-400 text-xl mr-3"></i>
+                        <h3 class="text-xl font-semibold text-white">ADX</h3>
+                    </div>
+                    <p class="text-gray-400">Measures trend strength without regard to direction for more accurate signals.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 sm:p-6 shadow-md card-hover transition-all duration-300">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-bullseye text-blue-400 text-xl mr-3"></i>
+                        <h3 class="text-xl font-semibold text-white">Parabolic SAR</h3>
+                    </div>
+                    <p class="text-gray-400">Helps determine potential trend direction changes and reversal points.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alerts Section -->
+    <section id="alerts" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Text Content -->
+                <div class="space-y-6">
+                    <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-6">REAL-TIME ALERTS</h2>
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 transform hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-bell text-blue-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold text-white">Instant Notifications</h3>
+                        </div>
+                        <p class="text-gray-300">
+                            Receive alerts when key trend signals emerge, such as crossover events or significant breakout levels.
+                        </p>
+                    </div>
+            
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 transform hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-tablet-alt text-blue-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold text-white">Visual Dashboard</h3>
+                        </div>
+                        <p class="text-gray-300">
+                            Monitor a comprehensive heatmap or signal matrix summarizing trends across multiple timeframes and assets.
+                        </p>
+                    </div>
+            
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 transform hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-sync text-blue-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold text-white">Trend Reversal Detection</h3>
+                        </div>
+                        <p class="text-gray-300">
+                            Identify potential market turns through advanced divergence analysis between price action and technical indicators.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Right Side Image -->
+                <div class="mt-8 lg:mt-0">
+                    <div class="relative group">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-700"></div>
+                        <div class="relative">
+                            <img src="https://i.pinimg.com/736x/d2/d5/fe/d2d5fe86275baa5aba507d51fd264727.jpg" alt="Dashboard Graphic" class="rounded-lg w-full h-auto object-cover border border-gray-700">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 px-4 sm:px-6 lg:px-8 bg-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Left Side Image -->
+                <div class="order-2 lg:order-1">
+                    <div class="relative group">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-700"></div>
+                        <div class="relative">
+                            <img src="https://i.pinimg.com/736x/6c/e5/12/6ce512279938d310914af561977b2354.jpg" alt="Benefits Image" class="rounded-lg w-full h-auto object-cover border border-gray-700">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side Text -->
+                <div class="order-1 lg:order-2 space-y-6">
+                    <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-6">KEY BENEFITS</h2>
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-gray-900 p-5 rounded-lg border border-gray-700 hover:bg-gray-800 transition-all duration-300 shadow-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-bolt text-blue-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold text-white">Enhanced Efficiency</h3>
+                        </div>
+                        <p class="text-gray-300">Eliminates the need to manually scan multiple charts and timeframes, saving valuable time for strategic decision making.</p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="bg-gray-900 p-5 rounded-lg border border-gray-700 hover:bg-gray-800 transition-all duration-300 shadow-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-brain text-blue-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold text-white">Data-Driven Decisions</h3>
+                        </div>
+                        <p class="text-gray-300">Makes trading decisions based on objective technical analysis rather than emotions, improving consistency and performance.</p>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="bg-gray-900 p-5 rounded-lg border border-gray-700 hover:bg-gray-800 transition-all duration-300 shadow-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-random text-blue-400 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold text-white">Multi-Strategy Compatibility</h3>
+                        </div>
+                        <p class="text-gray-300">Adapts to various trading approaches from scalping to long-term position trading with customizable parameters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="howto" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-12 text-center">HOW IT WORKS</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg hover:bg-gray-750 transition-all duration-300 shadow-md">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-full bg-blue-900 text-blue-400 text-xl font-bold mb-5 mx-auto">1</div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Install TrendScanner</h3>
+                    <p class="text-gray-300 text-center">Download and install the TrendScanner Expert Advisor (EA) in your MetaTrader 5 platform.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg hover:bg-gray-750 transition-all duration-300 shadow-md">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-full bg-blue-900 text-blue-400 text-xl font-bold mb-5 mx-auto">2</div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Configure Parameters</h3>
+                    <p class="text-gray-300 text-center">Set your preferred indicators, timeframes, and currency pairs to monitor for trend signals.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg hover:bg-gray-750 transition-all duration-300 shadow-md">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-full bg-blue-900 text-blue-400 text-xl font-bold mb-5 mx-auto">3</div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Trade with Confidence</h3>
+                    <p class="text-gray-300 text-center">Receive alerts and analyze the visual dashboard to make informed trading decisions.</p>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-block px-8 py-4 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-lg">
+                    Get Started Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+ <!-- Footer -->
+ <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
+    <div class="text-sm">© 2025 HyperBand. All rights reserved.</div>
+  </footer>
+
+<!-- Chart.js Script -->
+<script>
+    // Initialize the signal performance chart
+    document.addEventListener('DOMContentLoaded', function() {
+        const ctx = document.getElementById('signalChart').getContext('2d');
+        
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                datasets: [{
+                    label: 'Signal Performance',
+                    data: [35, 32, 47, 39, 56, 42, 63, 58, 70],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#3b82f6',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#3b82f6'
+                },
+                {
+                    label: 'Market Average',
+                    data: [28, 30, 32, 29, 34, 31, 38, 40, 42],
+                    borderColor: 'rgba(156, 163, 175, 0.7)',
+                    backgroundColor: 'rgba(156, 163, 175, 0.05)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(156, 163, 175, 0.7)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(156, 163, 175, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#e5e7eb'
+                        }
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        backgroundColor: 'rgba(17, 24, 39, 0.9)',
+                        titleColor: '#fff',
+                        bodyColor: '#e5e7eb',
+                        borderColor: '#3b82f6',
+                        borderWidth: 1
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(75, 85, 99, 0.2)'
+                        },
+                        ticks: {
+                            color: '#9ca3af'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(75, 85, 99, 0.2)'
+                        },
+                        ticks: {
+                            color: '#9ca3af'
+                        }
+                    }
+                }
+            }
+        });
+    });
+    
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    });
+</script>
+</body>
+</html>

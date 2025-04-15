@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BorderBreaker Indicator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 640px) {
+            .responsive-heading {
+                font-size: 2.25rem;
+            }
+
+            .responsive-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+
+ <!-- Header with Mobile Responsive Navigation -->
+ <header
+ class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-lg"
+>
+ <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6">
+   <div class="flex justify-between items-center">
+     <!-- Logo -->
+     <div class="flex items-center">
+       <a href="#" class="flex items-center">
+         <i class="fas fa-chart-line text-blue-500 text-2xl mr-2"></i>
+         <span class="text-xl sm:text-2xl font-bold gradient-text"
+           >TrendScanner</span
+         >
+       </a>
+     </div>
+
+     <!-- Desktop Navigation -->
+     <nav class="hidden md:flex space-x-8">
+       <a
+         href="#"
+         class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+         >Home</a
+       >
+       <a
+         href="#about"
+         class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+         >About</a
+       >
+       <a
+         href="#contact"
+         class="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+         >Contact</a
+       >
+     </nav>
+
+     <!-- Desktop CTA Buttons -->
+     <div class="hidden md:flex space-x-4">
+       <a
+         href="#"
+         class="px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300"
+         >Login</a
+       >
+       <a
+         href="#"
+         class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
+         >Sign Up</a
+       >
+     </div>
+
+     <!-- Mobile menu button -->
+     <div class="md:hidden flex items-center">
+       <button
+         id="mobile-menu-button"
+         class="text-gray-300 hover:text-blue-500 focus:outline-none"
+       >
+         <svg
+           class="h-6 w-6"
+           fill="none"
+           viewBox="0 0 24 24"
+           stroke="currentColor"
+         >
+           <path
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             stroke-width="2"
+             d="M4 6h16M4 12h16M4 18h16"
+           />
+         </svg>
+       </button>
+     </div>
+   </div>
+
+   <!-- Mobile menu, hidden by default -->
+   <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4">
+     <div class="flex flex-col space-y-3">
+       <a
+         href="#"
+         class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+         >Home</a
+       >
+       <a
+         href="#about"
+         class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+         >About</a
+       >
+       <a
+         href="#contact"
+         class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800"
+         >Contact</a
+       >
+
+       <div class="flex flex-col space-y-2 pt-3 border-t border-gray-700">
+         <a
+           href="#"
+           class="w-full text-center py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors"
+           >Login</a
+         >
+         <a
+           href="#"
+           class="w-full text-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+           >Sign Up</a
+         >
+       </div>
+     </div>
+   </div>
+ </div>
+</header>
+    <!-- BorderBreaker Hero Section -->
+    <section id="hero" class="bg-gradient-to-b from-gray-900 to-black text-white pt-24 pb-16 px-4 sm:px-6 md:px-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-10">
+
+            <!-- Left Side Content -->
+            <div class="space-y-4 sm:space-y-6 order-2 md:order-1">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-400 responsive-heading">
+                    BorderBreaker Indicator</h1>
+                <p class="text-gray-300 text-base sm:text-lg leading-relaxed responsive-text">
+                    The <strong>BorderBreaker Indicator</strong> is a revolutionary tool designed for traders who aim to
+                    break through market resistance and support levels with precision.
+                    It provides advanced real-time signals for optimized entry and exit points, ensuring
+                    high-probability trades.
+                </p>
+                <div class="pt-4">
+                    <a href="#features"
+                        class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold text-lg shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1">
+                        Explore Features →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side Image -->
+            <div class="w-full mb-6 md:mb-0 order-1 md:order-2">
+                <img src="https://i.pinimg.com/736x/0f/e3/0c/0fe30cd8be3a561ba424a39d286b8fd2.jpg"
+                    alt="A futuristic digital trading interface"
+                    class="w-full h-auto rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 border-2 border-blue-900">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="features" class="bg-gray-900 text-white py-16 md:py-24 px-4 sm:px-6 md:px-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-12">
+
+            <!-- Left Side Image -->
+            <div class="w-full mb-6 md:mb-0 order-1">
+                <img src="https://i.pinimg.com/736x/db/31/f3/db31f349014e51745e2baf9c0178b10c.jpg"
+                    alt="BorderBreaker Indicator"
+                    class="w-full h-auto rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 border-2 border-blue-900">
+            </div>
+
+            <!-- Right Side Content -->
+            <div class="space-y-4 sm:space-y-6 order-2">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-400 responsive-heading">How It
+                    Works</h2>
+                <p class="text-gray-300 text-base sm:text-lg leading-relaxed responsive-text">
+                    This <span class="font-bold text-white">BorderBreaker Indicator</span> is designed to identify and
+                    signal
+                    breakout trading opportunities across various timeframes. It works by identifying key levels of
+                    <span class="text-blue-400">support</span> (price floors) and <span
+                        class="text-red-400">resistance</span> (price ceilings)
+                    and executing trades based on pre-defined strategies.
+                </p>
+                <p class="text-gray-300 text-base sm:text-lg leading-relaxed responsive-text">
+                    The indicator highlights <span class="text-yellow-400">breakout zones</span> and provides clear
+                    alerts when the price
+                    breaks through these levels, enabling traders to capitalize on momentum-driven market movements.
+                </p>
+                <div class="pt-4">
+                    <a href="#benefits"
+                        class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold text-lg shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1">
+                        Discover Benefits →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits"
+        class="bg-gradient-to-b from-black to-gray-900 text-white py-16 md:py-24 px-4 sm:px-6 md:px-20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-blue-400">Key Benefits</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div
+                    class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-blue-500 hover:shadow-blue-900/30 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-blue-400 mb-4 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Precision Breakouts</h3>
+                    <p class="text-gray-300 text-center">Accurately identifies major support and resistance levels with
+                        advanced algorithms to capture high-probability breakout opportunities.</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div
+                    class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-blue-500 hover:shadow-blue-900/30 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-blue-400 mb-4 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Real-Time Alerts</h3>
+                    <p class="text-gray-300 text-center">Receive instant notifications when price breaks through key
+                        levels, allowing you to act quickly on emerging opportunities.</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div
+                    class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-blue-500 hover:shadow-blue-900/30 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-blue-400 mb-4 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Multi-Timeframe Analysis</h3>
+                    <p class="text-gray-300 text-center">Works seamlessly across different timeframes from 1-minute to
+                        monthly charts, adapting to your trading style.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section class="bg-gray-900 text-white py-16 md:py-20 px-6 md:px-20">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-extrabold text-blue-400 mb-8 text-center">Recommendations</h2>
+
+            <div
+                class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                <ul class="space-y-6 text-lg text-gray-300">
+                    <li class="flex items-center">
+                        <span class="text-blue-400 text-3xl mr-4">📌</span>
+                        <div>
+                            <strong class="text-white text-xl block mb-1">Currency Pair</strong>
+                            <p>XAUUSD (GOLD), USDJPY, GBPUSD, USDCAD</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-green-400 text-3xl mr-4">⏳</span>
+                        <div>
+                            <strong class="text-white text-xl block mb-1">Timeframe</strong>
+                            <p>H1 (1 Hour)</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="backtesting" class="py-16 md:py-24 px-6 md:px-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-blue-400 mb-12 text-center">Backtesting Results</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+                <!-- Chart Card 1: 1 Month Backtesting -->
+                <div
+                    class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                    <h3 class="text-lg font-semibold text-blue-400 mb-3 text-center">1 Month</h3>
+                    <canvas id="chart1" class="w-full h-64"></canvas>
+                </div>
+
+                <!-- Chart Card 2: 3 Months Backtesting -->
+                <div
+                    class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                    <h3 class="text-lg font-semibold text-blue-400 mb-3 text-center">3 Months</h3>
+                    <canvas id="chart2" class="w-full h-64"></canvas>
+                </div>
+
+                <!-- Chart Card 3: 6 Months Backtesting -->
+                <div
+                    class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                    <h3 class="text-lg font-semibold text-blue-400 mb-3 text-center">6 Months</h3>
+                    <canvas id="chart3" class="w-full h-64"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    
+
+
+
+    <script>
+        // Chart 1: 1 Month Backtesting - Line Chart
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Profit ($)',
+                    data: [100, 110, 120, 130],
+                    borderColor: 'rgba(96, 165, 250, 1)',
+                    backgroundColor: 'rgba(96, 165, 250, 0.2)',
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(96, 165, 250, 1)',
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: { ticks: { color: '#cbd5e1' }, grid: { color: '#374151' } },
+                    y: { ticks: { color: '#cbd5e1' }, grid: { color: '#374151' } }
+                },
+                plugins: { legend: { labels: { color: '#fff' } } }
+            }
+        });
+
+        // Chart 2: 3 Months Backtesting - Line Chart
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Month 1', 'Month 2', 'Month 3'],
+                datasets: [{
+                    label: 'Profit ($)',
+                    data: [90, 115, 140],
+                    borderColor: 'rgba(16, 185, 129, 1)',
+                    backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: { ticks: { color: '#cbd5e1' }, grid: { color: '#374151' } },
+                    y: { ticks: { color: '#cbd5e1' }, grid: { color: '#374151' } }
+                },
+                plugins: { legend: { labels: { color: '#fff' } } }
+            }
+        });
+
+        // Chart 3: 6 Months Backtesting - Line Chart
+        const ctx3 = document.getElementById('chart3').getContext('2d');
+        new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+                datasets: [{
+                    label: 'Profit ($)',
+                    data: [80, 95, 110, 125, 140, 155],
+                    borderColor: 'rgba(250, 204, 21, 1)',
+                    backgroundColor: 'rgba(250, 204, 21, 0.2)',
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(250, 204, 21, 1)',
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: { ticks: { color: '#cbd5e1' }, grid: { color: '#374151' } },
+                    y: { ticks: { color: '#cbd5e1' }, grid: { color: '#374151' } }
+                },
+                plugins: { legend: { labels: { color: '#fff' } } }
+            }
+        });
+    </script>
+
+      <!-- Footer -->
+      <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
+        <div class="text-sm">© 2025 HyperBand. All rights reserved.</div>
+      </footer>
+    </body>
+
+</body>
+
+</html>

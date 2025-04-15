@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hyper Band</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    body {
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+    }
+    
+    .gradient-text {
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Mobile menu animation */
+    .mobile-menu {
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .mobile-menu.hidden {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    
+    .mobile-menu.block {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #0f0f0f;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #3b82f6;
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #2563eb;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white p-6 space-y-10">
+   <!-- Header with Mobile Responsive Navigation -->
+   <header class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-lg">
+     <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6">
+       <div class="flex justify-between items-center">
+         <!-- Logo -->
+         <div class="flex items-center">
+           <a href="#" class="flex items-center">
+             <i class="fas fa-chart-line text-blue-500 text-2xl mr-2"></i>
+             <span class="text-xl sm:text-2xl font-bold gradient-text">TrendScanner</span>
+           </a>
+         </div>
+
+         <!-- Desktop Navigation -->
+         <nav class="hidden md:flex space-x-8">
+           <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Home</a>
+           <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">About</a>
+           <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contact</a>
+         </nav>
+
+         <!-- Desktop CTA Buttons -->
+         <div class="hidden md:flex space-x-4">
+           <a href="#" class="px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300">Login</a>
+           <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">Sign Up</a>
+         </div>
+
+         <!-- Mobile menu button -->
+         <div class="md:hidden flex items-center">
+           <button id="mobile-menu-button" class="text-gray-300 hover:text-blue-500 focus:outline-none">
+             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+             </svg>
+           </button>
+         </div>
+       </div>
+
+       <!-- Mobile menu, hidden by default -->
+       <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4">
+         <div class="flex flex-col space-y-3">
+           <a href="#" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Home</a>
+           <a href="#about" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">About</a>
+           <a href="#contact" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Contact</a>
+
+           <div class="flex flex-col space-y-2 pt-3 border-t border-gray-700">
+             <a href="#" class="w-full text-center py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors">Login</a>
+             <a href="#" class="w-full text-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">Sign Up</a>
+           </div>
+         </div>
+       </div>
+     </div>
+   </header>
+
+  <!-- Section 1: Hyper Band Description -->
+  <div id="about" class="max-w-6xl mx-auto bg-[#111111] rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center card-hover">
+    <div class="md:w-1/2">
+      <img src="https://i.pinimg.com/736x/e3/de/31/e3de31d62d8022b93c29c991f987bccf.jpg" alt="Hyper Band Bot" 
+      class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+
+    </div>
+    <div class="md:w-1/2 p-8">
+      <h2 class="text-3xl font-bold mb-4 text-purple-400">Hyper Band</h2>
+      <p class="text-gray-300 text-lg leading-relaxed">
+        The Hyper Band is an intelligent and fully automated expert advisor designed to
+        trade effectively, one of the most reliable tools in technical analysis. This bot
+        takes advantage of price volatility, mean reversion, and breakout strategies to
+        maximize profits in various market conditions. Whether you are a trend follower
+        or a reversal trader, this bot adapts to your needs and delivers consistent
+        results.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 2: Key Features -->
+  <div class="max-w-6xl mx-auto bg-[#111111] rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center card-hover">
+    <div class="md:w-1/2 p-8">
+      <h2 class="text-3xl font-bold mb-4 text-purple-400">Key Features</h2>
+      <ul class="text-gray-300 text-lg space-y-3 list-disc list-inside">
+        <li><span class="font-semibold text-white">Dynamic Strategy:</span> Identifies optimal entry and exit points based on price action and volatility.</li>
+        <li><span class="font-semibold text-white">Risk Management:</span> Stop-loss and take-profit levels based on ATR, fixed pips, or percentage risk.</li>
+        <li>Adjustable risk-reward ratio for maximizing profit potential.</li>
+        <li><span class="font-semibold text-white">Trailing Stop-Loss:</span> Locks in profits by adjusting stop-loss levels as trades progress.</li>
+        <li><span class="font-semibold text-white">Multi-Timeframe Analysis:</span> Analyzes multiple timeframes to confirm breakout strength and reduce false signals.</li>
+      </ul>
+    </div>
+    <div class="md:w-1/2">
+      <img src="https://i.pinimg.com/736x/57/27/d8/5727d8376807c845b4ac0fff66426c13.jpg" alt="Key Features Bot" 
+      class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+
+    </div>
+  </div>
+
+  <!-- Section 3: Advantages -->
+  <div class="max-w-6xl mx-auto bg-[#111111] rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center card-hover">
+    <div class="md:w-1/2">
+      <img src="https://i.pinimg.com/736x/04/45/c2/0445c2220888cff5dcb0cd9c170e885f.jpg" alt="Advantages Image"
+      class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+
+    </div>
+    <div class="md:w-1/2 p-8">
+      <h2 class="text-3xl font-bold mb-4 text-purple-400">Advantages</h2>
+      <ul class="text-gray-300 text-lg space-y-3 list-disc list-inside">
+        <li><span class="font-semibold text-white">Automation:</span> Removes emotional bias by executing trades based on predefined Bollinger Bands criteria.</li>
+        <li><span class="font-semibold text-white">Adaptability:</span> Suitable for trending, ranging, and volatile market conditions.</li>
+        <li><span class="font-semibold text-white">Ease of Use:</span> User-friendly interface and straightforward setup, perfect for beginners and seasoned traders.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 4: Recommendations -->
+  <div class="max-w-6xl mx-auto bg-[#111111] rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center card-hover">
+    <div class="md:w-1/2 p-8">
+      <h2 class="text-3xl font-bold mb-4 text-purple-400">Recommendations</h2>
+      <ul class="text-gray-300 text-lg space-y-3 list-disc list-inside">
+        <li><span class="font-semibold text-white">Currency pair:</span> XAUUSD (GOLD)</li>
+        <li><span class="font-semibold text-white">Timeframe:</span> M5</li>
+        <li><span class="font-semibold text-white">Minimum deposit:</span> $100</li>
+        <li><span class="font-semibold text-white">Account type:</span> Any</li>
+        <li><span class="font-semibold text-white">Leverage:</span> Any</li>
+        <li><span class="font-semibold text-white">Use a VPS:</span> for the EA to work 24/7 (Recommended)</li>
+      </ul>
+    </div>
+    <div class="md:w-1/2">
+      <img src="https://i.pinimg.com/736x/08/f5/b3/08f5b33da4e78fae7acfba8a872bc8ab.jpg" alt="Recommendations Image"
+      class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+
+    </div>
+  </div>
+
+  <!-- Section 5: Specifications -->
+  <div class="max-w-6xl mx-auto bg-[#111111] rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center card-hover">
+    <div class="md:w-1/2">
+      <img src="https://i.pinimg.com/736x/a6/d7/60/a6d7609cedb3d8b308c96513a0c82485.jpg" alt="Specifications Image" 
+      class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+
+    </div> 
+    <div class="md:w-1/2 p-8">
+      <h2 class="text-3xl font-bold mb-4 text-purple-400">Specifications</h2>
+      <ul class="text-gray-300 text-lg space-y-3 list-disc list-inside">
+        <li><span class="font-semibold text-white">Every trade is protected with the SL</span></li>
+        <li>Easy to install, default settings are perfect for most brokers</li>
+        <li>Expert Advisor strategy tester trades fully match the trades in real trading</li>
+        <li>Good choice for both beginners and professional</li>
+        <li>Take advantage of the power of Bollinger Bands with the MT5 Bollinger Bands Trading Bot. Whether targeting consistent income or capital growth, this bot will streamline your trading process and help you achieve your financial goals.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 6: Trading Indicator -->
+  <div class="max-w-6xl mx-auto bg-[#111111] rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center card-hover">
+    <!-- Left Text -->
+    <div class="md:w-1/2 p-8">
+      <h2 class="text-3xl font-bold mb-4 text-purple-400">Trading Indicator</h2>
+      <p class="text-gray-300 text-lg leading-relaxed mb-4">
+        Visualize market trends with our Bollinger Bands-based Trading Indicator.
+        The chart provides clear signals based on historical data, helping you
+        make smart entries and exits with confidence.
+      </p>
+      <p class="text-gray-400">
+        This real-time chart example showcases price action and upper/lower Bollinger Bands.
+      </p>
+    </div>
+  
+    <!-- Right Chart -->
+    <div class="md:w-1/2 p-8">
+      <canvas id="tradingChart" width="400" height="300"></canvas>
+    </div>
+  </div>
+
+  <!-- Section 7: 1 Month Backtesting Result -->
+  <div id="contact" class="max-w-6xl mx-auto mt-20 bg-[#111111] p-8 rounded-xl shadow-lg card-hover">
+    <h2 class="text-3xl font-bold mb-6 text-purple-400">1 Month Backtesting Result</h2>
+    <p class="mb-4 text-gray-300">Visual analysis of backtested performance using dummy data for the past 30 days.</p>
+  
+    <!-- Bar Chart -->
+    <div class="mb-12">
+      <h3 class="text-xl font-semibold mb-2 text-white">Daily Profit (Bar Chart)</h3>
+      <canvas id="barChart" height="200"></canvas>
+    </div>
+  
+    <!-- Line Chart -->
+    <div class="mb-12">
+      <h3 class="text-xl font-semibold mb-2 text-white">Cumulative Profit (Line Chart)</h3>
+      <canvas id="lineChart" height="200"></canvas>
+    </div>
+  
+    <!-- Mixed Chart -->
+    <div class="mb-4">
+      <h3 class="text-xl font-semibold mb-2 text-white">Daily vs Cumulative (Mixed Chart)</h3>
+      <canvas id="mixedChart" height="200"></canvas>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+        <div class="mb-4 md:mb-0">
+          <a href="#" class="flex items-center justify-center md:justify-start">
+            <i class="fas fa-chart-line text-blue-500 text-xl mr-2"></i>
+            <span class="text-lg font-bold gradient-text">HyperBand</span>
+          </a>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="text-sm border-t border-gray-800 pt-4">
+        © 2025 HyperBand. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Trading chart
+    const ctx = document.getElementById('tradingChart').getContext('2d');
+    const tradingChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [
+          {
+            label: 'Price',
+            data: [1850, 1860, 1855, 1875, 1880, 1870, 1885],
+            borderColor: 'rgba(59, 130, 246, 1)',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            borderWidth: 2,
+            fill: true,
+          },
+          {
+            label: 'Upper Band',
+            data: [1865, 1875, 1870, 1885, 1890, 1880, 1895],
+            borderColor: 'rgba(34, 197, 94, 1)',
+            borderDash: [5, 5],
+            borderWidth: 2,
+            fill: false,
+          },
+          {
+            label: 'Lower Band',
+            data: [1835, 1845, 1840, 1860, 1870, 1860, 1875],
+            borderColor: 'rgba(239, 68, 68, 1)',
+            borderDash: [5, 5],
+            borderWidth: 2,
+            fill: false,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#fff'
+            }
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: '#ccc'
+            },
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            }
+          },
+          y: {
+            ticks: {
+              color: '#ccc'
+            },
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            }
+          }
+        }
+      }
+    });
+
+    // Backtesting charts
+    const days = ['Day 1', 'Day 5', 'Day 10', 'Day 15', 'Day 20', 'Day 25', 'Day 30'];
+    const dailyProfit = [10, -5, 15, -2, 20, 10, 25];
+    const cumulativeProfit = dailyProfit.reduce((acc, curr, i) => {
+      acc.push((acc[i - 1] || 0) + curr);
+      return acc;
+    }, []);
+  
+    // Bar Chart
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: days,
+        datasets: [{
+          label: 'Daily Profit ($)',
+          data: dailyProfit,
+          backgroundColor: function(context) {
+            const value = context.dataset.data[context.dataIndex];
+            return value < 0 ? 'rgba(239, 68, 68, 0.7)' : 'rgba(59, 130, 246, 0.7)';
+          },
+          borderColor: function(context) {
+            const value = context.dataset.data[context.dataIndex];
+            return value < 0 ? 'rgba(239, 68, 68, 1)' : 'rgba(59, 130, 246, 1)';
+          },
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { 
+          legend: { labels: { color: '#fff' } },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `Profit: $${context.parsed.y}`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: { 
+            ticks: { color: '#ccc' },
+            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+          },
+          y: { 
+            ticks: { color: '#ccc' },
+            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+          }
+        }
+      }
+    });
+  
+    // Line Chart
+    new Chart(document.getElementById('lineChart'), {
+      type: 'line',
+      data: {
+        labels: days,
+        datasets: [{
+          label: 'Cumulative Profit ($)',
+          data: cumulativeProfit,
+          borderColor: 'rgba(34, 197, 94, 1)',
+          backgroundColor: 'rgba(34, 197, 94, 0.2)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { 
+          legend: { labels: { color: '#fff' } },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `Total: $${context.parsed.y}`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: { 
+            ticks: { color: '#ccc' },
+            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+          },
+          y: { 
+            ticks: { color: '#ccc' },
+            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+          }
+        }
+      }
+    });
+  
+    // Mixed Chart
+    new Chart(document.getElementById('mixedChart'), {
+      type: 'bar',
+      data: {
+        labels: days,
+        datasets: [
+          {
+            type: 'bar',
+            label: 'Daily Profit ($)',
+            data: dailyProfit,
+            backgroundColor: function(context) {
+              const value = context.dataset.data[context.dataIndex];
+              return value < 0 ? 'rgba(239, 68, 68, 0.7)' : 'rgba(59, 130, 246, 0.7)';
+            },
+            borderColor: function(context) {
+              const value = context.dataset.data[context.dataIndex];
+              return value < 0 ? 'rgba(239, 68, 68, 1)' : 'rgba(59, 130, 246, 1)';
+            },
+            order: 2
+          },
+          {
+            type: 'line',
+            label: 'Cumulative Profit ($)',
+            data: cumulativeProfit,
+            borderColor: 'rgba(255, 206, 86, 1)',
+            backgroundColor: 'rgba(255, 206, 86, 0.3)',
+            fill: true,
+            tension: 0.3,
+            order: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        interaction: {
+          mode: 'index',
+          intersect: false,
+        },
+        plugins: { 
+          legend: { labels: { color: '#fff' } }
+        },
+        scales: {
+          x: { 
+            ticks: { color: '#ccc' },
+            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+          },
+          y: { 
+            ticks: { color: '#ccc' },
+            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
