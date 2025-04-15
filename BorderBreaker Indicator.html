@@ -318,11 +318,11 @@
         </div>
     </section>
 
-
-    
-
-
-
+     <!-- Footer -->
+     <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
+        <div class="text-sm">© 2025 HyperBand. All rights reserved.</div>
+      </footer>
+      
     <script>
         // Chart 1: 1 Month Backtesting - Line Chart
         const ctx1 = document.getElementById('chart1').getContext('2d');
@@ -402,13 +402,26 @@
             }
         });
     </script>
-
-      <!-- Footer -->
-      <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
-        <div class="text-sm">© 2025 HyperBand. All rights reserved.</div>
-      </footer>
-    </body>
-
 </body>
+
+<script>
+    // Mobile menu toggle
+    document.addEventListener("DOMContentLoaded", function () {
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    });
+  </script>
 
 </html>
