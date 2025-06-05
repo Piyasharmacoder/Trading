@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -11,244 +11,245 @@
   <link rel="manifest" href="/Frontend/Public/site.webmanifest" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <!-- Add inside your <head> if not already included -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <style>
-    :root {
-      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      --dark-bg: #0a0a0a;
-      --dark-card: #1a1a1a;
-      --dark-border: #2a2a2a;
-    }
-
-    .dark body {
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-      color: white;
-    }
-
-    .light body {
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
-      color: #1a202c;
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      transition: all 0.3s ease;
+      background-color: #050b18;
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     }
 
     .gradient-btn {
-      background: var(--primary-gradient);
-      border: none;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       transition: all 0.3s ease;
     }
 
     .gradient-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-    }
-
-    .expert-card {
-      background: linear-gradient(145deg, #1a1a2e, #16213e);
-      border: 1px solid #667eea;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .expert-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
-      border-color: #f093fb;
-    }
-
-    .indicator-card {
-      background: linear-gradient(145deg, #2d1b69, #11998e);
-      border: 1px solid #4facfe;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .indicator-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(79, 172, 254, 0.3);
-      border-color: #00f2fe;
-    }
-
-    .product-toggle {
-      background: linear-gradient(145deg, #1a1a2e, #16213e);
-      border-radius: 50px;
-      padding: 4px;
-      display: flex;
-      position: relative;
-      border: 2px solid #667eea;
-      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .toggle-btn {
-      flex: 1;
-      padding: 12px 24px;
-      border-radius: 46px;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      z-index: 2;
-      text-transform: uppercase;
-    }
-
-    .toggle-btn.active {
-      background: var(--primary-gradient);
-      color: white;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-      transform: scale(1.05);
-    }
-
-    .toggle-btn.inactive {
-      color: #94a3b8;
-      background: transparent;
-    }
-
-    .dark-mode-toggle {
-      position: fixed;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      z-index: 1000;
-      background: var(--primary-gradient);
-      border: 2px solid #667eea;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
       box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
     }
 
-    .dark-mode-toggle:hover {
-      transform: translateY(-50%) scale(1.1);
-      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+    .expert-card {
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      transition: all 0.3s ease;
     }
 
-    .feature-icon {
-      background: var(--accent-gradient);
-      width: 60px;
-      height: 60px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
+    .expert-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(102, 126, 234, 0.5);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+    }
+
+    .indicator-card {
+      background: linear-gradient(145deg, #0f3460 0%, #16537e 100%);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .indicator-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(34, 197, 94, 0.5);
+      box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);
+    }
+
+    .toggle-container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .toggle-active-expert {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .toggle-active-indicator {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
     }
 
     .expert-icon {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      width: 80px;
-      height: 80px;
-      border-radius: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
 
     .indicator-icon {
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
-      color: white;
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    }
+
+    .badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 12px;
+    }
+
+    .expert-badge {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .indicator-badge {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+
+    .feature-icon {
+      background-color: rgba(6, 78, 112, 0.4);
+    }
+
+
+    .product-image {
       width: 80px;
       height: 80px;
-      border-radius: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .feature-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    .btn-hover {
+      transition: all 0.3s ease;
+    }
+
+    .btn-hover:hover {
+      transform: scale(1.05);
     }
 
     .gradient-text {
-      background: var(--primary-gradient);
+      background: linear-gradient(90deg, #0891b2, #0284c7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
-    .light .expert-card {
-      background: linear-gradient(145deg, #f8fafc, #e2e8f0);
-      border: 1px solid #667eea;
-      color: #1a202c;
-    }
 
-    .light .indicator-card {
-      background: linear-gradient(145deg, #f0f9ff, #e0f2fe);
-      border: 1px solid #4facfe;
-      color: #1a202c;
-    }
-
-    .light .product-toggle {
-      background: linear-gradient(145deg, #ffffff, #f1f5f9);
-      border: 2px solid #667eea;
-    }
-
-    @keyframes slideInUp {
-      from {
+    @keyframes fadeIn {
+      0% {
         opacity: 0;
-        transform: translateY(30px);
       }
-      to {
+
+      100% {
         opacity: 1;
-        transform: translateY(0);
       }
     }
 
-    .animate-slide-up {
-      animation: slideInUp 0.8s ease-out;
+    @keyframes slideUp {
+      0% {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
-    .product-card {
-      animation: slideInUp 0.8s ease-out;
-      animation-fill-mode: both;
+    .fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
     }
 
-    .product-card:nth-child(1) { animation-delay: 0.1s; }
-    .product-card:nth-child(2) { animation-delay: 0.2s; }
-    .product-card:nth-child(3) { animation-delay: 0.3s; }
-    .product-card:nth-child(4) { animation-delay: 0.4s; }
-    .product-card:nth-child(5) { animation-delay: 0.5s; }
-    .product-card:nth-child(6) { animation-delay: 0.6s; }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
+    .slide-up {
+      animation: slideUp 1s ease-in-out forwards;
     }
 
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      background: var(--primary-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .service-card {
+      background: linear-gradient(145deg, #1e1e3f 0%, #2a2a5a 100%);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
 
-    .section-subtitle {
-      font-size: 1.125rem;
-      color: #94a3b8;
-      max-width: 600px;
-      margin: 0 auto;
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+      transition: left 0.5s;
     }
+
+    .service-card:hover::before {
+      left: 100%;
+    }
+
+    .service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(59, 130, 246, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        .icon-container {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .icon-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .icon-container::before {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .service-card:hover .icon-container {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
   </style>
+
 </head>
 
-<body class="min-h-screen transition-all duration-300">
-  <!-- Dark Mode Toggle -->
-  <div class="dark-mode-toggle" id="darkModeToggle">
-    <i class="fas fa-moon dark:hidden text-white text-xl"></i>
-    <i class="fas fa-sun hidden dark:block text-white text-xl"></i>
-  </div>
-
+<body class="min-h-screen">
   <!-- Header with Mobile Responsive Navigation -->
-  <header class="bg-gray-900/80 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-800 dark:border-gray-700 sticky top-0 z-50 shadow-xl">
+  <header class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-lg">
     <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6">
       <div class="flex justify-between items-center">
         <!-- Logo -->
@@ -262,15 +263,12 @@
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-8">
           <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Home</a>
-          <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">About</a>
-          <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contact</a>
+          <a href="./About.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">About</a>
+          <a href="./Contact.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contact</a>
+          <!-- Our Products -->
         </nav>
+        
 
-        <!-- Desktop CTA Buttons -->
-        <div class="hidden md:flex space-x-4">
-          <a href="#" class="px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300">Login</a>
-          <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">Sign Up</a>
-        </div>
 
         <!-- Mobile menu button -->
         <div class="md:hidden flex items-center">
@@ -282,15 +280,20 @@
         </div>
       </div>
 
-      <!-- Mobile menu -->
+      <!-- Mobile menu, hidden by default -->
       <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4">
         <div class="flex flex-col space-y-3">
           <a href="#" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Home</a>
           <a href="#about" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">About</a>
-          <a href="#contact" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Contact</a>
+          <a href="#contact"
+            class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Contact</a>
+
           <div class="flex flex-col space-y-2 pt-3 border-t border-gray-700">
-            <a href="#" class="w-full text-center py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors">Login</a>
-            <a href="#" class="w-full text-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">Sign Up</a>
+            <a href="#"
+              class="w-full text-center py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors">Login</a>
+            <a href="#"
+              class="w-full text-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">Sign
+              Up</a>
           </div>
         </div>
       </div>
@@ -299,22 +302,25 @@
 
   <div class="container mx-auto px-4 py-8 max-w-6xl">
     <!-- Hero Section -->
-    <div class="flex flex-col lg:flex-row items-center justify-between mb-16 animate-slide-up">
+    <div class="flex flex-col lg:flex-row items-center justify-between mb-16">
       <div class="lg:w-1/2">
         <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
           Automate Your Trading with Precision - Powerful MT4 & MT5 Bots
         </h1>
-        <p class="text-lg mb-8 text-gray-300 dark:text-gray-300 light:text-gray-600">
-          Enhance your trading experience with AI-powered automation for maximum profits & minimal risks!
+        <p class="text-lg mb-8 text-gray-300">
+          Enhance your trading experience with AI-powered automation for
+          maximum profits & minimal risks!
         </p>
-        <button class="gradient-btn text-white font-semibold py-3 px-8 rounded-md hover:opacity-90 transition-opacity flex items-center">
+        <button
+          class="gradient-btn text-white font-semibold py-3 px-8 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center">
           <i class="fas fa-rocket mr-2"></i> Get Started
         </button>
       </div>
       <div class="lg:w-1/2 mt-10 lg:mt-0 flex justify-center">
         <div class="relative">
           <div class="p-4">
-            <img src="https://i.pinimg.com/736x/95/9c/1a/959c1a7d3bee4714aa63ed8fc334fe00.jpg" alt="Trading bot with charts" class="w-full max-h-96 object-cover rounded-lg shadow-2xl" />
+            <img src="https://i.pinimg.com/736x/95/9c/1a/959c1a7d3bee4714aa63ed8fc334fe00.jpg"
+              alt="Trading bot with charts" class="w-full hero-image rounded-lg" />
           </div>
         </div>
       </div>
@@ -322,522 +328,990 @@
 
     <!-- Benefits Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
-        <div class="feature-icon mr-4">
-          <i class="fas fa-bolt text-white fa-lg"></i>
+      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+        <div class="feature-icon p-3 rounded-full mr-4">
+          <i class="fas fa-bolt text-blue-400 fa-lg"></i>
         </div>
         <div>
           <h3 class="text-lg font-semibold">Lightning-Fast Execution</h3>
         </div>
       </div>
-      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
-        <div class="feature-icon mr-4">
-          <i class="fas fa-chart-line text-white fa-lg"></i>
+      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+        <div class="feature-icon p-3 rounded-full mr-4">
+          <i class="fas fa-chart-line text-blue-400 fa-lg"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">Proven Strategies</h3>
-          <p class="text-sm text-gray-400">Backtested</p>
+          <h3 class="text-lg font-semibold">Proven</h3>
+          <p class="text-sm text-gray-400">Backtested Strategies</p>
         </div>
       </div>
-      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
-        <div class="feature-icon mr-4">
-          <i class="fas fa-sliders-h text-white fa-lg"></i>
+      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+        <div class="feature-icon p-3 rounded-full mr-4">
+          <i class="fas fa-sliders-h text-blue-400 fa-lg"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">100% Customizable</h3>
+          <h3 class="text-lg font-semibold">100% Customizable Settings</h3>
         </div>
       </div>
-      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
-        <div class="feature-icon mr-4">
-          <i class="fas fa-brain text-white fa-lg"></i>
+      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+        <div class="feature-icon p-3 rounded-full mr-4">
+          <i class="fas fa-brain text-blue-400 fa-lg"></i>
         </div>
         <div>
           <h3 class="text-lg font-semibold">AI-Powered Trading</h3>
         </div>
       </div>
-      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
-        <div class="feature-icon mr-4">
-          <i class="fas fa-shield-alt text-white fa-lg"></i>
+      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+        <div class="feature-icon p-3 rounded-full mr-4">
+          <i class="fas fa-shield-alt text-blue-400 fa-lg"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">Risk Management</h3>
+          <h3 class="text-lg font-semibold">
+            Risk Management & Profit Maximization
+          </h3>
         </div>
       </div>
-      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
-        <div class="feature-icon mr-4">
-          <i class="fas fa-clock text-white fa-lg"></i>
+      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+        <div class="feature-icon p-3 rounded-full mr-4">
+          <i class="fas fa-clock text-blue-400 fa-lg"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">24/7 Automated</h3>
+          <h3 class="text-lg font-semibold">24/7 Automated Trading</h3>
         </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="flex flex-col lg:flex-row justify-between mb-16">
+      <div class="lg:w-1/2">
+        <h2 class="text-3xl font-bold mb-8">Features</h2>
+        <div class="space-y-6">
+          <div class="flex">
+            <i class="fas fa-check-circle text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
+            <div>
+              <h3 class="text-lg font-semibold">
+                Advanced Trading Algorithms
+              </h3>
+              <p class="text-gray-400">
+                Supertrend, Fractal Sweep, ATR Based SL, etc.
+              </p>
+            </div>
+          </div>
+          <div class="flex">
+            <i class="fas fa-robot text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
+            <div>
+              <h3 class="text-lg font-semibold">24/7 Automated Trading</h3>
+              <p class="text-gray-400">Never miss a market opportunity.</p>
+            </div>
+          </div>
+          <div class="flex">
+            <i class="fas fa-tachometer-alt text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
+            <div>
+              <h3 class="text-lg font-semibold">Low Latency Execution</h3>
+              <p class="text-gray-400">Ultra-fast trade placements</p>
+            </div>
+          </div>
+          <div class="flex">
+            <i class="fas fa-layer-group text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
+            <div>
+              <h3 class="text-lg font-semibold">Multi-Timeframe Analysis</h3>
+              <p class="text-gray-400">
+                Higher timeframe confirmations for accuracy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-2/5 mt-10 lg:mt-0 flex items-center justify-center">
+        <img src="https://i.pinimg.com/736x/dd/89/0a/dd890aa8a066f68e85edd454e96fa623.jpg" alt="Trading bot features"
+          class="rounded-lg feature-image" />
       </div>
     </div>
 
     <!-- Products Section -->
-    <div class="section-header">
-      <h2 class="section-title">Our Products</h2>
-      <p class="section-subtitle">Choose between powerful Expert Advisors for automated trading or advanced Indicators for market analysis</p>
-    </div>
-
-    <!-- Enhanced Toggle Buttons -->
+    <h2 class="text-3xl text-center font-bold mb-8">Our Products</h2>
+    <!-- Toggle for Expert Advisors and Indicators -->
     <div class="flex justify-center mb-12">
-      <div class="product-toggle w-80">
-        <button id="expertBtn" class="toggle-btn active">
-          <i class="fas fa-robot mr-2"></i>Expert Advisors
-        </button>
-        <button id="indicatorBtn" class="toggle-btn inactive">
-          <i class="fas fa-chart-bar mr-2"></i>Indicators
-        </button>
+      <div class="toggle-container rounded-2xl overflow-hidden w-80 p-1">
+        <div class="flex relative">
+          <button id="expertBtn"
+            class="w-1/2 py-3 px-6 text-white font-bold text-sm transition-all duration-500 rounded-xl toggle-active-expert relative overflow-hidden">
+            <i class="fas fa-robot mr-2"></i>
+            <span>Expert Advisors</span>
+            <div class="absolute inset-0 bg-white opacity-0 hover:opacity-10 transition-opacity duration-300"></div>
+          </button>
+          <button id="indicatorBtn"
+            class="w-1/2 py-3 px-6 text-gray-300 font-bold text-sm transition-all duration-500 rounded-xl relative overflow-hidden">
+            <i class="fas fa-chart-line mr-2"></i>
+            <span>Indicators</span>
+            <div class="absolute inset-0 bg-white opacity-0 hover:opacity-5 transition-opacity duration-300"></div>
+          </button>
+        </div>
       </div>
     </div>
 
-    <!-- Products Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" id="productsGrid">
+    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+
       <!-- Expert Advisor Products -->
-      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+      <!-- Hyper Band EA -->
+      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
+          <div class="flex-1">
             <h3 class="text-2xl font-bold mb-3 text-white">Hyper Band</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Currency: XAUUSD (GOLD)</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Timeframe: M5</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Min Deposit: $100</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Account: Any Type</li>
+              <li class="flex items-center"><i class="fas fa-coins text-yellow-400 mr-3 w-4"></i>XAUUSD (GOLD)</li>
+              <li class="flex items-center"><i class="fas fa-clock text-blue-400 mr-3 w-4"></i>Timeframe: M5</li>
+              <li class="flex items-center"><i class="fas fa-dollar-sign text-green-400 mr-3 w-4"></i>Min deposit: $100
+              </li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-purple-400 mr-3 w-4"></i>Any account type
+              </li>
             </ul>
           </div>
-          <div class="expert-icon">
-            <i class="fas fa-bolt"></i>
+          <div class="expert-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-bolt fa-2x text-white pulse-animation"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./hyperBand.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
 
-      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+      <!-- Trend Scanner EA -->
+      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
+          <div class="flex-1">
             <h3 class="text-2xl font-bold mb-3 text-white">Trend Scanner</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>HTF-Sled Technology</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>M1 Entry Precision</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Customizable Risk</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>MT5 Compatible</li>
+              <li class="flex items-center"><i class="fas fa-trending-up text-green-400 mr-3 w-4"></i>HTF-Sled</li>
+              <li class="flex items-center"><i class="fas fa-crosshairs text-red-400 mr-3 w-4"></i>M1 Entry</li>
+              <li class="flex items-center"><i class="fas fa-shield-alt text-blue-400 mr-3 w-4"></i>Customizable Risk
+              </li>
+              <li class="flex items-center"><i class="fas fa-cog text-purple-400 mr-3 w-4"></i>MT5 Compatible</li>
             </ul>
           </div>
-          <div class="expert-icon">
-            <i class="fas fa-search-dollar"></i>
+          <div class="expert-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-search-dollar fa-2x text-white"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./Trend.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
 
-      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+      <!-- BreakOut Buddy EA -->
+      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
+          <div class="flex-1">
             <h3 class="text-2xl font-bold mb-3 text-white">BreakOut Buddy</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>High-Frequency Trading</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Low Spread Strategy</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>MT4/MT5 Support</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Advanced Algorithms</li>
+              <li class="flex items-center"><i class="fas fa-tachometer-alt text-red-400 mr-3 w-4"></i>High-Frequency
+                Trading</li>
+              <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
+                Strategy</li>
+              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+              <li class="flex items-center"><i class="fas fa-rocket text-purple-400 mr-3 w-4"></i>Fast Execution</li>
             </ul>
           </div>
-          <div class="expert-icon">
-            <i class="fas fa-door-open"></i>
+          <div class="expert-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-door-open fa-2x text-white"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./BreakooutBuddyIndicator.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
 
-      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+      <!-- Border Breaker EA -->
+      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
+          <div class="flex-1">
             <h3 class="text-2xl font-bold mb-3 text-white">Border Breaker</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Breakout Detection</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Multi-Timeframe</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Smart Entry/Exit</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Risk Management</li>
+              <li class="flex items-center"><i class="fas fa-tachometer-alt text-red-400 mr-3 w-4"></i>High-Frequency
+                Trading</li>
+              <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
+                Strategy</li>
+              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+              <li class="flex items-center"><i class="fas fa-expand-arrows-alt text-purple-400 mr-3 w-4"></i>Border
+                Detection</li>
             </ul>
           </div>
-          <div class="expert-icon">
-            <i class="fas fa-expand-arrows-alt"></i>
+          <div class="expert-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-expand-arrows-alt fa-2x text-white"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./BorderBreaker Indicator.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
 
-      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+      <!-- Pips Hunter EA -->
+      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
+          <div class="flex-1">
             <h3 class="text-2xl font-bold mb-3 text-white">Pips Hunter</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Scalping Strategy</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Quick Profits</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Low Drawdown</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>All Pairs</li>
+              <li class="flex items-center"><i class="fas fa-tachometer-alt text-red-400 mr-3 w-4"></i>High-Frequency
+                Trading</li>
+              <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
+                Strategy</li>
+              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+              <li class="flex items-center"><i class="fas fa-bullseye text-yellow-400 mr-3 w-4"></i>Precision Hunting
+              </li>
             </ul>
           </div>
-          <div class="expert-icon">
-            <i class="fas fa-crosshairs"></i>
+          <div class="expert-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-crosshairs fa-2x text-white pulse-animation"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./PipesHunter.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
 
-      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+      <!-- Triple Fusion Pro EA -->
+      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
+          <div class="flex-1">
             <h3 class="text-2xl font-bold mb-3 text-white">Triple Fusion Pro</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>3-Strategy Combo</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Advanced AI</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Market Adaptation</li>
-              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Premium Features</li>
+              <li class="flex items-center"><i class="fas fa-layer-group text-orange-400 mr-3 w-4"></i>Triple Algorithm
+              </li>
+              <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
+                Strategy</li>
+              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+              <li class="flex items-center"><i class="fas fa-star text-yellow-400 mr-3 w-4"></i>Professional Grade</li>
             </ul>
           </div>
-          <div class="expert-icon">
-            <i class="fas fa-gem"></i>
+          <div class="expert-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-cube fa-2x text-white"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./TripleFusion.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
-
-      <!-- Indicator Products -->
-      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+      <!-- Indicator Products section-->
+      <!-- MTF Analyzer Indicator -->
+      <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
+        data-type="indicator">
+        <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
+          <div class="flex-1">
             <h3 class="text-2xl font-bold mb-3 text-white">MTF Analyzer</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Multi-Timeframe View</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Trend Analysis</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Signal Alerts</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Custom Settings</li>
+              <li class="flex items-center"><i class="fas fa-layer-group text-cyan-400 mr-3 w-4"></i>Multi-Timeframe
+              </li>
+              <li class="flex items-center"><i class="fas fa-chart-bar text-green-400 mr-3 w-4"></i>Advanced Analytics
+              </li>
+              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+              <li class="flex items-center"><i class="fas fa-eye text-purple-400 mr-3 w-4"></i>Visual Signals</li>
             </ul>
           </div>
-          <div class="indicator-icon">
-            <i class="fas fa-layer-group"></i>
+          <div class="indicator-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-chart-line fa-2x text-white"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./MTFAnalyzer.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
 
-      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+      <!-- Breakout Buddy Indicator -->
+      <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
+        data-type="indicator">
+        <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
-            <h3 class="text-2xl font-bold mb-3 text-white">Breakout Buddy Indicator</h3>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-3 text-white">Breakout Buddy</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Breakout Detection</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Volume Analysis</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Price Action Signals</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Real-time Alerts</li>
+              <li class="flex items-center"><i class="fas fa-door-open text-orange-400 mr-3 w-4"></i>Breakout Detection
+              </li>
+              <li class="flex items-center"><i class="fas fa-bell text-yellow-400 mr-3 w-4"></i>Smart Alerts</li>
+              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+              <li class="flex items-center"><i class="fas fa-bullseye text-red-400 mr-3 w-4"></i>High Accuracy</li>
             </ul>
           </div>
-          <div class="indicator-icon">
-            <i class="fas fa-door-open"></i>
+          <div class="indicator-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-door-open fa-2x text-white"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./BreakooutBuddyIndicator.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
 
-      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+      <!-- Border Breaker Indicator -->
+      <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
+        data-type="indicator">
+        <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
-            <h3 class="text-2xl font-bold mb-3 text-white">Smart Support & Resistance</h3>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-3 text-white">Border Breaker</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Dynamic S&R Lines</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Auto Detection</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Historical Analysis</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Strength Ratings</li>
+              <li class="flex items-center"><i class="fas fa-expand-arrows-alt text-purple-400 mr-3 w-4"></i>Border
+                Analysis</li>
+              <li class="flex items-center"><i class="fas fa-crosshairs text-red-400 mr-3 w-4"></i>Precision Entry</li>
+              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+              <li class="flex items-center"><i class="fas fa-chart-area text-green-400 mr-3 w-4"></i>Zone Detection</li>
             </ul>
           </div>
-          <div class="indicator-icon">
-            <i class="fas fa-arrows-alt-v"></i>
+          <div class="indicator-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-expand-arrows-alt fa-2x text-white pulse-animation"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./SupportResistance.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
 
-      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+      <!-- Gold Pulse Scanner Indicator -->
+      <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
+        data-type="indicator">
+        <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
-            <h3 class="text-2xl font-bold mb-3 text-white">Trend Momentum Pro</h3>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-3 text-white">Gold Pulse Scanner</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Momentum Analysis</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Trend Strength</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Entry/Exit Points</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Divergence Detection</li>
+              <li class="flex items-center"><i class="fas fa-coins text-yellow-400 mr-3 w-4"></i>Gold Specialist</li>
+              <li class="flex items-center"><i class="fas fa-heartbeat text-red-400 mr-3 w-4"></i>Pulse Detection</li>
+              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+              <li class="flex items-center"><i class="fas fa-search text-cyan-400 mr-3 w-4"></i>Market Scanner</li>
             </ul>
           </div>
-          <div class="indicator-icon">
-            <i class="fas fa-chart-line"></i>
+          <div class="indicator-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-heartbeat fa-2x text-white"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./TrendMomentum.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
 
-      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+      <!-- Trend Scanner Indicator -->
+      <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
+        data-type="indicator">
+        <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
-            <h3 class="text-2xl font-bold mb-3 text-white">Volume Flow Indicator</h3>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-3 text-white">Trend Scanner</h3>
             <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Volume Analysis</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Money Flow Tracking</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Institutional Activity</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Smart Money Alerts</li>
+              <li class="flex items-center"><i class="fas fa-trending-up text-green-400 mr-3 w-4"></i>HTF-Sled</li>
+              <li class="flex items-center"><i class="fas fa-crosshairs text-red-400 mr-3 w-4"></i>M1 Entry</li>
+              <li class="flex items-center"><i class="fas fa-shield-alt text-blue-400 mr-3 w-4"></i>Customizable Risk
+              </li>
+              <li class="flex items-center"><i class="fas fa-cog text-purple-400 mr-3 w-4"></i>MT5 Compatible</li>
             </ul>
           </div>
-          <div class="indicator-icon">
-            <i class="fas fa-water"></i>
+          <div class="indicator-icon p-4 rounded-2xl ml-4">
+            <i class="fas fa-search-dollar fa-2x text-white"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./VolumeFlow.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
+            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+            Learn More
+          </button>
         </div>
       </div>
 
-      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+    </div>
+
+
+    <!-- service Section -->
+    <h2 class="text-4xl text-center font-bold mb-5 section-title floating-animation">
+      Our Development Services
+    </h2>
+    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+    <p class="text-gray-300 mt-6 text-lg max-w-2xl mx-auto">
+      Professional trading platform development services with cutting-edge technology
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+
+      <!-- MQL4/MT4 Service -->
+      <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
         <div class="flex justify-between items-start mb-6">
-          <div class="flex-grow">
-            <h3 class="text-2xl font-bold mb-3 text-white">Pattern Recognition AI</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Chart Patterns</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>AI Detection</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Success Probability</li>
-              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Pattern Alerts</li>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4 service-title">MQL4/MT4 Programming</h3>
+            <ul class="space-y-3">
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Currency pair: XAUUSD (GOLD)</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Timeframe: M5</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Minimum deposit: $100</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Account type: Any</span>
+              </li>
             </ul>
           </div>
-          <div class="indicator-icon">
-            <i class="fas fa-brain"></i>
+          <div class="icon-container p-4 rounded-xl ml-4">
+            <i class="fas fa-chart-line text-3xl text-white"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./PatternRecognition.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <button
+            class="gradient-btn w-full text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center group">
+            <i class="fas fa-rocket mr-3 group-hover:animate-pulse"></i>
+            <span>Explore Service</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MQL5/MT5 Service -->
+      <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4 service-title">MQL5/MT5 Programming</h3>
+            <ul class="space-y-3">
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>HTF-Sled Technology</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>M1 Entry Precision</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Customizable Risk Management</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>MT5 Platform</span>
+              </li>
+            </ul>
+          </div>
+          <div class="icon-container p-4 rounded-xl ml-4">
+            <i class="fas fa-cogs text-3xl text-white"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <button
+            class="gradient-btn w-full text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center group">
+            <i class="fas fa-code mr-3 group-hover:animate-pulse"></i>
+            <span>Explore Service</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- cTrader Service -->
+      <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4 service-title">cTrader Programming</h3>
+            <ul class="space-y-3">
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>High-Frequency Trading</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Low Spread Strategy</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>MT4/MT5 Compatible</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Advanced Algorithms</span>
+              </li>
+            </ul>
+          </div>
+          <div class="icon-container p-4 rounded-xl ml-4">
+            <i class="fas fa-bolt text-3xl text-white"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <button
+            class="gradient-btn w-full text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center group">
+            <i class="fas fa-lightning-bolt mr-3 group-hover:animate-pulse"></i>
+            <span>Explore Service</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- TradingView Service -->
+      <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4 service-title">TradingView Programming</h3>
+            <ul class="space-y-3">
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Pine Script Development</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Custom Indicators</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Strategy Automation</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Real-time Alerts</span>
+              </li>
+            </ul>
+          </div>
+          <div class="icon-container p-4 rounded-xl ml-4">
+            <i class="fas fa-chart-area text-3xl text-white"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <button
+            class="gradient-btn w-full text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center group">
+            <i class="fas fa-eye mr-3 group-hover:animate-pulse"></i>
+            <span>Explore Service</span>
+          </button>
+        </div>
+      </div>
+
+
+      <!-- NinjaTrader Service -->
+      <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4 service-title">NinjaTrader Programming</h3>
+            <ul class="space-y-3">
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>C# Strategy Development</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Custom Indicators</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Market Analyzer Tools</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Advanced Backtesting</span>
+              </li>
+            </ul>
+          </div>
+          <div class="icon-container p-4 rounded-xl ml-4">
+            <i class="fas fa-robot text-3xl text-white"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <button
+            class="gradient-btn w-full text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center group">
+            <i class="fas fa-robot mr-3 group-hover:animate-pulse"></i>
+            <span>Explore Service</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- AmiBroker Service -->
+      <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4 service-title">AmiBroker Programming</h3>
+            <ul class="space-y-3">
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>AFL Formula Development</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Portfolio Backtesting</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Custom Screeners</span>
+              </li>
+              <li class="feature-item flex items-center text-gray-300">
+                <i class="fas fa-check-circle text-emerald-400 mr-3 text-sm"></i>
+                <span>Risk Management</span>
+              </li>
+            </ul>
+          </div>
+          <div class="icon-container p-4 rounded-xl ml-4">
+            <i class="fas fa-search-dollar text-3xl text-white"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <button
+            class="gradient-btn w-full text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center group">
+            <i class="fas fa-search mr-3 group-hover:animate-pulse"></i>
+            <span>Explore Service</span>
+          </button>
         </div>
       </div>
     </div>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 text-center">
-      <div class="section-header">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Ready to supercharge your trading? Contact us today for personalized solutions</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        <div class="bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl p-8 backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
-          <div class="feature-icon mx-auto">
-            <i class="fas fa-envelope text-white fa-lg"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Email Us</h3>
-          <p class="text-gray-400">support@trendscanner.com</p>
-        </div>
-        
-        <div class="bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl p-8 backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
-          <div class="feature-icon mx-auto">
-            <i class="fas fa-phone text-white fa-lg"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Call Us</h3>
-          <p class="text-gray-400">+1 (555) 123-4567</p>
-        </div>
-        
-        <div class="bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl p-8 backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
-          <div class="feature-icon mx-auto">
-            <i class="fas fa-comments text-white fa-lg"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Live Chat</h3>
-          <p class="text-gray-400">24/7 Support Available</p>
+    <!-- Call to Action -->
+    <div class="text-center mt-16">
+      <div
+        class="inline-flex items-center justify-center p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl pulse-glow">
+        <div class="text-center">
+          <h3 class="text-2xl font-bold text-white mb-2">Ready to Get Started?</h3>
+          <p class="text-blue-100 mb-4">Let's build your next trading solution together</p>
+          <button
+            class="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <i class="fas fa-comments mr-2"></i>
+            Contact Us Today
+          </button>
         </div>
       </div>
-
-      <button class="gradient-btn text-white font-semibold py-4 px-10 rounded-xl hover:opacity-90 transition-opacity flex items-center mx-auto">
-        <i class="fas fa-paper-plane mr-2"></i> Start Trading Today
-      </button>
-    </section>
+    </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900/90 dark:bg-gray-900/90 backdrop-blur-md border-t border-gray-800 dark:border-gray-700 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="col-span-1 md:col-span-2">
-          <div class="flex items-center mb-4">
-            <i class="fas fa-chart-line text-blue-500 text-2xl mr-2"></i>
-            <span class="text-2xl font-bold gradient-text">TrendScanner</span>
-          </div>
-          <p class="text-gray-400 mb-4 max-w-md">
-            Empowering traders worldwide with cutting-edge automated trading solutions and advanced market analysis tools.
-          </p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
-              <i class="fab fa-twitter text-xl"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
-              <i class="fab fa-facebook text-xl"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
-              <i class="fab fa-linkedin text-xl"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
-              <i class="fab fa-youtube text-xl"></i>
-            </a>
-          </div>
+
+
+
+  <!-- How It Works Section -->
+  <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-10 rounded-2xl shadow-xl mb-16 animate-slide-up">
+    <h2 class="text-3xl font-bold text-center text-white mb-10 tracking-wide">How It Works</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Step Cards -->
+      <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
+        <div
+          class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
+          <span class="text-2xl font-bold text-blue-400">1</span>
         </div>
-        
-        <div>
-          <h3 class="text-lg font-semibold mb-4 text-white">Products</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Expert Advisors</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Indicators</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Trading Tools</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Market Analysis</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 class="text-lg font-semibold mb-4 text-white">Support</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Documentation</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Tutorials</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">FAQ</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Contact Us</a></li>
-          </ul>
-        </div>
+        <h3 class="text-lg font-semibold mb-2 text-white">Choose Your Bot</h3>
+        <p class="text-gray-400 group-hover:text-gray-200 transition">Pick a strategy that fits your trading style.</p>
       </div>
-      
-      <div class="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8 text-center">
-        <p class="text-gray-400">
-          &copy; 2025 TrendScanner. All rights reserved. | 
-          <a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a> | 
-          <a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a>
-        </p>
+
+      <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
+        <div
+          class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
+          <span class="text-2xl font-bold text-blue-400">2</span>
+        </div>
+        <h3 class="text-lg font-semibold mb-2 text-white">Install on MT4/MT5</h3>
+        <p class="text-gray-400 group-hover:text-gray-200 transition">Easy plug & play setup.</p>
+      </div>
+
+      <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
+        <div
+          class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
+          <span class="text-2xl font-bold text-blue-400">3</span>
+        </div>
+        <h3 class="text-lg font-semibold mb-2 text-white">Customize Settings</h3>
+        <p class="text-gray-400 group-hover:text-gray-200 transition">Adjust SL, TP, risk, and timeframes.</p>
+      </div>
+
+      <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
+        <div
+          class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
+          <span class="text-2xl font-bold text-blue-400">4</span>
+        </div>
+        <h3 class="text-lg font-semibold mb-2 text-white">Start Trading</h3>
+        <p class="text-gray-400 group-hover:text-gray-200 transition">Let the bot execute trades automatically.</p>
       </div>
     </div>
+
+    <div class="text-center mt-10">
+      <a href="#"
+        class="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2">
+        <i class="fas fa-rocket"></i> Start Trading Now
+      </a>
+    </div>
+  </div>
+
+
+
+  <!-- Testimonials Section -->
+  <section class="mb-16">
+    <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-10 rounded-2xl shadow-xl mb-16 animate-slide-up">
+      <h1 class="text-3xl font-bold text-center text-white mb-10 tracking-wide">Testimonials</h1>
+      <h2 class="text-3xl text-center font-bold mb-8">What Our Users Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <p class="text-gray-300 mb-4">"TrendScanner has revolutionized my trading. The bots are accurate, fast, and
+            have made me consistent profits!"</p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 1" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="text-white font-semibold">Arjun Patel</h4>
+              <p class="text-gray-400 text-sm">Full-time Trader</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <p class="text-gray-300 mb-4">"I used to struggle with entries and exits, but now with AI-powered bots, it's
+            stress-free trading."</p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 2"
+              class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="text-white font-semibold">Meera Jain</h4>
+              <p class="text-gray-400 text-sm">Forex Enthusiast</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <p class="text-gray-300 mb-4">"The customization options are top-notch. I can fine-tune every bot according to
+            my strategy."</p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="User 3" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="text-white font-semibold">Rahul Verma</h4>
+              <p class="text-gray-400 text-sm">Algorithmic Trader</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+  <!-- memberships plan -->
+<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-2xl shadow-xl mb-16 animate-slide-up">
+    <div class="text-center my-11">
+      <h1 class="text-4xl font-bold text-white">Automate Your Trading with <span class="text-blue-400">Precision</span></h1>
+      <p class="mt-4 text-gray-300">AI-powered automation for maximum profits & minimal risks</p>
+
+      <!-- Toggle Buttons -->
+      <div class="flex justify-center items-center space-x-4 my-8">
+        <button id="monthlyBtn" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
+          Monthly Billing
+        </button>
+        <button id="yearlyBtn" class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
+          Yearly Billing (Save 20%)
+        </button>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+      <!-- Basic Bot -->
+      <div class="p-8 bg-gray-800 rounded-xl text-center shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-blue-500">
+        <h2 class="text-2xl font-bold text-white mb-4">Basic Bot</h2>
+        <p class="text-4xl font-bold text-blue-400 mb-6 price" data-monthly="199" data-yearly="1199">$199<span class="text-lg text-gray-400">/month</span></p>
+        <ul class="text-left space-y-3 text-gray-300 mb-8">
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Lightning-fast Execution</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> AI-Powered Trading</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 1 Powerful Strategy</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Risk Management Tools</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> WhatsApp Support</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> $50 Monthly Maintenance</li>
+        </ul>
+        <button class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
+          Get Started
+        </button>
+      </div>
+
+      <!-- Advanced Bot (Featured) -->
+      <div class="p-8 bg-gray-800 rounded-xl text-center shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-500 relative">
+        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full">
+          MOST POPULAR
+        </div>
+        <h2 class="text-2xl font-bold text-white mb-4">Advanced Bot</h2>
+        <p class="text-4xl font-bold text-blue-400 mb-6 price" data-monthly="499" data-yearly="2499">$499<span class="text-lg text-gray-400">/month</span></p>
+        <ul class="text-left space-y-3 text-gray-300 mb-8">
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> All Basic Features +</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 3-4 Powerful Strategies</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Multi-Timeframe Analysis</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Advanced Trading Algorithms</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Priority Support</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> $50 Monthly Maintenance</li>
+        </ul>
+        <button class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-bold rounded-lg transition-all duration-300 shadow-lg">
+          Get Advanced Bot
+        </button>
+      </div>
+
+      <!-- Pro Bot -->
+      <div class="p-8 bg-gray-800 rounded-xl text-center shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-blue-500">
+        <h2 class="text-2xl font-bold text-white mb-4">Pro Bot</h2>
+        <p class="text-4xl font-bold text-blue-400 mb-6 price" data-monthly="999" data-yearly="5999">$999<span class="text-lg text-gray-400">/month</span></p>
+        <ul class="text-left space-y-3 text-gray-300 mb-8">
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> All Advanced Features +</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 5-6 Premium Strategies</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 24/7 Automated Trading</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Customizable Settings</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> VIP 24/7 Support</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> $50 Monthly Maintenance</li>
+        </ul>
+        <button class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
+          Go Pro
+        </button>
+      </div>
+    </div>
+    
+    <div class="text-center mt-12">
+      <p class="text-gray-400 text-sm">All plans include our 30-day money-back guarantee</p>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
+    <div class="text-sm">© 2025 HyperBand. All rights reserved.</div>
   </footer>
+</body>
 
-  <script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+<!-- toggle js code -->
+<script>
+  const expertBtn = document.getElementById("expertBtn");
+  const indicatorBtn = document.getElementById("indicatorBtn");
+  const productCards = document.querySelectorAll(".product-card");
 
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Dark mode toggle
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const html = document.documentElement;
-
-    darkModeToggle.addEventListener('click', () => {
-      if (html.classList.contains('dark')) {
-        html.classList.remove('dark');
-        html.classList.add('light');
+  function updateView(type) {
+    productCards.forEach(card => {
+      if (card.dataset.type === type) {
+        card.style.display = "flex";
+        card.style.animation = "fadeIn 0.5s ease-in-out";
       } else {
-        html.classList.remove('light');
-        html.classList.add('dark');
+        card.style.display = "none";
       }
     });
 
-    // Product toggle functionality
-    const expertBtn = document.getElementById('expertBtn');
-    const indicatorBtn = document.getElementById('indicatorBtn');
-    const expertCards = document.querySelectorAll('[data-type="expert"]');
-    const indicatorCards = document.querySelectorAll('[data-type="indicator"]');
-
-    function showExperts() {
-      expertBtn.classList.remove('inactive');
-      expertBtn.classList.add('active');
-      indicatorBtn.classList.remove('active');
-      indicatorBtn.classList.add('inactive');
-      
-      expertCards.forEach(card => {
-        card.style.display = 'flex';
-        card.style.animationDelay = Array.from(expertCards).indexOf(card) * 0.1 + 's';
-      });
-      
-      indicatorCards.forEach(card => {
-        card.style.display = 'none';
-      });
+    if (type === "expert") {
+      expertBtn.classList.add("toggle-active-expert", "text-white");
+      expertBtn.classList.remove("text-gray-300", "toggle-active-indicator");
+      indicatorBtn.classList.add("text-gray-300");
+      indicatorBtn.classList.remove("text-white", "toggle-active-expert", "toggle-active-indicator");
+    } else {
+      indicatorBtn.classList.add("toggle-active-indicator", "text-white");
+      indicatorBtn.classList.remove("text-gray-300", "toggle-active-expert");
+      expertBtn.classList.add("text-gray-300");
+      expertBtn.classList.remove("text-white", "toggle-active-expert", "toggle-active-indicator");
     }
+  }
 
-    function showIndicators() {
-      indicatorBtn.classList.remove('inactive');
-      indicatorBtn.classList.add('active');
-      expertBtn.classList.remove('active');
-      expertBtn.classList.add('inactive');
-      
-      indicatorCards.forEach(card => {
-        card.style.display = 'flex';
-        card.style.animationDelay = Array.from(indicatorCards).indexOf(card) * 0.1 + 's';
-      });
-      
-      expertCards.forEach(card => {
-        card.style.display = 'none';
-      });
-    }
+  expertBtn.addEventListener("click", () => updateView("expert"));
+  indicatorBtn.addEventListener("click", () => updateView("indicator"));
 
-    expertBtn.addEventListener('click', showExperts);
-    indicatorBtn.addEventListener('click', showIndicators);
+  // Show only expert products initially
+  updateView("expert");
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
+  // Add some CSS for fade animation
+  const style = document.createElement('style');
+  style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+  document.head.appendChild(style);
+</script>
+<script>
+  // Mobile menu toggle
+  document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    mobileMenuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
     });
 
-    // Initialize with experts showing
-    showExperts();
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  });
+</script>
+
+<script>
+  const prices = document.querySelectorAll('.price');
+  const monthlyBtn = document.getElementById('monthlyBtn');
+  const yearlyBtn = document.getElementById('yearlyBtn');
+  const darkToggle = document.getElementById('darkModeToggle');
+  const html = document.documentElement;
+
+  monthlyBtn.addEventListener('click', () => {
+    prices.forEach(price => {
+      price.innerHTML = `$${price.dataset.monthly}<span class="text-base">/month</span>`;
+    });
+    monthlyBtn.classList.add('bg-blue-500', 'text-white');
+    yearlyBtn.classList.remove('bg-blue-500');
+  });
+
+  yearlyBtn.addEventListener('click', () => {
+    prices.forEach(price => {
+      price.innerHTML = `$${price.dataset.yearly}<span class="text-base">/year</span>`;
+    });
+    yearlyBtn.classList.add('bg-blue-500', 'text-white');
+    monthlyBtn.classList.remove('bg-blue-500');
+  });
+
+  darkToggle.addEventListener('click', () => {
+    html.classList.toggle('dark');
+  });
+</script>
+
+ <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0f172a',
+            secondary: '#1e293b',
+            accent: '#38bdf8',
+          }
+        }
+      }
+    }
   </script>
-</body>
+  
+
 </html>
