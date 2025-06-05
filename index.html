@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -12,97 +12,243 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    body {
-      background-color: #050b18;
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --dark-bg: #0a0a0a;
+      --dark-card: #1a1a1a;
+      --dark-border: #2a2a2a;
+    }
+
+    .dark body {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
       color: white;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     }
 
-    .gradient-btn {
-      background: linear-gradient(90deg, #0891b2, #0284c7);
+    .light body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+      color: #1a202c;
     }
 
-    .feature-icon {
-      background-color: rgba(6, 78, 112, 0.4);
-    }
-
-    .product-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(8, 145, 178, 0.2);
-    }
-
-    .product-image {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .feature-image {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
-
-    .hero-image {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-    }
-
-    .btn-hover {
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       transition: all 0.3s ease;
     }
 
-    .btn-hover:hover {
+    .gradient-btn {
+      background: var(--primary-gradient);
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .gradient-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .expert-card {
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      border: 1px solid #667eea;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .expert-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+      border-color: #f093fb;
+    }
+
+    .indicator-card {
+      background: linear-gradient(145deg, #2d1b69, #11998e);
+      border: 1px solid #4facfe;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .indicator-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(79, 172, 254, 0.3);
+      border-color: #00f2fe;
+    }
+
+    .product-toggle {
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      border-radius: 50px;
+      padding: 4px;
+      display: flex;
+      position: relative;
+      border: 2px solid #667eea;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .toggle-btn {
+      flex: 1;
+      padding: 12px 24px;
+      border-radius: 46px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 2;
+      text-transform: uppercase;
+    }
+
+    .toggle-btn.active {
+      background: var(--primary-gradient);
+      color: white;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
       transform: scale(1.05);
     }
+
+    .toggle-btn.inactive {
+      color: #94a3b8;
+      background: transparent;
+    }
+
+    .dark-mode-toggle {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      z-index: 1000;
+      background: var(--primary-gradient);
+      border: 2px solid #667eea;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    .dark-mode-toggle:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+    }
+
+    .feature-icon {
+      background: var(--accent-gradient);
+      width: 60px;
+      height: 60px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .expert-icon {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      width: 80px;
+      height: 80px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .indicator-icon {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      width: 80px;
+      height: 80px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
     .gradient-text {
-      background: linear-gradient(90deg, #0891b2, #0284c7);
+      background: var(--primary-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
+    .light .expert-card {
+      background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+      border: 1px solid #667eea;
+      color: #1a202c;
     }
-    100% {
-      opacity: 1;
-    }
-  }
 
-  @keyframes slideUp {
-    0% {
-      transform: translateY(30px);
-      opacity: 0;
+    .light .indicator-card {
+      background: linear-gradient(145deg, #f0f9ff, #e0f2fe);
+      border: 1px solid #4facfe;
+      color: #1a202c;
     }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
+
+    .light .product-toggle {
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      border: 2px solid #667eea;
     }
-  }
 
-  .fade-in {
-    animation: fadeIn 1s ease-in-out forwards;
-  }
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .slide-up {
-    animation: slideUp 1s ease-in-out forwards;
-  }
-</style>
-  
+    .animate-slide-up {
+      animation: slideInUp 0.8s ease-out;
+    }
+
+    .product-card {
+      animation: slideInUp 0.8s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .product-card:nth-child(1) { animation-delay: 0.1s; }
+    .product-card:nth-child(2) { animation-delay: 0.2s; }
+    .product-card:nth-child(3) { animation-delay: 0.3s; }
+    .product-card:nth-child(4) { animation-delay: 0.4s; }
+    .product-card:nth-child(5) { animation-delay: 0.5s; }
+    .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 
-<body class="min-h-screen">
+<body class="min-h-screen transition-all duration-300">
+  <!-- Dark Mode Toggle -->
+  <div class="dark-mode-toggle" id="darkModeToggle">
+    <i class="fas fa-moon dark:hidden text-white text-xl"></i>
+    <i class="fas fa-sun hidden dark:block text-white text-xl"></i>
+  </div>
+
   <!-- Header with Mobile Responsive Navigation -->
-  <header class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-lg">
+  <header class="bg-gray-900/80 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-800 dark:border-gray-700 sticky top-0 z-50 shadow-xl">
     <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6">
       <div class="flex justify-between items-center">
         <!-- Logo -->
@@ -122,11 +268,8 @@
 
         <!-- Desktop CTA Buttons -->
         <div class="hidden md:flex space-x-4">
-          <a href="#"
-            class="px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300">Login</a>
-          <a href="#"
-            class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">Sign
-            Up</a>
+          <a href="#" class="px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300">Login</a>
+          <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">Sign Up</a>
         </div>
 
         <!-- Mobile menu button -->
@@ -139,46 +282,39 @@
         </div>
       </div>
 
-      <!-- Mobile menu, hidden by default -->
+      <!-- Mobile menu -->
       <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4">
         <div class="flex flex-col space-y-3">
           <a href="#" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Home</a>
           <a href="#about" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">About</a>
-          <a href="#contact"
-            class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Contact</a>
-
+          <a href="#contact" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Contact</a>
           <div class="flex flex-col space-y-2 pt-3 border-t border-gray-700">
-            <a href="#"
-              class="w-full text-center py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors">Login</a>
-            <a href="#"
-              class="w-full text-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">Sign
-              Up</a>
+            <a href="#" class="w-full text-center py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-colors">Login</a>
+            <a href="#" class="w-full text-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">Sign Up</a>
           </div>
         </div>
       </div>
     </div>
   </header>
+
   <div class="container mx-auto px-4 py-8 max-w-6xl">
     <!-- Hero Section -->
-    <div class="flex flex-col lg:flex-row items-center justify-between mb-16">
+    <div class="flex flex-col lg:flex-row items-center justify-between mb-16 animate-slide-up">
       <div class="lg:w-1/2">
         <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
           Automate Your Trading with Precision - Powerful MT4 & MT5 Bots
         </h1>
-        <p class="text-lg mb-8 text-gray-300">
-          Enhance your trading experience with AI-powered automation for
-          maximum profits & minimal risks!
+        <p class="text-lg mb-8 text-gray-300 dark:text-gray-300 light:text-gray-600">
+          Enhance your trading experience with AI-powered automation for maximum profits & minimal risks!
         </p>
-        <button
-          class="gradient-btn text-white font-semibold py-3 px-8 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center">
+        <button class="gradient-btn text-white font-semibold py-3 px-8 rounded-md hover:opacity-90 transition-opacity flex items-center">
           <i class="fas fa-rocket mr-2"></i> Get Started
         </button>
       </div>
       <div class="lg:w-1/2 mt-10 lg:mt-0 flex justify-center">
         <div class="relative">
           <div class="p-4">
-            <img src="https://i.pinimg.com/736x/95/9c/1a/959c1a7d3bee4714aa63ed8fc334fe00.jpg"
-              alt="Trading bot with charts" class="w-full hero-image rounded-lg" />
+            <img src="https://i.pinimg.com/736x/95/9c/1a/959c1a7d3bee4714aa63ed8fc334fe00.jpg" alt="Trading bot with charts" class="w-full max-h-96 object-cover rounded-lg shadow-2xl" />
           </div>
         </div>
       </div>
@@ -186,607 +322,522 @@
 
     <!-- Benefits Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
-        <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-bolt text-blue-400 fa-lg"></i>
+      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
+        <div class="feature-icon mr-4">
+          <i class="fas fa-bolt text-white fa-lg"></i>
         </div>
         <div>
           <h3 class="text-lg font-semibold">Lightning-Fast Execution</h3>
         </div>
       </div>
-      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
-        <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-chart-line text-blue-400 fa-lg"></i>
+      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
+        <div class="feature-icon mr-4">
+          <i class="fas fa-chart-line text-white fa-lg"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">Proven</h3>
-          <p class="text-sm text-gray-400">Backtested Strategies</p>
+          <h3 class="text-lg font-semibold">Proven Strategies</h3>
+          <p class="text-sm text-gray-400">Backtested</p>
         </div>
       </div>
-      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
-        <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-sliders-h text-blue-400 fa-lg"></i>
+      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
+        <div class="feature-icon mr-4">
+          <i class="fas fa-sliders-h text-white fa-lg"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">100% Customizable Settings</h3>
+          <h3 class="text-lg font-semibold">100% Customizable</h3>
         </div>
       </div>
-      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
-        <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-brain text-blue-400 fa-lg"></i>
+      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
+        <div class="feature-icon mr-4">
+          <i class="fas fa-brain text-white fa-lg"></i>
         </div>
         <div>
           <h3 class="text-lg font-semibold">AI-Powered Trading</h3>
         </div>
       </div>
-      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
-        <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-shield-alt text-blue-400 fa-lg"></i>
+      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
+        <div class="feature-icon mr-4">
+          <i class="fas fa-shield-alt text-white fa-lg"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">
-            Risk Management & Profit Maximization
-          </h3>
+          <h3 class="text-lg font-semibold">Risk Management</h3>
         </div>
       </div>
-      <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
-        <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-clock text-blue-400 fa-lg"></i>
+      <div class="flex items-center p-6 bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
+        <div class="feature-icon mr-4">
+          <i class="fas fa-clock text-white fa-lg"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">24/7 Automated Trading</h3>
+          <h3 class="text-lg font-semibold">24/7 Automated</h3>
         </div>
-      </div>
-    </div>
-
-    <!-- Features Section -->
-    <div class="flex flex-col lg:flex-row justify-between mb-16">
-      <div class="lg:w-1/2">
-        <h2 class="text-3xl font-bold mb-8">Features</h2>
-        <div class="space-y-6">
-          <div class="flex">
-            <i class="fas fa-check-circle text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
-            <div>
-              <h3 class="text-lg font-semibold">
-                Advanced Trading Algorithms
-              </h3>
-              <p class="text-gray-400">
-                Supertrend, Fractal Sweep, ATR Based SL, etc.
-              </p>
-            </div>
-          </div>
-          <div class="flex">
-            <i class="fas fa-robot text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
-            <div>
-              <h3 class="text-lg font-semibold">24/7 Automated Trading</h3>
-              <p class="text-gray-400">Never miss a market opportunity.</p>
-            </div>
-          </div>
-          <div class="flex">
-            <i class="fas fa-tachometer-alt text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
-            <div>
-              <h3 class="text-lg font-semibold">Low Latency Execution</h3>
-              <p class="text-gray-400">Ultra-fast trade placements</p>
-            </div>
-          </div>
-          <div class="flex">
-            <i class="fas fa-layer-group text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
-            <div>
-              <h3 class="text-lg font-semibold">Multi-Timeframe Analysis</h3>
-              <p class="text-gray-400">
-                Higher timeframe confirmations for accuracy.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-2/5 mt-10 lg:mt-0 flex items-center justify-center">
-        <img src="https://i.pinimg.com/736x/dd/89/0a/dd890aa8a066f68e85edd454e96fa623.jpg" alt="Trading bot features"
-          class="rounded-lg feature-image" />
       </div>
     </div>
 
     <!-- Products Section -->
-    <h2 class="text-3xl text-center font-bold mb-8">Our Products</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+    <div class="section-header">
+      <h2 class="section-title">Our Products</h2>
+      <p class="section-subtitle">Choose between powerful Expert Advisors for automated trading or advanced Indicators for market analysis</p>
+    </div>
 
-      <!-- Product 1 -->
-      <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold mb-1">Hyper Band</h3>
-            <ul class="text-sm text-gray-400 space-y-1">
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Currency pair: XAUUSD (GOLD)</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Timeframe: M5</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Minimum deposit: $100</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Account type: Any</li>
+    <!-- Enhanced Toggle Buttons -->
+    <div class="flex justify-center mb-12">
+      <div class="product-toggle w-80">
+        <button id="expertBtn" class="toggle-btn active">
+          <i class="fas fa-robot mr-2"></i>Expert Advisors
+        </button>
+        <button id="indicatorBtn" class="toggle-btn inactive">
+          <i class="fas fa-chart-bar mr-2"></i>Indicators
+        </button>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" id="productsGrid">
+      <!-- Expert Advisor Products -->
+      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">Hyper Band</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Currency: XAUUSD (GOLD)</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Timeframe: M5</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Min Deposit: $100</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Account: Any Type</li>
             </ul>
           </div>
-          <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-            <i class="fas fa-bolt fa-3x text-blue-400"></i> <!-- Lightning bolt for "Hyper" -->
+          <div class="expert-icon">
+            <i class="fas fa-bolt"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./hyperBand.html"
-            class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
+          <a href="./hyperBand.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
             <i class="fas fa-info-circle mr-2"></i> Learn More
           </a>
         </div>
       </div>
 
-      <!-- Product 2 -->
-      <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold mb-1">Trend Scanner</h3>
-            <ul class="text-sm text-gray-400 space-y-1">
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>HTF-Sled</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>M1 Entry</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Customizable Risk</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>MT5</li>
+      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">Trend Scanner</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>HTF-Sled Technology</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>M1 Entry Precision</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Customizable Risk</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>MT5 Compatible</li>
             </ul>
           </div>
-          <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-            <i class="fas fa-search-dollar fa-3x text-blue-400"></i> <!-- Scanner icon -->
+          <div class="expert-icon">
+            <i class="fas fa-search-dollar"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./Trend.html"
-            class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
+          <a href="./Trend.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
             <i class="fas fa-info-circle mr-2"></i> Learn More
           </a>
         </div>
       </div>
 
-      <!-- Product 3 -->
-      <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold mb-1">BreakOut Buddy Indicator</h3>
-            <ul class="text-sm text-gray-400 space-y-1">
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>High-Frequency Trading</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Low Spread Strategy</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>MT4/MT5</li>
+      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">BreakOut Buddy</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>High-Frequency Trading</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Low Spread Strategy</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>MT4/MT5 Support</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Advanced Algorithms</li>
             </ul>
           </div>
-          <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-            <i class="fas fa-door-open fa-3x text-blue-400"></i> <!-- Door icon for "BreakOut" -->
+          <div class="expert-icon">
+            <i class="fas fa-door-open"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./BreakooutBuddyIndicator.html"
-            class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
+          <a href="./BreakooutBuddyIndicator.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
             <i class="fas fa-info-circle mr-2"></i> Learn More
           </a>
         </div>
       </div>
 
-      <!-- Product 4 -->
-      <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold mb-1">Border Breaker Indicator</h3>
-            <ul class="text-sm text-gray-400 space-y-1">
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>High-Frequency Trading</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Low Spread Strategy</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>MT4/MT5</li>
+      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">Border Breaker</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Breakout Detection</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Multi-Timeframe</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Smart Entry/Exit</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Risk Management</li>
             </ul>
           </div>
-          <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-            <i class="fas fa-expand-arrows-alt fa-3x text-blue-400"></i> <!-- Expand icon for "Border Breaker" -->
+          <div class="expert-icon">
+            <i class="fas fa-expand-arrows-alt"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./BorderBreaker Indicator.html"
-            class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
+          <a href="./BorderBreaker Indicator.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
             <i class="fas fa-info-circle mr-2"></i> Learn More
           </a>
         </div>
       </div>
 
-      <!-- Product 5 -->
-      <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold mb-1">Pips Hunter</h3>
-            <ul class="text-sm text-gray-400 space-y-1">
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>High-Frequency Trading</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Low Spread Strategy</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>MT4/MT5</li>
+      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">Pips Hunter</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Scalping Strategy</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Quick Profits</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Low Drawdown</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>All Pairs</li>
             </ul>
           </div>
-          <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-            <i class="fas fa-robot fa-3x text-blue-400"></i> <!-- Robot icon for "AI-Powered Bot" -->
+          <div class="expert-icon">
+            <i class="fas fa-crosshairs"></i>
           </div>
         </div>
         <div class="mt-auto">
-          <a href="./PipesHunter.html"
-            class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
+          <a href="./PipesHunter.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
+            <i class="fas fa-info-circle mr-2"></i> Learn More
+          </a>
+        </div>
+      </div>
+
+      <div class="expert-card rounded-2xl p-8 flex flex-col product-card" data-type="expert">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">Triple Fusion Pro</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>3-Strategy Combo</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Advanced AI</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Market Adaptation</li>
+              <li><i class="fas fa-check text-emerald-400 mr-3"></i>Premium Features</li>
+            </ul>
+          </div>
+          <div class="expert-icon">
+            <i class="fas fa-gem"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <a href="./TripleFusion.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
+            <i class="fas fa-info-circle mr-2"></i> Learn More
+          </a>
+        </div>
+      </div>
+
+      <!-- Indicator Products -->
+      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">MTF Analyzer</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Multi-Timeframe View</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Trend Analysis</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Signal Alerts</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Custom Settings</li>
+            </ul>
+          </div>
+          <div class="indicator-icon">
+            <i class="fas fa-layer-group"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <a href="./MTFAnalyzer.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
+            <i class="fas fa-info-circle mr-2"></i> Learn More
+          </a>
+        </div>
+      </div>
+
+      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">Breakout Buddy Indicator</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Breakout Detection</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Volume Analysis</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Price Action Signals</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Real-time Alerts</li>
+            </ul>
+          </div>
+          <div class="indicator-icon">
+            <i class="fas fa-door-open"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <a href="./BreakooutBuddyIndicator.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
+            <i class="fas fa-info-circle mr-2"></i> Learn More
+          </a>
+        </div>
+      </div>
+
+      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">Smart Support & Resistance</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Dynamic S&R Lines</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Auto Detection</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Historical Analysis</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Strength Ratings</li>
+            </ul>
+          </div>
+          <div class="indicator-icon">
+            <i class="fas fa-arrows-alt-v"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <a href="./SupportResistance.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
+            <i class="fas fa-info-circle mr-2"></i> Learn More
+          </a>
+        </div>
+      </div>
+
+      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">Trend Momentum Pro</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Momentum Analysis</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Trend Strength</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Entry/Exit Points</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Divergence Detection</li>
+            </ul>
+          </div>
+          <div class="indicator-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <a href="./TrendMomentum.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
+            <i class="fas fa-info-circle mr-2"></i> Learn More
+          </a>
+        </div>
+      </div>
+
+      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">Volume Flow Indicator</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Volume Analysis</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Money Flow Tracking</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Institutional Activity</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Smart Money Alerts</li>
+            </ul>
+          </div>
+          <div class="indicator-icon">
+            <i class="fas fa-water"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <a href="./VolumeFlow.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
+            <i class="fas fa-info-circle mr-2"></i> Learn More
+          </a>
+        </div>
+      </div>
+
+      <div class="indicator-card rounded-2xl p-8 flex flex-col product-card" data-type="indicator" style="display: none;">
+        <div class="flex justify-between items-start mb-6">
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold mb-3 text-white">Pattern Recognition AI</h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Chart Patterns</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>AI Detection</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Success Probability</li>
+              <li><i class="fas fa-check text-cyan-400 mr-3"></i>Pattern Alerts</li>
+            </ul>
+          </div>
+          <div class="indicator-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <a href="./PatternRecognition.html" class="gradient-btn w-full text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center">
             <i class="fas fa-info-circle mr-2"></i> Learn More
           </a>
         </div>
       </div>
     </div>
 
-        <!-- service Section -->
-    <h2 class="text-3xl  text-center font-bold mb-8">Our Development Service</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-
-       <!-- Product 1 -->
-       <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold mb-1"> MQL4/MT4 Programming Service</h3>
-            <ul class="text-sm text-gray-400 space-y-1">
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Currency pair: XAUUSD (GOLD)</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Timeframe: M5</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Minimum deposit: $100</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Account type: Any</li>
-            </ul>
-          </div>
-          <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-            <i class="fas fa-bolt fa-3x text-blue-400"></i> <!-- Lightning bolt for "Hyper" -->
-          </div>
-        </div>
-        <div class="mt-auto">
-          <a href="./hyperBand.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
-        </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 text-center">
+      <div class="section-header">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Ready to supercharge your trading? Contact us today for personalized solutions</p>
       </div>
-    
-      <!-- Product 2 -->
-      <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold mb-1">MQL5/MT5 Programming Service</h3>
-            <ul class="text-sm text-gray-400 space-y-1">
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>HTF-Sled</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>M1 Entry</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Customizable Risk</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>MT5</li>
-            </ul>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl p-8 backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
+          <div class="feature-icon mx-auto">
+            <i class="fas fa-envelope text-white fa-lg"></i>
           </div>
-          <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-            <i class="fas fa-search-dollar fa-3x text-blue-400"></i> <!-- Scanner icon -->
-          </div>
+          <h3 class="text-xl font-semibold mb-2">Email Us</h3>
+          <p class="text-gray-400">support@trendscanner.com</p>
         </div>
-        <div class="mt-auto">
-          <a href="./Trend.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
-        </div>
-      </div>
-    
-      <!-- Product 3 -->
-      <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold mb-1"> cTrader Programming service </h3>
-            <ul class="text-sm text-gray-400 space-y-1">
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>High-Frequency Trading</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Low Spread Strategy</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>MT4/MT5</li>
-            </ul>
+        
+        <div class="bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl p-8 backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
+          <div class="feature-icon mx-auto">
+            <i class="fas fa-phone text-white fa-lg"></i>
           </div>
-          <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-            <i class="fas fa-door-open fa-3x text-blue-400"></i> <!-- Door icon for "BreakOut" -->
-          </div>
+          <h3 class="text-xl font-semibold mb-2">Call Us</h3>
+          <p class="text-gray-400">+1 (555) 123-4567</p>
         </div>
-        <div class="mt-auto">
-          <a href="./BreakooutBuddyIndicator.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
-        </div>
-      </div>
-    
-      <!-- Product 4 -->
-      <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold mb-1">TradingView Programming Service</h3>
-            <ul class="text-sm text-gray-400 space-y-1">
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>High-Frequency Trading</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Low Spread Strategy</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>MT4/MT5</li>
-            </ul>
+        
+        <div class="bg-gray-900/50 dark:bg-gray-900/50 light:bg-white/80 rounded-xl p-8 backdrop-blur-sm border border-gray-700 dark:border-gray-700 light:border-gray-200">
+          <div class="feature-icon mx-auto">
+            <i class="fas fa-comments text-white fa-lg"></i>
           </div>
-          <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-            <i class="fas fa-expand-arrows-alt fa-3x text-blue-400"></i> <!-- Expand icon for "Border Breaker" -->
-          </div>
-        </div>
-        <div class="mt-auto">
-          <a href="./BorderBreaker Indicator.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
-        </div>
-      </div>
-    
-      <!-- Product 5 -->
-      <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-xl font-bold mb-1">NinjaTrader Programming Service</h3>
-            <ul class="text-sm text-gray-400 space-y-1">
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>High-Frequency Trading</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>Low Spread Strategy</li>
-              <li><i class="fas fa-check text-blue-400 mr-2"></i>MT4/MT5</li>
-            </ul>
-          </div>
-          <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-            <i class="fas fa-robot fa-3x text-blue-400"></i> <!-- Robot icon for "AI-Powered Bot" -->
-          </div>
-        </div>
-        <div class="mt-auto">
-          <a href="./PipesHunter.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Learn More
-          </a>
+          <h3 class="text-xl font-semibold mb-2">Live Chat</h3>
+          <p class="text-gray-400">24/7 Support Available</p>
         </div>
       </div>
 
+      <button class="gradient-btn text-white font-semibold py-4 px-10 rounded-xl hover:opacity-90 transition-opacity flex items-center mx-auto">
+        <i class="fas fa-paper-plane mr-2"></i> Start Trading Today
+      </button>
+    </section>
+  </div>
 
-          <!-- Product 5 -->
-    <div class="bg-gray-900 rounded-lg p-6 flex flex-col product-card">
-      <div class="flex justify-between items-start mb-4">
+  <!-- Footer -->
+  <footer class="bg-gray-900/90 dark:bg-gray-900/90 backdrop-blur-md border-t border-gray-800 dark:border-gray-700 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="col-span-1 md:col-span-2">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-chart-line text-blue-500 text-2xl mr-2"></i>
+            <span class="text-2xl font-bold gradient-text">TrendScanner</span>
+          </div>
+          <p class="text-gray-400 mb-4 max-w-md">
+            Empowering traders worldwide with cutting-edge automated trading solutions and advanced market analysis tools.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+              <i class="fab fa-facebook text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+              <i class="fab fa-youtube text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
         <div>
-          <h3 class="text-xl font-bold mb-1">Amibroker Programming Service</h3>
-          <ul class="text-sm text-gray-400 space-y-1">
-            <li><i class="fas fa-check text-blue-400 mr-2"></i>High-Frequency Trading</li>
-            <li><i class="fas fa-check text-blue-400 mr-2"></i>Low Spread Strategy</li>
-            <li><i class="fas fa-check text-blue-400 mr-2"></i>MT4/MT5</li>
+          <h3 class="text-lg font-semibold mb-4 text-white">Products</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Expert Advisors</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Indicators</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Trading Tools</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Market Analysis</a></li>
           </ul>
         </div>
-        <div class="bg-blue-900 bg-opacity-20 p-2 rounded">
-          <i class="fas fa-robot fa-3x text-blue-400"></i> <!-- Robot icon for "AI-Powered Bot" -->
-        </div>
-      </div>
-      <div class="mt-auto">
-        <a href="./PipesHunter.html" class="gradient-btn w-full text-white font-semibold py-2 px-4 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center justify-center">
-          <i class="fas fa-info-circle mr-2"></i> Learn More
-        </a>
-      </div>
-    </div>
-  </div>
- </div> 
-
-    <!-- CTA Section -->
-<div class="text-center mb-16 bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 p-10 rounded-2xl shadow-xl animate-fade-in">
-  <p class="mb-4 text-gray-300 text-lg tracking-wide">Looking for a custom trading bot?</p>
-  <a href="#" class="inline-block mb-4 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full shadow-md hover:scale-105 hover:from-blue-700 hover:to-blue-600 transition-all duration-300">Request a Custom Bot</a>
-</div>
-
-<!-- How It Works Section -->
-<div class="bg-gradient-to-br from-gray-800 to-gray-900 p-10 rounded-2xl shadow-xl mb-16 animate-slide-up">
-  <h2 class="text-3xl font-bold text-center text-white mb-10 tracking-wide">How It Works</h2>
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-    <!-- Step Cards -->
-    <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
-      <div class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
-        <span class="text-2xl font-bold text-blue-400">1</span>
-      </div>
-      <h3 class="text-lg font-semibold mb-2 text-white">Choose Your Bot</h3>
-      <p class="text-gray-400 group-hover:text-gray-200 transition">Pick a strategy that fits your trading style.</p>
-    </div>
-
-    <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
-      <div class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
-        <span class="text-2xl font-bold text-blue-400">2</span>
-      </div>
-      <h3 class="text-lg font-semibold mb-2 text-white">Install on MT4/MT5</h3>
-      <p class="text-gray-400 group-hover:text-gray-200 transition">Easy plug & play setup.</p>
-    </div>
-
-    <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
-      <div class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
-        <span class="text-2xl font-bold text-blue-400">3</span>
-      </div>
-      <h3 class="text-lg font-semibold mb-2 text-white">Customize Settings</h3>
-      <p class="text-gray-400 group-hover:text-gray-200 transition">Adjust SL, TP, risk, and timeframes.</p>
-    </div>
-
-    <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
-      <div class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
-        <span class="text-2xl font-bold text-blue-400">4</span>
-      </div>
-      <h3 class="text-lg font-semibold mb-2 text-white">Start Trading</h3>
-      <p class="text-gray-400 group-hover:text-gray-200 transition">Let the bot execute trades automatically.</p>
-    </div>
-  </div>
-
-  <div class="text-center mt-10">
-    <a href="#" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2">
-      <i class="fas fa-rocket"></i> Start Trading Now
-    </a>
-  </div>
-</div>
-
-<!-- Add inside your <head> if not already included -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-
-<!-- Testimonials Section -->
-<section class="mb-16">
-  <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-10 rounded-2xl shadow-xl mb-16 animate-slide-up">
-    <h1 class="text-3xl font-bold text-center text-white mb-10 tracking-wide">Testimonials</h1>
-    <h2 class="text-3xl text-center font-bold mb-8">What Our Users Say</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Testimonial 1 -->
-    <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-md">
-      <p class="text-gray-300 mb-4">"TrendScanner has revolutionized my trading. The bots are accurate, fast, and have made me consistent profits!"</p>
-      <div class="flex items-center">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 1" class="w-12 h-12 rounded-full mr-4">
+        
         <div>
-          <h4 class="text-white font-semibold">Arjun Patel</h4>
-          <p class="text-gray-400 text-sm">Full-time Trader</p>
+          <h3 class="text-lg font-semibold mb-4 text-white">Support</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Documentation</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Tutorials</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">FAQ</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Contact Us</a></li>
+          </ul>
         </div>
       </div>
-    </div>
-
-    <!-- Testimonial 2 -->
-    <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-md">
-      <p class="text-gray-300 mb-4">"I used to struggle with entries and exits, but now with AI-powered bots, it's stress-free trading."</p>
-      <div class="flex items-center">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 2" class="w-12 h-12 rounded-full mr-4">
-        <div>
-          <h4 class="text-white font-semibold">Meera Jain</h4>
-          <p class="text-gray-400 text-sm">Forex Enthusiast</p>
-        </div>
+      
+      <div class="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-400">
+          &copy; 2025 TrendScanner. All rights reserved. | 
+          <a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a> | 
+          <a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a>
+        </p>
       </div>
     </div>
+  </footer>
 
-    <!-- Testimonial 3 -->
-    <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-md">
-      <p class="text-gray-300 mb-4">"The customization options are top-notch. I can fine-tune every bot according to my strategy."</p>
-      <div class="flex items-center">
-        <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="User 3" class="w-12 h-12 rounded-full mr-4">
-        <div>
-          <h4 class="text-white font-semibold">Rahul Verma</h4>
-          <p class="text-gray-400 text-sm">Algorithmic Trader</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#0f172a',
-            secondary: '#1e293b',
-            accent: '#38bdf8',
-          }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
- <div class="bg-white dark:bg-primary text-gray-900 dark:text-white transition-colors duration-500">
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-<div class="text-center my-11">
-  <h1 class="text-4xl font-bold">Choose Your Perfect <span class="text-blue-500">Trading Plan</span></h1>
-  <p class="mt-2 text-gray-500 dark:text-gray-400">AI Signals | MQ4/MT5 Bots | Crypto Analysis</p>
-
-  <!-- Toggle Buttons -->
-  <div class="flex justify-center items-center space-x-4 my-6">
-    <button id="monthlyBtn" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Monthly</button>
-    <button id="yearlyBtn" class="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded-lg">Yearly</button>
-    <button id="darkModeToggle" class="ml-4 px-4 py-2 border rounded-lg dark:border-white">🌙/☀️</button>
-  </div>
-</div>
-
-<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4">
-  <!-- Free Plan -->
-  <div class="p-6 bg-gray-100 dark:bg-secondary rounded-2xl text-center shadow-md hover:shadow-xl transition-transform hover:scale-105">
-    <h2 class="text-xl font-semibold mb-3">Free Plan</h2>
-    <p class="text-3xl font-bold text-blue-500 mb-4 price" data-monthly="0" data-yearly="0">$0<span class="text-base">/month</span></p>
-    <ul class="text-left space-y-2 text-sm">
-      <li><i class="fa-solid fa-check text-green-500"></i> Limited Crypto Signals</li>
-      <li><i class="fa-solid fa-check text-green-500"></i> Community Access</li>
-      <li><i class="fa-solid fa-check text-green-500"></i> Newsletters</li>
-    </ul>
-    <button class="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg">Get Started</button>
-  </div>
-
-  <!-- Basic Plan -->
-  <div class="p-6 bg-gray-100 dark:bg-secondary rounded-2xl text-center shadow-md hover:shadow-xl transition-transform hover:scale-105">
-    <h2 class="text-xl font-semibold mb-3">Basic Plan</h2>
-    <p class="text-3xl font-bold text-blue-500 mb-4 price" data-monthly="19" data-yearly="190">$19<span class="text-base">/month</span></p>
-    <ul class="text-left space-y-2 text-sm">
-      <li><i class="fa-solid fa-check text-green-500"></i> MT4/MT5 Signal Access</li>
-      <li><i class="fa-solid fa-check text-green-500"></i> 5 AI Trade Predictions/day</li>
-      <li><i class="fa-solid fa-check text-green-500"></i> Weekly Strategy Reports</li>
-    </ul>
-    <button class="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg">Get Started</button>
-  </div>
-
-  <!-- Premium Plan -->
-  <div class="p-6 bg-gray-100 dark:bg-secondary border-2 border-blue-500 rounded-2xl text-center shadow-lg hover:shadow-2xl transition-transform hover:scale-105">
-    <h2 class="text-xl font-semibold mb-3">Premium Plan</h2>
-    <p class="text-3xl font-bold text-blue-500 mb-4 price" data-monthly="39" data-yearly="399">$39<span class="text-base">/month</span></p>
-    <ul class="text-left space-y-2 text-sm">
-      <li><i class="fa-solid fa-check text-green-500"></i> All Basic Features</li>
-      <li><i class="fa-solid fa-check text-green-500"></i> Auto Trading with MQ4 Bots</li>
-      <li><i class="fa-solid fa-check text-green-500"></i> Personalized Trading Dashboard</li>
-    </ul>
-    <button class="mt-6 px-4 py-2 bg-blue-600 text-white rounded-lg">Get Started</button>
-  </div>
-
-  <!-- Elite Plan -->
-  <div class="p-6 bg-gray-100 dark:bg-secondary rounded-2xl text-center shadow-md hover:shadow-xl transition-transform hover:scale-105">
-    <h2 class="text-xl font-semibold mb-3">Elite Plan</h2>
-    <p class="text-3xl font-bold text-blue-500 mb-4 price" data-monthly="59" data-yearly="599">$59<span class="text-base">/month</span></p>
-    <ul class="text-left space-y-2 text-sm">
-      <li><i class="fa-solid fa-check text-green-500"></i> VIP Support & Signals</li>
-      <li><i class="fa-solid fa-check text-green-500"></i> Unlimited Bot Deployments</li>
-      <li><i class="fa-solid fa-check text-green-500"></i> Exclusive Bitcoin AI Strategy</li>
-    </ul>
-    <button class="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg">Get Started</button>
-  </div>
-</div>
-</div>
-
-
-
-
-
-
-    <!-- Footer -->
-    <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
-      <div class="text-sm">© 2025 HyperBand. All rights reserved.</div>
-    </footer>
-</body>
-<script>
-  // Mobile menu toggle
-  document.addEventListener("DOMContentLoaded", function () {
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    mobileMenuButton.addEventListener("click", function () {
-      mobileMenu.classList.toggle("hidden");
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
 
-    // Close mobile menu when clicking on a link
-    const mobileLinks = mobileMenu.querySelectorAll("a");
-    mobileLinks.forEach((link) => {
-      link.addEventListener("click", function () {
-        mobileMenu.classList.add("hidden");
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+
+    darkModeToggle.addEventListener('click', () => {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        html.classList.add('light');
+      } else {
+        html.classList.remove('light');
+        html.classList.add('dark');
+      }
+    });
+
+    // Product toggle functionality
+    const expertBtn = document.getElementById('expertBtn');
+    const indicatorBtn = document.getElementById('indicatorBtn');
+    const expertCards = document.querySelectorAll('[data-type="expert"]');
+    const indicatorCards = document.querySelectorAll('[data-type="indicator"]');
+
+    function showExperts() {
+      expertBtn.classList.remove('inactive');
+      expertBtn.classList.add('active');
+      indicatorBtn.classList.remove('active');
+      indicatorBtn.classList.add('inactive');
+      
+      expertCards.forEach(card => {
+        card.style.display = 'flex';
+        card.style.animationDelay = Array.from(expertCards).indexOf(card) * 0.1 + 's';
+      });
+      
+      indicatorCards.forEach(card => {
+        card.style.display = 'none';
+      });
+    }
+
+    function showIndicators() {
+      indicatorBtn.classList.remove('inactive');
+      indicatorBtn.classList.add('active');
+      expertBtn.classList.remove('active');
+      expertBtn.classList.add('inactive');
+      
+      indicatorCards.forEach(card => {
+        card.style.display = 'flex';
+        card.style.animationDelay = Array.from(indicatorCards).indexOf(card) * 0.1 + 's';
+      });
+      
+      expertCards.forEach(card => {
+        card.style.display = 'none';
+      });
+    }
+
+    expertBtn.addEventListener('click', showExperts);
+    indicatorBtn.addEventListener('click', showIndicators);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       });
     });
-  });
-</script>
 
-<script>
-  const prices = document.querySelectorAll('.price');
-  const monthlyBtn = document.getElementById('monthlyBtn');
-  const yearlyBtn = document.getElementById('yearlyBtn');
-  const darkToggle = document.getElementById('darkModeToggle');
-  const html = document.documentElement;
-
-  monthlyBtn.addEventListener('click', () => {
-    prices.forEach(price => {
-      price.innerHTML = `$${price.dataset.monthly}<span class="text-base">/month</span>`;
-    });
-    monthlyBtn.classList.add('bg-blue-500', 'text-white');
-    yearlyBtn.classList.remove('bg-blue-500');
-  });
-
-  yearlyBtn.addEventListener('click', () => {
-    prices.forEach(price => {
-      price.innerHTML = `$${price.dataset.yearly}<span class="text-base">/year</span>`;
-    });
-    yearlyBtn.classList.add('bg-blue-500', 'text-white');
-    monthlyBtn.classList.remove('bg-blue-500');
-  });
-
-  darkToggle.addEventListener('click', () => {
-    html.classList.toggle('dark');
-  });
-</script>
-
+    // Initialize with experts showing
+    showExperts();
+  </script>
+</body>
 </html>
