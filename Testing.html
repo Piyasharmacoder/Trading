@@ -1,0 +1,96 @@
+    .service-card {
+      background: linear-gradient(145deg, #1e1e3f 0%, #2a2a5a 100%);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .service-card:hover::before {
+      left: 100%;
+    }
+
+    .service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(59, 130, 246, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        .icon-container {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .icon-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .icon-container::before {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .service-card:hover .icon-container {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+         <!-- Section -1 SmartTrendX Trading Bot and Description -->
+  <section class="py-16 px-4 sm:px-6 bg-gradient-to-r from-secondary to-primary text-white">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
+      <!-- left Side: Text Content -->
+      <div class="text-center md:text-left max-w-2xl z-10">
+        <h1
+          class="text-5xl md:text-6xl font-extrabold mb-4 text-accent hover:text-yellow-300 transition-colors duration-300">
+          SMARTTRENDX
+        </h1>
+        <h2 class="text-2xl md:text-3xl font-semibold text-white mb-2">Trading Bot</h2>
+        <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+          Empowering your trades with precision, logic, and momentum.
+        </p>
+        <div class="mt-6">
+          <a href="#"
+            class="inline-flex items-center px-6 py-3 text-lg font-medium border-2 border-accent text-accent rounded-full hover:bg-accent hover:text-black transition duration-300">
+            Get Started →
+          </a>
+        </div>
+      </div>
+      <!-- right Side: Robot Image -->
+      <div class=" w-full mx-auto rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center card-hover">
+        <div class="relative">
+          <img src="https://i.pinimg.com/736x/52/92/3a/52923ab832ec8c7e64a37970847b46b5.jpg" alt="Smart Bot"
+            class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+        </div>
+      </div>
+    </div>
+  </section> esko sahi kro No black bar beside the image image right side me honi chiye with good width or accoundig to my page  jo dekhne me acha lage or profasstional dikhe
+
+✔️ Image fills the container perfectly
+
+✔️ On hover, zoom effect works
+
+✔️ Rounded corners and shadow preserved
