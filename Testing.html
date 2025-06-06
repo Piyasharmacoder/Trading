@@ -1,96 +1,491 @@
-    .service-card {
-      background: linear-gradient(145deg, #1e1e3f 0%, #2a2a5a 100%);
-      border: 1px solid rgba(59, 130, 246, 0.1);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
+.service-card {
+background: linear-gradient(145deg, #1e1e3f 0%, #2a2a5a 100%);
+border: 1px solid rgba(59, 130, 246, 0.1);
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+position: relative;
+overflow: hidden;
+}
 
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-      transition: left 0.5s;
-    }
+.service-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+transition: left 0.5s;
+}
 
-    .service-card:hover::before {
-      left: 100%;
-    }
+.service-card:hover::before {
+left: 100%;
+}
 
-    .service-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(59, 130, 246, 0.3);
-            box-shadow: 
-                0 25px 50px -12px rgba(0, 0, 0, 0.8),
-                0 0 0 1px rgba(59, 130, 246, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-        .icon-container {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .icon-container::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.3s ease;
-        }
-        
-        .service-card:hover .icon-container::before {
-            width: 100px;
-            height: 100px;
-        }
-        
-        .service-card:hover .icon-container {
-            transform: rotate(10deg) scale(1.1);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-        }
+.service-card:hover {
+transform: translateY(-8px) scale(1.02);
+border-color: rgba(59, 130, 246, 0.3);
+box-shadow:
+0 25px 50px -12px rgba(0, 0, 0, 0.8),
+0 0 0 1px rgba(59, 130, 246, 0.2),
+inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.icon-container {
+background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+}
 
-         <!-- Section -1 SmartTrendX Trading Bot and Description -->
-  <section class="py-16 px-4 sm:px-6 bg-gradient-to-r from-secondary to-primary text-white">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
-      <!-- left Side: Text Content -->
-      <div class="text-center md:text-left max-w-2xl z-10">
-        <h1
-          class="text-5xl md:text-6xl font-extrabold mb-4 text-accent hover:text-yellow-300 transition-colors duration-300">
-          SMARTTRENDX
-        </h1>
-        <h2 class="text-2xl md:text-3xl font-semibold text-white mb-2">Trading Bot</h2>
-        <p class="text-gray-300 text-base md:text-lg leading-relaxed">
-          Empowering your trades with precision, logic, and momentum.
-        </p>
-        <div class="mt-6">
-          <a href="#"
-            class="inline-flex items-center px-6 py-3 text-lg font-medium border-2 border-accent text-accent rounded-full hover:bg-accent hover:text-black transition duration-300">
-            Get Started →
-          </a>
-        </div>
-      </div>
-      <!-- right Side: Robot Image -->
-      <div class=" w-full mx-auto rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center card-hover">
-        <div class="relative">
-          <img src="https://i.pinimg.com/736x/52/92/3a/52923ab832ec8c7e64a37970847b46b5.jpg" alt="Smart Bot"
-            class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
-        </div>
+.icon-container::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+background: rgba(255, 255, 255, 0.2);
+border-radius: 50%;
+transform: translate(-50%, -50%);
+transition: all 0.3s ease;
+}
+
+.service-card:hover .icon-container::before {
+width: 100px;
+height: 100px;
+}
+
+.service-card:hover .icon-container {
+transform: rotate(10deg) scale(1.1);
+box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+<!-- Section -1 SmartTrendX Trading Bot and Description -->
+<section class="py-16 px-4 sm:px-6 bg-gradient-to-r from-secondary to-primary text-white">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
+    <!-- left Side: Text Content -->
+    <div class="text-center md:text-left max-w-2xl z-10">
+      <h1
+        class="text-5xl md:text-6xl font-extrabold mb-4 text-accent hover:text-yellow-300 transition-colors duration-300">
+        SMARTTRENDX
+      </h1>
+      <h2 class="text-2xl md:text-3xl font-semibold text-white mb-2">Trading Bot</h2>
+      <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+        Empowering your trades with precision, logic, and momentum.
+      </p>
+      <div class="mt-6">
+        <a href="#"
+          class="inline-flex items-center px-6 py-3 text-lg font-medium border-2 border-accent text-accent rounded-full hover:bg-accent hover:text-black transition duration-300">
+          Get Started →
+        </a>
       </div>
     </div>
-  </section> esko sahi kro No black bar beside the image image right side me honi chiye with good width or accoundig to my page  jo dekhne me acha lage or profasstional dikhe
+    <!-- right Side: Robot Image -->
+    <div
+      class=" w-full mx-auto rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-center card-hover">
+      <div class="relative">
+        <img src="https://i.pinimg.com/736x/52/92/3a/52923ab832ec8c7e64a37970847b46b5.jpg" alt="Smart Bot"
+          class="w-full max-w-2xl h-[400px] md:h-[400px] object-cover drop-shadow-2xl transition-transform duration-300 hover:scale-105 rounded-2xl" />
+      </div>
+    </div>
+  </div>
+</section> esko sahi kro No black bar beside the image image right side me honi chiye with good width or accoundig to my
+page jo dekhne me acha lage or profasstional dikhe
 
 ✔️ Image fills the container perfectly
 
 ✔️ On hover, zoom effect works
 
 ✔️ Rounded corners and shadow preserved
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartTrendX - Trading Bot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0f172a",
+            secondary: "#1e293b",
+            accent: "#facc15", // Yellow
+          },
+          fontFamily: {
+            body: ["'Segoe UI'", "sans-serif"],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-in-out',
+            'slide-up': 'slideUp 0.8s ease-out',
+            'pulse-glow': 'pulseGlow 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(40px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            pulseGlow: {
+              '0%': { boxShadow: '0 0 20px rgba(250, 204, 21, 0.3)' },
+              '100%': { boxShadow: '0 0 40px rgba(250, 204, 21, 0.6)' }
+            }
+          }
+        },
+      },
+    };
+  </script>
+  <style>
+    .gradient-text {
+      background: linear-gradient(135deg, #facc15, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
+    }
+    
+    .mobile-menu {
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .mobile-menu.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .glass-effect {
+      backdrop-filter: blur(10px);
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        line-height: 1.1;
+      }
+      
+      .hero-subtitle {
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container-padding {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-primary text-white font-body overflow-x-hidden">
+  <!-- Header with Ultra-Responsive Navigation -->
+  <header class="bg-gray-900/95 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo - Responsive sizing -->
+        <div class="flex items-center flex-shrink-0">
+          <a href="#" class="flex items-center group">
+            <i class="fas fa-chart-line text-blue-500 text-xl sm:text-2xl mr-2 group-hover:scale-110 transition-transform duration-300"></i>
+            <span class="text-lg sm:text-xl lg:text-2xl font-bold gradient-text whitespace-nowrap">TrendScanner</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex space-x-6 xl:space-x-8">
+          <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-medium px-2 py-1 rounded-md hover:bg-gray-800/50">Home</a>
+          <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors font-medium px-2 py-1 rounded-md hover:bg-gray-800/50">About</a>
+          <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors font-medium px-2 py-1 rounded-md hover:bg-gray-800/50">Contact</a>
+        </nav>
+
+        <!-- Desktop CTA Buttons -->
+        <div class="hidden md:flex space-x-2 lg:space-x-4 flex-shrink-0">
+          <a href="#"
+            class="px-3 lg:px-4 py-2 text-sm lg:text-base border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105">Login</a>
+          <a href="#"
+            class="px-3 lg:px-4 py-2 text-sm lg:text-base bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg">Sign Up</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-gray-300 hover:text-blue-500 focus:outline-none p-2 rounded-md hover:bg-gray-800/50 transition-colors">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Enhanced Mobile menu -->
+      <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4 glass-effect rounded-lg">
+        <div class="flex flex-col space-y-2 p-4">
+          <a href="#" class="text-gray-300 hover:text-blue-400 py-3 px-4 rounded-md hover:bg-gray-800/70 transition-all duration-300 text-center">Home</a>
+          <a href="#about" class="text-gray-300 hover:text-blue-400 py-3 px-4 rounded-md hover:bg-gray-800/70 transition-all duration-300 text-center">About</a>
+          <a href="#contact" class="text-gray-300 hover:text-blue-400 py-3 px-4 rounded-md hover:bg-gray-800/70 transition-all duration-300 text-center">Contact</a>
+
+          <div class="flex flex-col space-y-3 pt-4 border-t border-gray-700/50">
+            <a href="#"
+              class="w-full text-center py-3 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-all duration-300 font-medium">Login</a>
+            <a href="#"
+              class="w-full text-center py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all duration-300 font-medium shadow-lg">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section - Ultra Responsive -->
+  <section class="hero-gradient py-12 sm:py-16 lg:py-20 xl:py-24 px-3 sm:px-4 lg:px-6 relative overflow-hidden">
+    <!-- Background Animation Elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-accent rounded-full animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-24 h-24 bg-blue-500 rounded-full animate-pulse delay-1000"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 relative z-10">
+      <!-- Left Side: Text Content -->
+      <div class="text-center lg:text-left max-w-2xl xl:max-w-3xl animate-slide-up">
+        <h1 class="hero-title font-extrabold mb-4 sm:mb-6 text-accent hover:text-yellow-300 transition-colors duration-300 animate-pulse-glow">
+          SMARTTRENDX
+        </h1>
+        <h2 class="hero-subtitle font-semibold text-white mb-3 sm:mb-4">Trading Bot</h2>
+        <p class="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
+          Empowering your trades with precision, logic, and momentum. Experience next-generation automated trading.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center lg:items-start">
+          <a href="#"
+            class="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium border-2 border-accent text-accent rounded-full hover:bg-accent hover:text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-accent/25 whitespace-nowrap">
+            Get Started 
+            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+          </a>
+          <a href="#introduction"
+            class="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium bg-gray-800/50 text-white rounded-full hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+            Learn More
+            <i class="fas fa-chevron-down ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right Side: Robot Image -->
+      <div class="w-full lg:w-1/2 xl:w-2/5 flex justify-center lg:justify-end animate-fade-in">
+        <div class="relative group">
+          <div class="absolute inset-0 bg-gradient-to-r from-accent/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+          <img src="https://i.pinimg.com/736x/52/92/3a/52923ab832ec8c7e64a37970847b46b5.jpg" 
+               alt="Smart Bot"
+               class="relative w-full max-w-xs sm:max-w-sm lg:max-w-md xl:max-w-lg h-auto object-contain rounded-2xl drop-shadow-2xl transition-all duration-500 hover:scale-105 group-hover:rotate-2" />
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
+      <i class="fas fa-chevron-down text-accent text-xl opacity-70"></i>
+    </div>
+  </section>
+
+  <!-- Introduction Section - Enhanced Responsiveness -->
+  <section id="introduction" class="px-3 sm:px-4 lg:px-6 py-12 sm:py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="glass-effect p-6 sm:p-8 lg:p-12 rounded-2xl shadow-2xl animate-fade-in">
+        <div class="text-center lg:text-left max-w-4xl mx-auto lg:mx-0">
+          <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-accent">
+            Hello Traders,
+          </h3>
+          
+          <div class="space-y-4 sm:space-y-6 text-sm sm:text-base lg:text-lg">
+            <p class="text-gray-300 leading-relaxed">
+              I'm <span class="text-white font-semibold bg-accent/20 px-2 py-1 rounded">SmartTrendX</span> – and I'm not just a trading tool... I'm your
+              reliable trading partner. I don't rely on luck or guesses. I use a powerful combination of
+              <span class="text-accent font-semibold">trend detection</span>, 
+              <span class="text-accent font-semibold">confirmation signals</span>,
+              and <span class="text-accent font-semibold">momentum filtering</span> to find the right opportunities in the
+              market.
+            </p>
+            
+            <p class="text-gray-300 leading-relaxed">
+              My approach is simple – wait for a genuine trend change, confirm it through multiple layers of analysis, and
+              only then make the move. <span class="text-white font-semibold">Precision over frequency</span> is my motto.
+            </p>
+            
+            <!-- Feature highlights for mobile -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
+              <div class="text-center p-4 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 transition-colors">
+                <i class="fas fa-chart-line text-accent text-2xl sm:text-3xl mb-3"></i>
+                <h4 class="font-semibold text-white mb-2">Trend Detection</h4>
+                <p class="text-gray-400 text-xs sm:text-sm">Advanced algorithms identify market trends</p>
+              </div>
+              
+              <div class="text-center p-4 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 transition-colors">
+                <i class="fas fa-shield-alt text-accent text-2xl sm:text-3xl mb-3"></i>
+                <h4 class="font-semibold text-white mb-2">Risk Management</h4>
+                <p class="text-gray-400 text-xs sm:text-sm">Smart risk controls protect your capital</p>
+              </div>
+              
+              <div class="text-center p-4 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 transition-colors">
+                <i class="fas fa-bolt text-accent text-2xl sm:text-3xl mb-3"></i>
+                <h4 class="font-semibold text-white mb-2">Fast Execution</h4>
+                <p class="text-gray-400 text-xs sm:text-sm">Lightning-fast trade execution</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer - Responsive -->
+  <footer class="text-center text-gray-500 text-xs sm:text-sm py-6 sm:py-8 border-t border-gray-700 bg-secondary/50 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>&copy; 2025 SmartTrendX. All rights reserved.</p>
+      <div class="flex justify-center space-x-6 mt-4">
+        <a href="#" class="hover:text-accent transition-colors">
+          <i class="fab fa-twitter text-lg"></i>
+        </a>
+        <a href="#" class="hover:text-accent transition-colors">
+          <i class="fab fa-linkedin text-lg"></i>
+        </a>
+        <a href="#" class="hover:text-accent transition-colors">
+          <i class="fab fa-github text-lg"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Enhanced Mobile Menu Toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const button = this;
+      
+      mobileMenu.classList.toggle('hidden');
+      
+      // Add show class after a small delay for smooth animation
+      setTimeout(() => {
+        mobileMenu.classList.toggle('show');
+      }, 10);
+      
+      // Toggle button icon
+      const icon = button.querySelector('svg path');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      } else {
+        icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll-based animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(30px)';
+      section.style.transition = 'all 0.8s ease-out';
+      observer.observe(section);
+    });
+
+    // Header background on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('bg-gray-900');
+        header.classList.remove('bg-gray-900/95');
+      } else {
+        header.classList.remove('bg-gray-900');
+        header.classList.add('bg-gray-900/95');
+      }
+    });
+  </script>
+</body>
+
+</html>
+
+
+
+ <section id="introduction" class="px-6 py-16">
+    <div
+      class="max-w-full md:max-w-[1400px] lg:max-w-[1600px] mx-auto bg-secondary p-6 md:p-10 lg:p-16 rounded-xl shadow-lg">
+      <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-accent">
+        Hello Traders,
+      </h3>
+      <div class="space-y-4 sm:space-y-6 text-sm sm:text-base lg:text-lg">
+        <p class="text-gray-300 leading-relaxed">
+          I'm <span class="text-white font-semibold bg-accent/20 px-2 py-1 rounded">SmartTrendX</span> – and I'm not
+          just a trading tool... I'm your
+          reliable trading partner. I don't rely on luck or guesses. I use a powerful combination of
+          <span class="text-accent font-semibold">trend detection</span>,
+          <span class="text-accent font-semibold">confirmation signals</span>,
+          and <span class="text-accent font-semibold">momentum filtering</span> to find the right opportunities in the
+          market.
+        </p>
+        <p class="text-gray-300 mt-4">
+          My approach is simple – wait for a genuine trend change, confirm it through multiple layers of analysis, and
+          only then make the move.
+        </p>
+        <p class="text-gray-300 mt-4">
+          I was designed to help you trade smarter, not harder, and to
+          reduce the stress and noise that often comes with market
+          decisions.
+        </p>
+        <p class="text-gray-300 mt-4">
+          <span class="text-accent font-semibold">My goal?</span> To keep you on the right side of the market with
+          consistency and confidence.
+        </p>
+      </div>
+  </section>
