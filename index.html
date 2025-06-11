@@ -5,17 +5,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Automate Your Trading with Precision</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/Frontend/Public/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/Frontend/Public/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/Frontend/Public/favicon-16x16.png" />
-  <link rel="manifest" href="/Frontend/Public/site.webmanifest" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-    <!-- Add inside your <head> if not already included -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/Frontend/Public/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Frontend/Public/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Frontend/Public/favicon-16x16.png">
+  <link rel="manifest" href="/Frontend/Public/site.webmanifest">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            'primary': {
+              50: '#eff6ff',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a'
+            },
+            'dark': {
+              50: '#f8fafc',
+              800: '#1e293b',
+              900: '#0f172a'
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s ease-in-out infinite',
+            'fadeIn': 'fadeIn 0.6s ease-out forwards',
+            'slideUp': 'slideUp 0.8s ease-out forwards'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(30px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
+            }
+          }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+
   <style>
     body {
+      /* background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); */
       background-color: #050b18;
       color: white;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -151,38 +203,42 @@
       -webkit-text-fill-color: transparent;
     }
 
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
+    /* for about section  */
+    .mission-card:hover .icon-container {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
     }
 
-    @keyframes slideUp {
-      0% {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
+    .vision-card:hover .icon-container {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(124, 58, 237, 0.3) 100%);
     }
 
-    .fade-in {
-      animation: fadeIn 1s ease-in-out forwards;
+    .stat-card {
+      position: relative;
+      overflow: hidden;
     }
 
-    .slide-up {
-      animation: slideUp 1s ease-in-out forwards;
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: 0.5s;
     }
 
+    .stat-card:hover::before {
+      left: 100%;
+    }
 
+    .team-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+    }
   </style>
 
 </head>
@@ -202,19 +258,27 @@
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-8">
-          <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Home</a>
-          <a href="./About.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">About</a>
-          <a href="./Contact.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contact</a>
-          <a href="#products" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Our Products</a>
-          <a href="#services" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Services</a>
-         <!-- Add Toggle button for dark or light mode -->
-         <button id="theme-toggle" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">
-          
-         </button>
-          
+          <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-medium relative group">
+            Home
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors font-medium relative group">
+            About
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors font-medium relative group">
+            Contact
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#products" class="text-gray-300 hover:text-blue-400 transition-colors font-medium relative group">
+            Products
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#services" class="text-gray-300 hover:text-blue-400 transition-colors font-medium relative group">
+            Services
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+          </a>
         </nav>
-
-
         <!-- Mobile menu button -->
         <div class="md:hidden flex items-center">
           <button id="mobile-menu-button" class="text-gray-300 hover:text-blue-500 focus:outline-none">
@@ -226,29 +290,36 @@
       </div>
 
       <!-- Mobile menu, hidden by default -->
-      <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4">
-        <div class="flex flex-col space-y-3">
-          <a href="#"class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Home</a>
-          <a href="#about" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">About</a>
-          <a href="#contact"class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Contact</a>
-          <a href="#products" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Our Products</a>
-          <a href="#services" class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800">Services</a>
+      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-700">
+        <div class="flex flex-col space-y-3 pt-4">
+          <a href="#"
+            class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800 transition-colors">Home</a>
+          <a href="#about"
+            class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800 transition-colors">About</a>
+          <a href="#contact"
+            class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800 transition-colors">Contact</a>
+          <a href="#products"
+            class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800 transition-colors">Products</a>
+          <a href="#services"
+            class="text-gray-300 hover:text-blue-400 py-2 px-3 rounded-md hover:bg-gray-800 transition-colors">Services</a>
         </div>
       </div>
-      
     </div>
   </header>
-
-  <div class="container mx-auto px-4 py-8 max-w-6xl">
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-8 max-w-7xl">
     <!-- Hero Section -->
-    <div class="flex flex-col lg:flex-row items-center justify-between mb-16">
-      <div class="lg:w-1/2">
+    <div class="flex flex-col lg:flex-row items-center justify-between mb-20 gap-12">
+      <div class="lg:w-1/2 space-y-8">
         <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-          Automate Your Trading with Precision - Powerful MT4 & MT5 Bots
+          Automate Your Trading with Precision
+          <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            - Powerful MT4 & MT5 Bots
+          </span>
         </h1>
-        <p class="text-lg mb-8 text-gray-300">
+        <p class="text-lg mb-8 text-gray-300 leading-relaxed">
           Enhance your trading experience with AI-powered automation for
-          maximum profits & minimal risks!
+          maximum profits & minimal risks using our powerful MT4 & MT5 bots.
         </p>
         <button
           class="gradient-btn text-white font-semibold py-3 px-8 rounded-md hover:opacity-90 transition-opacity btn-hover flex items-center">
@@ -264,7 +335,6 @@
         </div>
       </div>
     </div>
-
     <!-- Benefits Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
       <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
@@ -273,11 +343,12 @@
         </div>
         <div>
           <h3 class="text-lg font-semibold">Lightning-Fast Execution</h3>
+          <p class="text-gray-400 text-sm">Ultra-low latency trading</p>
         </div>
       </div>
       <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
         <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-chart-line text-blue-400 fa-lg"></i>
+          <i class="fas fa-chart-line text-green-400 fa-lg"></i>
         </div>
         <div>
           <h3 class="text-lg font-semibold">Proven</h3>
@@ -286,426 +357,443 @@
       </div>
       <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
         <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-sliders-h text-blue-400 fa-lg"></i>
+          <i class="fas fa-sliders-h text-purple-400 fa-lg"></i>
         </div>
         <div>
           <h3 class="text-lg font-semibold">100% Customizable Settings</h3>
+          <p class="text-gray-400 text-sm">Tailored to your needs</p>
         </div>
       </div>
       <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
         <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-brain text-blue-400 fa-lg"></i>
+          <i class="fas fa-brain text-yellow-400 fa-lg"></i>
         </div>
         <div>
           <h3 class="text-lg font-semibold">AI-Powered Trading</h3>
+          <p class="text-gray-400 text-sm">Machine learning algorithms</p>
+
         </div>
       </div>
       <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
         <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-shield-alt text-blue-400 fa-lg"></i>
+          <i class="fas fa-shield-alt text-red-400 fa-lg"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">
-            Risk Management & Profit Maximization
-          </h3>
+          <h3 class="text-lg font-semibold">Risk Management & Profit Maximization</h3>
+          <p class="text-gray-400 text-sm">Advanced risk assessment tools</p>
         </div>
       </div>
       <div class="flex items-center p-4 bg-gray-900 bg-opacity-50 rounded-lg">
         <div class="feature-icon p-3 rounded-full mr-4">
-          <i class="fas fa-clock text-blue-400 fa-lg"></i>
+          <i class="fas fa-clock text-indigo-400 fa-lg"></i>
         </div>
         <div>
           <h3 class="text-lg font-semibold">24/7 Automated Trading</h3>
+          <p class="text-gray-400 text-sm">Never miss a market opportunity</p>
         </div>
       </div>
     </div>
-
     <!-- Features Section -->
-    <div class="flex flex-col lg:flex-row justify-between mb-16">
-      <div class="lg:w-1/2">
-        <h2 class="text-3xl font-bold mb-8">Features</h2>
+    <div class="flex flex-col lg:flex-row justify-between items-center gap-12 mb-20">
+      <div class="lg:w-1/2 space-y-8">
+        <h2 class="text-4xl font-bold text-white">
+          Powerful Features for
+          <span class="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+            Smart Trading
+          </span>
+        </h2>
+        <p class="text-lg text-gray-300 mb-6">
+          Our trading bots come packed with advanced features to help you
+          achieve your trading goals with ease.
+        </p>
         <div class="space-y-6">
-          <div class="flex">
-            <i class="fas fa-check-circle text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
+          <div class="flex items-start space-x-4">
+            <div class="p-2 bg-blue-500/20 rounded-lg mt-1">
+              <i class="fas fa-check-circle text-blue-400"></i>
+            </div>
             <div>
-              <h3 class="text-lg font-semibold">
-                Advanced Trading Algorithms
-              </h3>
-              <p class="text-gray-400">
-                Supertrend, Fractal Sweep, ATR Based SL, etc.
-              </p>
+              <h3 class="text-xl font-semibold text-white">Advanced Trading Algorithms</h3>
+              <p class="text-gray-400">Supertrend, Fractal Sweep, ATR Based SL, and more sophisticated strategies</p>
             </div>
           </div>
-          <div class="flex">
-            <i class="fas fa-robot text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
+
+          <div class="flex items-start space-x-4">
+            <div class="p-2 bg-blue-500/20 rounded-lg mt-1">
+              <i class="fas fa-robot text-orange-400 "></i>
+            </div>
             <div>
-              <h3 class="text-lg font-semibold">24/7 Automated Trading</h3>
-              <p class="text-gray-400">Never miss a market opportunity.</p>
+              <h3 class="text-xl font-semibold">24/7 Automated Trading</h3>
+              <p class="text-gray-400">Never miss a market opportunity with continuous monitoring</p>
             </div>
           </div>
-          <div class="flex">
-            <i class="fas fa-tachometer-alt text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
+          <div class="flex items-start space-x-4">
+            <div class="p-2 bg-blue-500/20 rounded-lg mt-1 ">
+              <i class="fas fa-tachometer-alt text-indigo-400 "></i>
+            </div>
             <div>
-              <h3 class="text-lg font-semibold">Low Latency Execution</h3>
-              <p class="text-gray-400">Ultra-fast trade placements</p>
+              <h3 class="text-xl font-semibold">Low Latency Execution</h3>
+              <p class="text-gray-400">Ultra-fast trade placements for optimal entry and exit points</p>
             </div>
           </div>
-          <div class="flex">
-            <i class="fas fa-layer-group text-blue-400 mr-3 flex-shrink-0 mt-1"></i>
+          <div class="flex items-start space-x-4">
+            <div class=" p-2 bg-blue-500/20 rounded-lg mt-1">
+              <i class="fas fa-layer-group text-purple-400"></i>
+            </div>
             <div>
-              <h3 class="text-lg font-semibold">Multi-Timeframe Analysis</h3>
-              <p class="text-gray-400">
-                Higher timeframe confirmations for accuracy.
+              <h3 class="text-xl font-semibold text-white">Multi-Timeframe Analysis</h3>
+              <p class="text-gray-400">Higher timeframe confirmations for enhanced accuracy</p>
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div class="lg:w-2/5 mt-10 lg:mt-0 flex items-center justify-center">
-        <img src="https://i.pinimg.com/736x/dd/89/0a/dd890aa8a066f68e85edd454e96fa623.jpg" alt="Trading bot features"
-          class="rounded-lg feature-image" />
+      <div class="lg:w-2/5 mt-10 lg:mt-0 flex justify-center">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-3xl blur-xl"></div>
+          <img src="https://i.pinimg.com/736x/dd/89/0a/dd890aa8a066f68e85edd454e96fa623.jpg" alt="Trading features"
+            class="relative w-full max-w-sm rounded-3xl shadow-2xl" />
+        </div>
       </div>
     </div>
-
     <!-- Products Section -->
-    <h2 id="products" class="text-3xl text-center font-bold mb-8">Our Products</h2>
-    <!-- Toggle for Expert Advisors and Indicators -->
-    <div class="flex justify-center mb-12">
-      <div class="toggle-container rounded-2xl overflow-hidden w-80 p-1">
-        <div class="flex relative">
-          <button id="expertBtn"
-            class="w-1/2 py-3 px-6 text-white font-bold text-sm transition-all duration-500 rounded-xl toggle-active-expert relative overflow-hidden">
-            <i class="fas fa-robot mr-2"></i>
-            <span>Expert Advisors</span>
-            <div class="absolute inset-0 bg-white opacity-0 hover:opacity-10 transition-opacity duration-300"></div>
-          </button>
-          <button id="indicatorBtn"
-            class="w-1/2 py-3 px-6 text-gray-300 font-bold text-sm transition-all duration-500 rounded-xl relative overflow-hidden">
-            <i class="fas fa-chart-line mr-2"></i>
-            <span>Indicators</span>
-            <div class="absolute inset-0 bg-white opacity-0 hover:opacity-5 transition-opacity duration-300"></div>
-          </button>
+    <section id="products">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-white mb-4">Our Products</h2>
+        <p class="text-xl text-gray-400">Choose from our collection of expert advisors and indicators</p>
+      </div>
+      <!-- Toggle for Expert Advisors and Indicators -->
+      <div class="flex justify-center mb-12">
+        <div class="toggle-container rounded-2xl overflow-hidden w-80 p-1">
+          <div class="flex relative">
+            <button id="expertBtn"
+              class="w-1/2 py-3 px-6 text-white font-bold text-sm transition-all duration-500 rounded-xl toggle-active-expert relative overflow-hidden">
+              <i class="fas fa-robot mr-2"></i>
+              <span>Expert Advisors</span>
+              <div class="absolute inset-0 bg-white opacity-0 hover:opacity-10 transition-opacity duration-300"></div>
+            </button>
+            <button id="indicatorBtn"
+              class="w-1/2 py-3 px-6 text-gray-300 font-bold text-sm transition-all duration-500 rounded-xl relative overflow-hidden">
+              <i class="fas fa-chart-line mr-2"></i>
+              <span>Indicators</span>
+              <div class="absolute inset-0 bg-white opacity-0 hover:opacity-5 transition-opacity duration-300"></div>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-
-      <!-- Expert Advisor Products -->
-      <!-- Hyper Band EA -->
-      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
-        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">Hyper Band</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-coins text-yellow-400 mr-3 w-4"></i>XAUUSD (GOLD)</li>
-              <li class="flex items-center"><i class="fas fa-clock text-blue-400 mr-3 w-4"></i>Timeframe: M5</li>
-              <li class="flex items-center"><i class="fas fa-dollar-sign text-green-400 mr-3 w-4"></i>Min deposit: $100
-              </li>
-              <li class="flex items-center"><i class="fas fa-check-circle text-purple-400 mr-3 w-4"></i>Any account type
-              </li>
-            </ul>
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <!-- Expert Advisor Products -->
+        <!-- Hyper Band EA -->
+        <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+          <div class="expert-badge badge text-white text-xs font-bold">EA</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">Hyper Band</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-coins text-yellow-400 mr-3 w-4"></i>XAUUSD (GOLD)</li>
+                <li class="flex items-center"><i class="fas fa-clock text-blue-400 mr-3 w-4"></i>Timeframe: M5</li>
+                <li class="flex items-center"><i class="fas fa-dollar-sign text-green-400 mr-3 w-4"></i>Min deposit:
+                  $100
+                </li>
+                <li class="flex items-center"><i class="fas fa-check-circle text-purple-400 mr-3 w-4"></i>Any account
+                  type
+                </li>
+              </ul>
+            </div>
+            <div class="expert-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-bolt fa-2x text-white pulse-animation"></i>
+            </div>
           </div>
-          <div class="expert-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-bolt fa-2x text-white pulse-animation"></i>
+          <div class="mt-auto">
+            <a href="./Expert Advisor/hyperBand.html"
+              class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
           </div>
         </div>
-        <div class="mt-auto">
-          <a href="./Expert Advisor/hyperBand.html"
-            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
+        <!--  Smart Trend EA -->
+        <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+          <div class="expert-badge badge text-white text-xs font-bold">EA</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">Smart Trend</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-trending-up text-green-400 mr-3 w-4"></i>HTF-Sled</li>
+                <li class="flex items-center"><i class="fas fa-crosshairs text-red-400 mr-3 w-4"></i>M1 Entry</li>
+                <li class="flex items-center"><i class="fas fa-shield-alt text-blue-400 mr-3 w-4"></i>Customizable Risk
+                </li>
+                <li class="flex items-center"><i class="fas fa-cog text-purple-400 mr-3 w-4"></i>MT5 Compatible</li>
+              </ul>
+            </div>
+            <div class="expert-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-search-dollar fa-2x text-white"></i>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <!-- in progress -->
+            <a href="./Expert Advisor/SmartTrendFX_EA.html"
+              class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
+          </div>
+        </div>
+        <!-- BreakOut Buddy EA -->
+        <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+          <div class="expert-badge badge text-white text-xs font-bold">EA</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">BreakOut Buddy</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-tachometer-alt text-red-400 mr-3 w-4"></i>High-Frequency
+                  Trading</li>
+                <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
+                  Strategy</li>
+                <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+                <li class="flex items-center"><i class="fas fa-rocket text-purple-400 mr-3 w-4"></i>Fast Execution</li>
+              </ul>
+            </div>
+            <div class="expert-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-door-open fa-2x text-white"></i>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./Expert Advisor/BreakooutBuddyIndicator.html"
+              class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
+          </div>
+        </div>
+        <!-- Border Breaker EA -->
+        <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+          <div class="expert-badge badge text-white text-xs font-bold">EA</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">Border Breaker</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-tachometer-alt text-red-400 mr-3 w-4"></i>High-Frequency
+                  Trading</li>
+                <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
+                  Strategy</li>
+                <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+                <li class="flex items-center"><i class="fas fa-expand-arrows-alt text-purple-400 mr-3 w-4"></i>Border
+                  Detection</li>
+              </ul>
+            </div>
+            <div class="expert-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-expand-arrows-alt fa-2x text-white"></i>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <!-- in progress -->
+            <a href="./Expert Advisor/BorderBreakerEA.html"
+              class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
+          </div>
+        </div>
+        <!-- Pips Hunter EA -->
+        <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+          <div class="expert-badge badge text-white text-xs font-bold">EA</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">Pips Hunter</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-tachometer-alt text-red-400 mr-3 w-4"></i>High-Frequency
+                  Trading</li>
+                <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
+                  Strategy</li>
+                <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+                <li class="flex items-center"><i class="fas fa-bullseye text-yellow-400 mr-3 w-4"></i>Precision Hunting
+                </li>
+              </ul>
+            </div>
+            <div class="expert-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-crosshairs fa-2x text-white pulse-animation"></i>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./Expert Advisor/PipesHunter.html"
+              class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
+          </div>
+        </div>
+        <!-- Triple Fusion Pro EA -->
+        <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
+          <div class="expert-badge badge text-white text-xs font-bold">EA</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">Triple Fusion Pro</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-layer-group text-orange-400 mr-3 w-4"></i>Triple
+                  Algorithm
+                </li>
+                <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
+                  Strategy</li>
+                <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+                <li class="flex items-center"><i class="fas fa-star text-yellow-400 mr-3 w-4"></i>Professional Grade
+                </li>
+              </ul>
+            </div>
+            <div class="expert-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-cube fa-2x text-white"></i>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./Expert Advisor/TripleFusionProEA.html"
+              class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
+          </div>
+        </div>
+        <!-- Indicator Products section-->
+        <!-- MTF Analyzer Indicator -->
+        <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
+          data-type="indicator">
+          <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">MTF Analyzer</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-layer-group text-cyan-400 mr-3 w-4"></i>Multi-Timeframe
+                </li>
+                <li class="flex items-center"><i class="fas fa-chart-bar text-green-400 mr-3 w-4"></i>Advanced Analytics
+                </li>
+                <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+                <li class="flex items-center"><i class="fas fa-eye text-purple-400 mr-3 w-4"></i>Visual Signals</li>
+              </ul>
+            </div>
+            <div class="indicator-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-chart-line fa-2x text-white"></i>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <!-- In progress -->
+            <a href="./Indicator/MTFAnalyzer.html"
+              class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
+          </div>
+        </div>
+        <!-- Breakout Buddy Indicator -->
+        <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
+          data-type="indicator">
+          <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">Breakout Buddy</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-door-open text-orange-400 mr-3 w-4"></i>Breakout
+                  Detection
+                </li>
+                <li class="flex items-center"><i class="fas fa-bell text-yellow-400 mr-3 w-4"></i>Smart Alerts</li>
+                <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+                <li class="flex items-center"><i class="fas fa-bullseye text-red-400 mr-3 w-4"></i>High Accuracy</li>
+              </ul>
+            </div>
+            <div class="indicator-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-door-open fa-2x text-white"></i>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./Indicator/BreakoutBuddyIndicator.html"
+              class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
+          </div>
+        </div>
+        <!-- Border Breaker Indicator -->
+        <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
+          data-type="indicator">
+          <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">Border Breaker</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-expand-arrows-alt text-purple-400 mr-3 w-4"></i>Border
+                  Analysis</li>
+                <li class="flex items-center"><i class="fas fa-crosshairs text-red-400 mr-3 w-4"></i>Precision Entry
+                </li>
+                <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+                <li class="flex items-center"><i class="fas fa-chart-area text-green-400 mr-3 w-4"></i>Zone Detection
+                </li>
+              </ul>
+            </div>
+            <div class="indicator-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-expand-arrows-alt fa-2x text-white pulse-animation"></i>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./Indicator/BorderBreaker Indicator.html"
+              class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Gold Pulse Scanner Indicator -->
+        <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
+          data-type="indicator">
+          <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">Gold Pulse Scanner</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-coins text-yellow-400 mr-3 w-4"></i>Gold Specialist</li>
+                <li class="flex items-center"><i class="fas fa-heartbeat text-red-400 mr-3 w-4"></i>Pulse Detection</li>
+                <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
+                <li class="flex items-center"><i class="fas fa-search text-cyan-400 mr-3 w-4"></i>Market Scanner</li>
+              </ul>
+            </div>
+            <div class="indicator-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-heartbeat fa-2x text-white"></i>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./Indicator/GoldPulseScnner.html"
+              class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
+          </div>
+        </div>
+        <!-- Trend Scanner Indicator -->
+        <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
+          data-type="indicator">
+          <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-3 text-white">Trend Scanner</h3>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center"><i class="fas fa-trending-up text-green-400 mr-3 w-4"></i>HTF-Sled</li>
+                <li class="flex items-center"><i class="fas fa-crosshairs text-red-400 mr-3 w-4"></i>M1 Entry</li>
+                <li class="flex items-center"><i class="fas fa-shield-alt text-blue-400 mr-3 w-4"></i>Customizable Risk
+                </li>
+                <li class="flex items-center"><i class="fas fa-cog text-purple-400 mr-3 w-4"></i>MT5 Compatible</li>
+              </ul>
+            </div>
+            <div class="indicator-icon p-4 rounded-2xl ml-4">
+              <i class="fas fa-search-dollar fa-2x text-white"></i>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <a href="./Indicator/Trend.html"
+              class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
+              <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+              Learn More
+            </a>
+          </div>
         </div>
       </div>
-
-      <!--  Smart Trend EA -->
-      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
-        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">Smart Trend</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-trending-up text-green-400 mr-3 w-4"></i>HTF-Sled</li>
-              <li class="flex items-center"><i class="fas fa-crosshairs text-red-400 mr-3 w-4"></i>M1 Entry</li>
-              <li class="flex items-center"><i class="fas fa-shield-alt text-blue-400 mr-3 w-4"></i>Customizable Risk
-              </li>
-              <li class="flex items-center"><i class="fas fa-cog text-purple-400 mr-3 w-4"></i>MT5 Compatible</li>
-            </ul>
-          </div>
-          <div class="expert-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-search-dollar fa-2x text-white"></i>
-          </div>
-        </div>
-        <div class="mt-auto">
-          <!-- in progress -->
-          <a href="./Expert Advisor/SmartTrendFX_EA.html"
-            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
-        </div>
-      </div>
-
-      <!-- BreakOut Buddy EA -->
-      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
-        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">BreakOut Buddy</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-tachometer-alt text-red-400 mr-3 w-4"></i>High-Frequency
-                Trading</li>
-              <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
-                Strategy</li>
-              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
-              <li class="flex items-center"><i class="fas fa-rocket text-purple-400 mr-3 w-4"></i>Fast Execution</li>
-            </ul>
-          </div>
-          <div class="expert-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-door-open fa-2x text-white"></i>
-          </div>
-        </div>
-        <div class="mt-auto">
-          <a href="./Expert Advisor/BreakooutBuddyIndicator.html"
-            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
-        </div>
-      </div>
-
-      <!-- Border Breaker EA -->
-      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
-        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">Border Breaker</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-tachometer-alt text-red-400 mr-3 w-4"></i>High-Frequency
-                Trading</li>
-              <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
-                Strategy</li>
-              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
-              <li class="flex items-center"><i class="fas fa-expand-arrows-alt text-purple-400 mr-3 w-4"></i>Border
-                Detection</li>
-            </ul>
-          </div>
-          <div class="expert-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-expand-arrows-alt fa-2x text-white"></i>
-          </div>
-        </div>
-        <div class="mt-auto">
-          <!-- in progress -->
-          <a href="./Expert Advisor/BorderBreakerEA.html"
-            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
-        </div>
-      </div>
-
-      <!-- Pips Hunter EA -->
-      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
-        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">Pips Hunter</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-tachometer-alt text-red-400 mr-3 w-4"></i>High-Frequency
-                Trading</li>
-              <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
-                Strategy</li>
-              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
-              <li class="flex items-center"><i class="fas fa-bullseye text-yellow-400 mr-3 w-4"></i>Precision Hunting
-              </li>
-            </ul>
-          </div>
-          <div class="expert-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-crosshairs fa-2x text-white pulse-animation"></i>
-          </div>
-        </div>
-        <div class="mt-auto">
-          <a href="./Expert Advisor/PipesHunter.html"
-            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
-        </div>
-      </div>
-
-      <!-- Triple Fusion Pro EA -->
-      <div class="expert-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden" data-type="expert">
-        <div class="expert-badge badge text-white text-xs font-bold">EA</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">Triple Fusion Pro</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-layer-group text-orange-400 mr-3 w-4"></i>Triple Algorithm
-              </li>
-              <li class="flex items-center"><i class="fas fa-compress-alt text-green-400 mr-3 w-4"></i>Low Spread
-                Strategy</li>
-              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
-              <li class="flex items-center"><i class="fas fa-star text-yellow-400 mr-3 w-4"></i>Professional Grade</li>
-            </ul>
-          </div>
-          <div class="expert-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-cube fa-2x text-white"></i>
-          </div>
-        </div>
-        <div class="mt-auto">
-          <a href="./Expert Advisor/TripleFusionProEA.html"
-            class="gradient-btn w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
-        </div>
-      </div>
-
-      <!-- Indicator Products section-->
-      <!-- MTF Analyzer Indicator -->
-      <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
-        data-type="indicator">
-        <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">MTF Analyzer</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-layer-group text-cyan-400 mr-3 w-4"></i>Multi-Timeframe
-              </li>
-              <li class="flex items-center"><i class="fas fa-chart-bar text-green-400 mr-3 w-4"></i>Advanced Analytics
-              </li>
-              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
-              <li class="flex items-center"><i class="fas fa-eye text-purple-400 mr-3 w-4"></i>Visual Signals</li>
-            </ul>
-          </div>
-          <div class="indicator-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-chart-line fa-2x text-white"></i>
-          </div>
-        </div>
-        <div class="mt-auto">
-          <!-- In progress -->
-          <a href="./Indicator/MTFAnalyzer.html"
-            class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
-        </div>
-      </div>
-
-      <!-- Breakout Buddy Indicator -->
-      <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
-        data-type="indicator">
-        <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">Breakout Buddy</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-door-open text-orange-400 mr-3 w-4"></i>Breakout Detection
-              </li>
-              <li class="flex items-center"><i class="fas fa-bell text-yellow-400 mr-3 w-4"></i>Smart Alerts</li>
-              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
-              <li class="flex items-center"><i class="fas fa-bullseye text-red-400 mr-3 w-4"></i>High Accuracy</li>
-            </ul>
-          </div>
-          <div class="indicator-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-door-open fa-2x text-white"></i>
-          </div>
-        </div>
-        <div class="mt-auto">
-          <a href="./Indicator/BreakoutBuddyIndicator.html"
-            class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
-        </div>
-      </div>
-
-      <!-- Border Breaker Indicator -->
-      <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
-        data-type="indicator">
-        <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">Border Breaker</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-expand-arrows-alt text-purple-400 mr-3 w-4"></i>Border
-                Analysis</li>
-              <li class="flex items-center"><i class="fas fa-crosshairs text-red-400 mr-3 w-4"></i>Precision Entry</li>
-              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
-              <li class="flex items-center"><i class="fas fa-chart-area text-green-400 mr-3 w-4"></i>Zone Detection</li>
-            </ul>
-          </div>
-          <div class="indicator-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-expand-arrows-alt fa-2x text-white pulse-animation"></i>
-          </div>
-        </div>
-        <div class="mt-auto">
-          <a href="./Indicator/BorderBreaker Indicator.html"
-            class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
-        </div>
-      </div>
-
-      <!-- Gold Pulse Scanner Indicator -->
-      <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
-        data-type="indicator">
-        <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">Gold Pulse Scanner</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-coins text-yellow-400 mr-3 w-4"></i>Gold Specialist</li>
-              <li class="flex items-center"><i class="fas fa-heartbeat text-red-400 mr-3 w-4"></i>Pulse Detection</li>
-              <li class="flex items-center"><i class="fas fa-code-branch text-blue-400 mr-3 w-4"></i>MT4/MT5</li>
-              <li class="flex items-center"><i class="fas fa-search text-cyan-400 mr-3 w-4"></i>Market Scanner</li>
-            </ul>
-          </div>
-          <div class="indicator-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-heartbeat fa-2x text-white"></i>
-          </div>
-        </div>
-        <div class="mt-auto">
-          <a href="./Indicator/GoldPulseScnner.html"
-            class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
-        </div>
-      </div>
-
-      <!-- Trend Scanner Indicator -->
-      <div class="indicator-card rounded-2xl p-6 flex flex-col product-card relative overflow-hidden"
-        data-type="indicator">
-        <div class="indicator-badge badge text-white text-xs font-bold">IND</div>
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-3 text-white">Trend Scanner</h3>
-            <ul class="text-sm text-gray-300 space-y-2">
-              <li class="flex items-center"><i class="fas fa-trending-up text-green-400 mr-3 w-4"></i>HTF-Sled</li>
-              <li class="flex items-center"><i class="fas fa-crosshairs text-red-400 mr-3 w-4"></i>M1 Entry</li>
-              <li class="flex items-center"><i class="fas fa-shield-alt text-blue-400 mr-3 w-4"></i>Customizable Risk
-              </li>
-              <li class="flex items-center"><i class="fas fa-cog text-purple-400 mr-3 w-4"></i>MT5 Compatible</li>
-            </ul>
-          </div>
-          <div class="indicator-icon p-4 rounded-2xl ml-4">
-            <i class="fas fa-search-dollar fa-2x text-white"></i>
-          </div>
-        </div>
-        <div class="mt-auto">
-          <a href="./Indicator/Trend.html"
-            class="bg-gradient-to-r from-green-500 to-emerald-600 w-full text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:from-green-400 hover:to-emerald-500">
-            <i class="fas fa-info-circle mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
-            Learn More
-          </a>
-        </div>
-      </div>
-
-    </div>
+    </section>
 
 
     <!-- service Section -->
@@ -716,9 +804,7 @@
     <p class="text-gray-300 mt-6 text-lg max-w-2xl mx-auto">
       Professional trading platform development services with cutting-edge technology
     </p>
-
     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-
       <!-- MQL4/MT4 Service -->
       <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
         <div class="flex justify-between items-start mb-6">
@@ -755,7 +841,6 @@
           </button>
         </div>
       </div>
-
       <!-- MQL5/MT5 Service -->
       <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
         <div class="flex justify-between items-start mb-6">
@@ -792,7 +877,6 @@
           </button>
         </div>
       </div>
-
       <!-- cTrader Service -->
       <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
         <div class="flex justify-between items-start mb-6">
@@ -829,7 +913,6 @@
           </button>
         </div>
       </div>
-
       <!-- TradingView Service -->
       <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
         <div class="flex justify-between items-start mb-6">
@@ -866,8 +949,6 @@
           </button>
         </div>
       </div>
-
-
       <!-- NinjaTrader Service -->
       <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
         <div class="flex justify-between items-start mb-6">
@@ -904,7 +985,6 @@
           </button>
         </div>
       </div>
-
       <!-- AmiBroker Service -->
       <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
         <div class="flex justify-between items-start mb-6">
@@ -942,210 +1022,193 @@
         </div>
       </div>
     </div>
-    <!-- Call to Action -->
-    <div class="text-center mt-16">
-      <div
-        class="inline-flex items-center justify-center p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl pulse-glow">
-        <div class="text-center">
-          <h3 class="text-2xl font-bold text-white mb-2">Ready to Get Started?</h3>
-          <p class="text-blue-100 mb-4">Let's build your next trading solution together</p>
-          <button
-            class="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
-            <i class="fas fa-comments mr-2"></i>
-            Contact Us Today
+    <!-- How It Works Section -->
+    <div
+      class="bg-gradient-to-br from-gray-900 to-gray-800 py-20 px-4 sm:px-6 rounded-3xl shadow-xl mb-16 animate-slide-up">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-center text-white mb-16 tracking-wide">
+          How It Works
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
+          <!-- Step 1 -->
+          <div
+            class="bg-gray-900 text-white rounded-3xl p-6 text-center shadow-lg border border-gray-800 hover:shadow-2xl transition-shadow duration-300 group">
+            <div
+              class="mx-auto mb-6 w-20 h-20 bg-blue-400 rounded-full flex items-center justify-center shadow-md  group-hover:scale-110 transform transition-transform duration-300">
+              <img
+                src="https://png.pngtree.com/png-clipart/20250207/original/pngtree-a-3d-cartoon-robot-face-with-cute-rounded-bot-icon-png-image_20380048.png"
+                alt="Choose Bot" class="w-25 h-20 rounded-full" />
+            </div>
+            <h3 class="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors">Choose Your Bot</h3>
+            <p class="text-gray-300 text-sm group-hover:text-gray-100 transition">Pick a strategy that fits your trading
+              style.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div
+            class="bg-gray-900 text-white rounded-2xl p-6 text-center shadow-lg border border-gray-800 hover:shadow-2xl transition-shadow duration-300 group">
+            <div
+              class="mx-auto mb-6 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md  group-hover:scale-110 transform transition-transform duration-300">
+              <img src="https://cdn-icons-png.freepik.com/256/8919/8919443.png?semt=ais_hybrid" alt="Install"
+                class="w-25 h-20 rounded-full" />
+            </div>
+            <h3 class="text-xl font-semibold mb-2 group-hover:text-green-400 transition-colors">Install on MT4/MT5</h3>
+            <p class="text-gray-300 text-sm group-hover:text-gray-100 transition">Quick plug & play setup for any
+              platform.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div
+            class="bg-gray-900 text-white rounded-2xl p-6 text-center shadow-lg border border-gray-800 hover:shadow-2xl transition-shadow duration-300 group">
+            <div
+              class="mx-auto mb-6 w-20 h-20 bg-teal-600/20 rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transform transition-transform duration-300">
+              <img src="https://cdn-icons-png.flaticon.com/512/1643/1643253.png" alt="Customize"
+                class="w-25 h-20 rounded-full" />
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Customize
+              Settings</h3>
+            <p class="text-gray-300 text-sm group-hover:text-gray-100 transition">Adjust SL, TP, risk level, and
+              timeframes.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div
+            class="bg-gray-900 text-white rounded-3xl p-6 text-center shadow-lg border border-gray-800 hover:shadow-2xl transition-shadow duration-300 group">
+            <div
+              class="mx-auto mb-6 w-20 h-20 bg-green-600/20 rounded-full flex items-center justify-center shadow-md text-4xl mb-4 text-pink-400 group-hover:scale-110 transform transition-transform duration-300">
+              <img src="https://cdn-icons-png.flaticon.com/512/3904/3904303.png" alt="Start Trading"
+                class="w-25 h-20 rounded-full" />
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-pink-400 transition-colors">Start Trading
+            </h3>
+            <p class="text-gray-300 text-sm group-hover:text-gray-100 transition">Let the bot handle trades 24/7
+              automatically.
+            </p>
+          </div>
+        </div>
+        <!-- button -->
+        <div class="text-center mt-16">
+          <a href="#"
+            class="inline-flex items-center gap-3 bg-gradient-to-r from-[#5A63AB] to-[#12A1CA] text-white text-lg font-semibold py-4 px-10 rounded-full shadow-lg hover:from-[#4e58a4] hover:to-[#0e90b4] hover:scale-105 transition-transform duration-300">
+            🚀 Start Trading Now
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- memberships plan -->
+    <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-3xl shadow-xl mb-16 animate-slide-up">
+      <div class="text-center my-11">
+        <h1 class="text-4xl font-bold text-white">Automate Your Trading with <span
+            class="text-blue-400">Precision</span>
+        </h1>
+        <p class="mt-4 text-gray-300">AI-powered automation for maximum profits & minimal risks</p>
+
+        <!-- Toggle Buttons -->
+        <div class="flex justify-center items-center space-x-4 my-8">
+          <button id="monthlyBtn"
+            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
+            Monthly Billing
+          </button>
+          <button id="yearlyBtn"
+            class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
+            Yearly Billing (Save 0%)
           </button>
         </div>
       </div>
+
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+        <!-- Basic Bot -->
+        <div
+          class="p-8 bg-gray-800 rounded-xl text-center shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-blue-500">
+          <h2 class="text-2xl font-bold text-white mb-4">Basic Bot</h2>
+          <p class="text-4xl font-bold text-blue-400 mb-6 price" data-monthly="199" data-yearly="1199">$199<span
+              class="text-lg text-gray-400">/month</span></p>
+          <ul class="text-left space-y-3 text-gray-300 mb-8">
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Lightning-fast Execution
+            </li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> AI-Powered Trading</li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 1 Powerful Strategy</li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Risk Management Tools
+            </li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> WhatsApp Support</li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> $50 Monthly Maintenance
+            </li>
+          </ul>
+          <button
+            class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
+            Get Started
+          </button>
+        </div>
+
+        <!-- Advanced Bot (Featured) -->
+        <div
+          class="p-8 bg-gray-800 rounded-xl text-center shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-500 relative">
+          <div
+            class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full">
+            MOST POPULAR
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-4">Advanced Bot</h2>
+          <p class="text-4xl font-bold text-blue-400 mb-6 price" data-monthly="499" data-yearly="2499">$499<span
+              class="text-lg text-gray-400">/month</span></p>
+          <ul class="text-left space-y-3 text-gray-300 mb-8">
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> All Basic Features +</li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 3-4 Powerful Strategies
+            </li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Multi-Timeframe Analysis
+            </li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Advanced Trading
+              Algorithms
+            </li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Priority Support</li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> $50 Monthly Maintenance
+            </li>
+          </ul>
+          <button
+            class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-bold rounded-lg transition-all duration-300 shadow-lg">
+            Get Advanced Bot
+          </button>
+        </div>
+
+        <!-- Pro Bot -->
+        <div
+          class="p-8 bg-gray-800 rounded-xl text-center shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-blue-500">
+          <h2 class="text-2xl font-bold text-white mb-4">Pro Bot</h2>
+          <p class="text-4xl font-bold text-blue-400 mb-6 price" data-monthly="999" data-yearly="5999">$999<span
+              class="text-lg text-gray-400">/month</span></p>
+          <ul class="text-left space-y-3 text-gray-300 mb-8">
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> All Advanced Features +
+            </li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 5-6 Premium Strategies
+            </li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 24/7 Automated Trading
+            </li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Customizable Settings
+            </li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> VIP 24/7 Support</li>
+            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> $50 Monthly Maintenance
+            </li>
+          </ul>
+          <button
+            class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
+            Go Pro
+          </button>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-gray-400 text-sm">All plans include our 30-day money-back guarantee</p>
+      </div>
     </div>
+    <!-- About Section -->
+
   </div>
 
 
 
-
-  <!-- How It Works Section -->
-  <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-10 rounded-2xl shadow-xl mb-16 animate-slide-up">
-    <h2 class="text-3xl font-bold text-center text-white mb-10 tracking-wide">How It Works</h2>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <!-- Step Cards -->
-      <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
-        <div
-          class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
-          <span class="text-2xl font-bold text-blue-400">1</span>
-        </div>
-        <h3 class="text-lg font-semibold mb-2 text-white">Choose Your Bot</h3>
-        <p class="text-gray-400 group-hover:text-gray-200 transition">Pick a strategy that fits your trading style.</p>
-      </div>
-
-      <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
-        <div
-          class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
-          <span class="text-2xl font-bold text-blue-400">2</span>
-        </div>
-        <h3 class="text-lg font-semibold mb-2 text-white">Install on MT4/MT5</h3>
-        <p class="text-gray-400 group-hover:text-gray-200 transition">Easy plug & play setup.</p>
-      </div>
-
-      <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
-        <div
-          class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
-          <span class="text-2xl font-bold text-blue-400">3</span>
-        </div>
-        <h3 class="text-lg font-semibold mb-2 text-white">Customize Settings</h3>
-        <p class="text-gray-400 group-hover:text-gray-200 transition">Adjust SL, TP, risk, and timeframes.</p>
-      </div>
-
-      <div class="text-center group transition-transform duration-300 hover:-translate-y-2">
-        <div
-          class="mx-auto mb-4 w-16 h-16 bg-blue-800 bg-opacity-40 rounded-full flex items-center justify-center shadow-inner">
-          <span class="text-2xl font-bold text-blue-400">4</span>
-        </div>
-        <h3 class="text-lg font-semibold mb-2 text-white">Start Trading</h3>
-        <p class="text-gray-400 group-hover:text-gray-200 transition">Let the bot execute trades automatically.</p>
-      </div>
-    </div>
-
-    <div class="text-center mt-10">
-      <a href="#"
-        class="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2">
-        <i class="fas fa-rocket"></i> Start Trading Now
-      </a>
-    </div>
-  </div>
-
-
-
-  <!-- Testimonials Section -->
-  <section class="mb-16">
-    <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-10 rounded-2xl shadow-xl mb-16 animate-slide-up">
-      <h1 class="text-3xl font-bold text-center text-white mb-10 tracking-wide">Testimonials</h1>
-      <h2 class="text-3xl text-center font-bold mb-8">What Our Users Say</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Testimonial 1 -->
-        <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-md">
-          <p class="text-gray-300 mb-4">"TrendScanner has revolutionized my trading. The bots are accurate, fast, and
-            have made me consistent profits!"</p>
-          <div class="flex items-center">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 1" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="text-white font-semibold">Arjun Patel</h4>
-              <p class="text-gray-400 text-sm">Full-time Trader</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-md">
-          <p class="text-gray-300 mb-4">"I used to struggle with entries and exits, but now with AI-powered bots, it's
-            stress-free trading."</p>
-          <div class="flex items-center">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 2"
-              class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="text-white font-semibold">Meera Jain</h4>
-              <p class="text-gray-400 text-sm">Forex Enthusiast</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-md">
-          <p class="text-gray-300 mb-4">"The customization options are top-notch. I can fine-tune every bot according to
-            my strategy."</p>
-          <div class="flex items-center">
-            <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="User 3" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="text-white font-semibold">Rahul Verma</h4>
-              <p class="text-gray-400 text-sm">Algorithmic Trader</p>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
-
-
-  <!-- memberships plan -->
-<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-2xl shadow-xl mb-16 animate-slide-up">
-    <div class="text-center my-11">
-      <h1 class="text-4xl font-bold text-white">Automate Your Trading with <span class="text-blue-400">Precision</span></h1>
-      <p class="mt-4 text-gray-300">AI-powered automation for maximum profits & minimal risks</p>
-
-      <!-- Toggle Buttons -->
-      <div class="flex justify-center items-center space-x-4 my-8">
-        <button id="monthlyBtn" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
-          Monthly Billing
-        </button>
-        <button id="yearlyBtn" class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
-          Yearly Billing (Save 50%)
-        </button>
-      </div>
-    </div>
-
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-      <!-- Basic Bot -->
-      <div class="p-8 bg-gray-800 rounded-xl text-center shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-blue-500">
-        <h2 class="text-2xl font-bold text-white mb-4">Basic Bot</h2>
-        <p class="text-4xl font-bold text-blue-400 mb-6 price" data-monthly="199" data-yearly="1199">$199<span class="text-lg text-gray-400">/month</span></p>
-        <ul class="text-left space-y-3 text-gray-300 mb-8">
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Lightning-fast Execution</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> AI-Powered Trading</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 1 Powerful Strategy</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Risk Management Tools</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> WhatsApp Support</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> $50 Monthly Maintenance</li>
-        </ul>
-        <button class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
-          Get Started
-        </button>
-      </div>
-
-      <!-- Advanced Bot (Featured) -->
-      <div class="p-8 bg-gray-800 rounded-xl text-center shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-500 relative">
-        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full">
-          MOST POPULAR
-        </div>
-        <h2 class="text-2xl font-bold text-white mb-4">Advanced Bot</h2>
-        <p class="text-4xl font-bold text-blue-400 mb-6 price" data-monthly="499" data-yearly="2499">$499<span class="text-lg text-gray-400">/month</span></p>
-        <ul class="text-left space-y-3 text-gray-300 mb-8">
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> All Basic Features +</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 3-4 Powerful Strategies</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Multi-Timeframe Analysis</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Advanced Trading Algorithms</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Priority Support</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> $50 Monthly Maintenance</li>
-        </ul>
-        <button class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-bold rounded-lg transition-all duration-300 shadow-lg">
-          Get Advanced Bot
-        </button>
-      </div>
-
-      <!-- Pro Bot -->
-      <div class="p-8 bg-gray-800 rounded-xl text-center shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-blue-500">
-        <h2 class="text-2xl font-bold text-white mb-4">Pro Bot</h2>
-        <p class="text-4xl font-bold text-blue-400 mb-6 price" data-monthly="999" data-yearly="5999">$999<span class="text-lg text-gray-400">/month</span></p>
-        <ul class="text-left space-y-3 text-gray-300 mb-8">
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> All Advanced Features +</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 5-6 Premium Strategies</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> 24/7 Automated Trading</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> Customizable Settings</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> VIP 24/7 Support</li>
-          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> $50 Monthly Maintenance</li>
-        </ul>
-        <button class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg">
-          Go Pro
-        </button>
-      </div>
-    </div>
-    
-    <div class="text-center mt-12">
-      <p class="text-gray-400 text-sm">All plans include our 30-day money-back guarantee</p>
-    </div>
-  </div>
-  <!-- Footer -->
-  <footer class="bg-[#0f0f0f] text-gray-400 text-center py-6 mt-16">
-    <div class="text-sm">© 2025 HyperBand. All rights reserved.</div>
-  </footer>
 </body>
-
 <!-- toggle js code -->
 <script>
   const expertBtn = document.getElementById("expertBtn");
@@ -1210,7 +1273,6 @@
     });
   });
 </script>
-
 <script>
   const prices = document.querySelectorAll('.price');
   const monthlyBtn = document.getElementById('monthlyBtn');
@@ -1238,23 +1300,21 @@
     html.classList.toggle('dark');
   });
 </script>
-
- <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#0f172a',
-            secondary: '#1e293b',
-            accent: '#38bdf8',
-          }
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          primary: '#0f172a',
+          secondary: '#1e293b',
+          accent: '#38bdf8',
         }
       }
     }
-  </script>
-  
+  }
+</script>
 
 </html>
